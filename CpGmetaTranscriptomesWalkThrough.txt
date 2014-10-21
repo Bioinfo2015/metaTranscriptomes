@@ -1,0 +1,232 @@
+##comparing CpG across transcriptomes
+
+#download nucleotide sequences from variatious sources. See transcriptomeSpreadsheet.xlsx
+
+#First get the joined protein databases for N.vectensis and A.digitifera
+cat /work/02260/grovesd/digitifera/proteome/Acropora_digitifera_peptides_100.final.clstr.faa /work/02260/grovesd/Nvectensis_references/Nvectensis_protSeqs.fasta > cnidarianProteinDB.fasta
+
+#assemble transcriptomes (see spreadsheet in project directory)
+
+# getting uniprot database
+echo "wget ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref50/uniref50.fasta.gz" >getuni 
+GDlauncher_creator.py -j getuni -n unipr -l uu -q normal -t 4:00:00 -a tagmap
+qsub uu
+
+# getting GO annotations
+echo "wget ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/idmapping_selected.tab.gz" >getgo
+GDlauncher_creator.py -j getgo -n getgo -l gg -q normal -t 4:00:00 -a tagmap
+qsub gg
+
+# unzipping
+gunzip uniref50.fasta.gz &
+gunzip idmapping_selected.tab.gz &
+
+# indexing the fasta database
+module load blast
+echo "makeblastdb -in cnidarianProteinDB.fasta -dbtype prot" >mdb
+GDlauncher_creator.py -j mdb -n mdb -l mmm -a tagmap
+qsub mmm
+
+#set up a variable for the pathway to the uniprot files
+UNIPROT="/work/02260/grovesd/uniprot_files/mishaAnnotations/uniref50.fasta"
+CIDARIANDB="/work/02260/grovesd/Nvectensis_references/cnidarianProteinDB.fasta"
+
+# splitting the transcriptome into 3 chunks, putting them into sub-dirs this is so the blastx can run fast enough
+#set up the commands for each fasta file:
+
+for file in $(ls *.fasta)
+do
+echo splitFasta.pl $file 3
+done
+
+#sort the resulting subsetted files
+mkdir sub1
+mv subset1* sub1
+mkdir sid_sub2
+mv subset2* sub2
+mkdir sid_sub3
+mv subset3* sub3
+
+
+cd sub1
+#blast against the Cnidarian (dig + Nemato) database--since this is a small db you can just run them all at once
+>doblast 
+for file in $(ls *.fasta)
+do
+echo blastx -query $file -db $CIDARIANDB -evalue 1e-5 -num_threads 12 -num_descriptions 5 -num_alignments 5 -out $file.br >> doblast3
+done
+
+GDlauncher_creator.py -j doblast3 -n doblast3 -l doblast.job -a tagmap -q normal -t 12:00:00 
+cat doblast.job | perl -pe 's/12way .+$/12way 168/' > doblast3.job ##this is for using 14 nodes
+qsub doblast3.job
+
+##repeat for the other subsets
+
+#now cat together all the blast results for each transcriptome
+#make a directory called all_blast_results
+#copy the blast results (sub1-sub3) into the directory
+ll *.br | wc -l
+#the total should be 3 * your number of transcriptomes
+##(you could also do these blasts against swissprot, see Appendix 1 on how to do that)
+
+#build a list of your file name identifiers (everything before .fasta)
+> speciesList.txt
+for file in $(ls *.fasta)
+do
+echo ${file/.fasta/} >> speciesList.txt
+done
+
+#concatenate all the blast results together
+for s in `cat speciesList.txt`; do cat *$s* > $s.br; done
+
+#run CDS extractor for each transcriptome
+>extract; for s in `cat speciesList.txt`; do echo "CDS_extractor_v2.pl $s.fasta $s.br" >> extract ; done
+GDlauncher_creator.py -j extract -n extract -l extract0.job -a tagmap
+cat extract0.job | perl -pe 's/12way .+$/12way 24/' > extract.job ; rm extract0.job
+qsub extract.job
+
+##see if you got back sequences for all of them
+ll *CDS.fas | wc -l
+
+
+##extract CpG data from a subset of the coding regions
+> getcpg; for s in `cat speciesList.txt`; do echo newGetCpGoe.py -i $s\_CDS.fas -sub 1000 -o $s\CpG.txt >> getcpg; done
+GDlauncher_creator.py -j getcpg -n getcpg -l getcpg.job -a tagmap
+qsub getcpg.job
+
+##scp them to Mac for R work
+##build a new species list in case some have dropped
+>speciesList.txt; for file in $(ls *CpG.txt); do echo ${file/CpG.txt/} >> speciesList.txt; done
+
+##============== GETTING RECIPROCAL ORTHOLOGS ========================================
+#make blast databases from each _CDS.fas file
+module load blast
+> makeDBs; for file in $(ls *PRO.fas); do  echo makeblastdb -in $file -dbtype prot >> makeDBs; done
+launcher_creator.py -j makeDBs -n makeDBs -l makeDBs.job -e grovesdixon@gmail.com -a tagmap
+qsub makeDBs.job
+
+#blast each set of extracted protein sequence to the CNIDARIAN database and do the reciprocal blast
+#set up the command file
+
+>blastps
+for file in $(ls *.fas); do echo blastp -query $file -db $CIDARIANDB -evalue 1e-5 -num_threads 12 -num_alignments 1 -outfmt 5 -out ${file/_PRO.fas/_2_CNIDB.br} >> blastps
+echo blastp -query $CIDARIANDB -db $file -evalue 1e-5 -num_threads 12 -num_alignments 1 -outfmt 5 -out CNIDB_2_${file/_PRO.fas/.br} >> blastps
+done
+
+GDlauncher_creator.py -n blastps -j blastps -l blastps0.job -q normal -a tagmap -t 10:00:00
+cat blastps0.job | perl -pe 's/12way .+$/12way 24/' > blastps.job ; rm blastps0.job
+qsub blastps.job
+
+##pull the reciprocal orthologs and output based on the transcriptome sequence names using get_reciprocal_orthos.py
+>getOrthos; for file in $(ls *PRO.fas); do echo get_reciprocal_orthos.py -br1 ${file/_PRO.fas/}_2_CNIDB.br -br2 CNIDB_2_${file/_PRO.fas}.br -fa1 $file -fa2 $CIDARIANDB -o ${file/_PRO.fas/}_orthos.txt -e 1e-20 >> getOrthos; done
+GDlauncher_creator.py -n getOrthos -j getOrthos -l getOrthos.job
+
+##pull the reciprocal orthologs using the CNIDB seq names to output (simply swap out which is fa1 and br1
+>getOrthos2; for file in $(ls *PRO.fas); do echo get_reciprocal_orthos.py -br2 ${file/_PRO.fas/}_2_CNIDB.br -br1 CNIDB_2_${file/_PRO.fas}.br -fa2 $file -fa1 $CIDARIANDB -o CNID_${file/_PRO.fas/}_orthos.txt -e 1e-20 >> getOrthos2; done
+GDlauncher_creator.py -n getOrthos2 -j getOrthos2 -l getOrthos2_.job
+cat getOrthos2_.job | perl -pe 's/12way .+$/12way 12/' > getOrthos2.job ; rm getOrthos2_.job
+qsub getOrthos2.job
+
+##Assemble the full table of ortholog pairs
+orthoMerger.py CNID*orthos.txt
+
+##========== MAKE ALIGNMENTS OF THE ORTHOLOGS ============================
+
+
+
+##now assemble the protein and nucleotide fastas for each species that you want to use into a directory
+##once you've chosen your species to use, build a fasta file for each gene using ortholog_outputter.py. This takes a while because you have to iterate through the fasta files each time
+echo output_ortholog_seqs.py -orthos ortho50.txt -prot *PRO.fas -nucl *CDS.fas > orthoOuter
+GDlauncher_creator.py -j orthoOuter -n orthoOuter -l orthoOuter.job -q development
+qsub orthoOuter.job
+
+
+#now move all the prot.fas and nuc.fas files to hardrive, because mafft doesn't work well on lonestar
+
+#now run the alignments
+for fa in $(ls *prot.fasta); do mafft --auto --maxiterate 1000 $fa > ${fa/.fasta/}.aln; done
+
+##alignment files that were made from fasta files with zero or 1 protein sequences will be empty, so remove empty files from the directory
+for file in *; do file_size=$(du $file | awk '{print $1}'); if [ $file_size == 0 ]; then rm -f $file; fi; done
+
+##now get codon seqs for each alignment using pal2nal.pl
+for aln in $(ls *.aln); do pal2nal.pl $aln ${aln/prot.aln/}nuc.fas -output paml -nogap > ${aln/_prot.aln/}.codon; done
+
+##now run paml for each file
+for file in $(ls *.codon); do control_builder.py $file > ${file/.codon/}.cnt; codeml ${file/.codon/}.cnt; done
+
+##now assemble the results
+>orthos.txt; >results.txt; for file in $(ls *.codml); do grep dN\/dS= $file >> results.txt; echo ${file/.codml/} >> orthos.txt; done
+
+##now reformat the results for input into R
+reformat_dNdS.py orthos.txt results.txt results_R.txt
+
+
+
+
+
+
+##============== RUNNING Alignments and PAML individually ========================================   560
+#first align the protein sequences
+mafft --auto --maxiterate 1000 Acropora_digitifera_4_prot.fasta > Acropora_digitifera_4_prot.aln
+#then extract the codons
+pal2nal.pl Acropora_digitifera_4_prot.aln Acropora_digitifera_4.nuc -output paml  -nogap  > Acropora_digitifera_4.codon
+codeml Acropora_digitifera_4.cnt
+done
+
+##============== RUNNING pal2nal ========================================
+pal2nal.pl Acropora_digitifera_4.aln Acropora_digitifera_4.nuc -output paml  -nogap  > Acropora_digitifera_4.codon
+cd for_paml/
+
+
+
+##now make alignments from each protein fasta
+module load mafft
+>align; for fa in $(ls *prot.fas); do echo "mafft --auto --maxiterate 1000 $fa > ${fa/.fas/}.aln" >> align; done
+GDlauncher_creator.py -j align -n align -l align0.job
+cat align0.job | perl -pe 's/12way .+$/12way 48/' > align.job ; rm align0.job
+qsub align.job
+
+
+
+
+
+
+#Appendix 1:
+##------- ALTERNATIVELY, YOU CAN BLAST AGAINST SWISS PROT---------
+#this is more complicated since SP is so big, you got to dodge around time constraint for Lonestar
+#change the names around a bit to make moving them easier
+for file in *.fasta
+do mv "$file" "${file/subset1_/s1}" #move the file name to the file name with 'subset1_' replaced with 's1'
+done
+
+#blastxing against SP takes forever, so we need to split up the transcriptomes further
+for file in $(ls *.fasta)
+do
+echo splitFasta.pl $file 120
+done
+
+#blastx the subsets against the uniprot database
+module load blast
+
+#setup the command file
+>doblast 
+for file in $(ls subset*Adigitifera*)
+do
+echo blastx -query $file -db $UNIPROT -evalue 1e-5 -num_threads 3 -num_descriptions 5 -num_alignments 5 -out $file.br >> doblast
+done
+
+GDlauncher_creator.py -j doblast -n doblast -l doblast0.job -a tagmap -q normal -t 24:00:00
+sed 's/12way 120/4way 360/' doblast0.job > doblast.job
+rm doblast1.job
+qsub doblast.job
+##====================================================================
+
+
+
+
+
+
+
+
+
