@@ -38,12 +38,14 @@ parser = argparse.ArgumentParser(description=Description, epilog=AdditionalProgr
 parser.add_argument('-output', '-o', required = True, dest = 'out', help = 'The desired name for the output file')
 parser.add_argument('-f', required = True, dest = 'files', nargs = "+", help = 'A glob to the codon files output from pal2nal')
 parser.add_argument('-spp', required = True, dest = 'sppList', help = 'A text file listing all the species included.')
+parser.add_argument('-l', required = False, default = 'none', dest = 'lengthCut', help = 'The length an alignment must be in order to be included')
 args = parser.parse_args()
 
 #Assign Arguments
 FileList = args.files
 OutfileName = args.out
 SpeciesFile = args.sppList
+LengthCut = args.lengthCut
 
 def read_sppList(SpeciesFile):
     """Read in the species List"""
@@ -56,6 +58,21 @@ def read_sppList(SpeciesFile):
         print i
     return speciesList
             
+def filter_fileList(FileList):
+    for file in FileList:
+        with open(file, 'r') as infile:
+            lineNumber = 0
+            speciesCount = 0
+            for line in infile:
+                line = line.strip('\n')
+                lineNumber += 1
+                if lineNumber == 1:
+                    line = line.split()
+                    #get the count for species in this file
+                    sppCount = int(line[0])
+                    if sppCount == 0:
+                        print "\nSkipping File {} Because it Has no Data".format(file)
+                        FileList.remove(file)
 
 def read_files(FileList, speciesList):
     """Read though each of the files and build up a 
@@ -120,9 +137,9 @@ def output(OutfileName, HeadString, speciesList, seqDict, charSetDict, totalLeng
         for spp in speciesList:
             datString = "\n{}\t{}".format(spp, seqDict[spp])
             out.write(datString)
-        out.write("\n;end;\nbegin assumptions;")
+        out.write("\n;\nend;\nbegin assumptions;")
         for i in FileList:
-            out.write("\ncharset {} = {}".format(i, charSetDict[i]))   
+            out.write("\n\tcharset {} = {};".format(i, charSetDict[i]))   
         out.write("\nend;")
          
                     
@@ -131,6 +148,7 @@ def output(OutfileName, HeadString, speciesList, seqDict, charSetDict, totalLeng
 
 
 speciesList = read_sppList(SpeciesFile)
+filter_fileList(FileList)
 seqDict, charSetDict, totalLength = read_files(FileList, speciesList)
 
 HeadString = """\

@@ -25,21 +25,23 @@ files to pass as arguments to this script.
 parser = argparse.ArgumentParser(description=Description, epilog=AdditionalProgramInfo) ##create argument parser that will automatically return help texts from global variables above
 parser.add_argument('-f', required = True, dest = 'files', nargs = "+", help = 'A glob to the files you want to merge.')
 parser.add_argument('-c', required = False, default = "none", dest = 'cut', help = 'Indicate the proportion of files that must have a reciprocal ortholog in order to output it. If a base ortholog does not have above that value it will be skipped')
+parser.add_argument('-r', required = True, dest = 'ref', help = 'Indicate the species name for the reference. This should be different than any of the query species names. Example = AdigitiferaREF')
 parser.add_argument('-o', required = False, default = "orthologs.txt", dest = 'out', help = 'The desired output name')
 args = parser.parse_args()
 
 FileList = args.files
 Cutoff = args.cut
+RefSpecies = args.ref
 OutName = args.out
 print "\nMerging Ortholog Tables for the following {} Files:".format(len(FileList))
 for i in FileList:
     print i
 
 
-dataDict = {}
-fileCount = 0
+dataDict = {} #place to store the putative ortholog pairs
+fileCount = 0 #keep count of the files
 for f in FileList:
-    entryList = []
+    entryList = [] 
     fileCount += 1
     lineNumber = 0
     with open(f, 'r') as infile:
@@ -72,8 +74,8 @@ if Cutoff != "none":
             if x != "none":
                 trimList.append(x)
         proportion = float(len(trimList))/float(len(orthoList))
-        if proportion > Cutoff:
-            print i
+        if proportion >= Cutoff:
+            # print i
             passCount += 1
             filteredList.append(i)
         else:
@@ -88,7 +90,7 @@ if Cutoff != "none":
 sppList = []
 for i in FileList:
     sppList.append(i.split('_')[1]) ##set up header so that columns are just species names
-Header = ['CNIDB'] + sppList
+Header = [RefSpecies] + sppList
 print "\nOutputting merged results for the following Species:"
 for i in sppList:
     print i

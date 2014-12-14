@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 ##get_reciprocal_orthos.py.py
-##written 9/16/14 by Groves Dixon
+##written 10/21/14 by Groves Dixon
 ProgramName = 'get_reciprocal_orthos.py'
-LastUpdated = '10/21/14'
+LastUpdated = '11/24/14'
+#Added feature to skip sequences with repeated sequence IDs
 By = 'Groves Dixon'
 VersionNumber = '1.0'
 print "\nRunning Program {}...".format(ProgramName)
@@ -78,8 +79,15 @@ outfileName = args.out
 def get_query_list(fa, Id):
     """Function to pull the full list of query sequences from a fasta file"""
     queryList = []
+    repeatedList = []
     for seq_record in SeqIO.parse(fa, "fasta"):
-        queryList.append(seq_record.description.split()[Id])
+        seqName = seq_record.description.split()[Id]
+        if seqName in queryList:
+            repeatedList.append(seqName)
+            continue
+        else:
+            queryList.append(seqName)
+    print "\n{} sequences were repeated at least once in file {}".format(len(repeatedList), fa)
     return queryList
 
 def build_bestHit_dict(br, entryList, Id):
@@ -123,6 +131,7 @@ def build_bestHit_dict(br, entryList, Id):
             # print "entry = {} : Hit = {} eval = {}".format(entry, hitName, topHit.hsps[0].expect)
         except IndexError:
             topHit = 'no hit'
+            hitName = 'no_hit'
         hitDict[entry] = hitName
     return hitDict
         
@@ -148,6 +157,10 @@ def pull_reciprocals(fa1List, fa2List, fa1Hits, fa2Hits):
         if bestHit == 'Hit_Pct_to_low':
             hpFailList.append(i) #note the hit percentage fail
             resultDict[i] = NA #record NA for the result
+            continue
+        if bestHit == 'no_hit':
+            noHitList.append(i) #note there was no hit at all
+            resultDict[i] = NA
             continue
         #check the reciprocal hit
         recipHit = fa2Hits[bestHit]
