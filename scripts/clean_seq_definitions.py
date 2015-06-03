@@ -37,7 +37,7 @@ parser = argparse.ArgumentParser(description=Description, epilog=AdditionalProgr
 parser.add_argument('-i', required = True, dest = 'input', help = 'The the input transcriptome to be cleaned')
 parser.add_argument('-output', '-o', required = True, dest = 'out', help = 'The desired name for the output file')
 parser.add_argument('-delimit', required = False, default = 'use_space', dest = 'delimit', help = 'The delmiter. Default is to use white space')
-parser.add_argument('-pos', required = True, dest = 'pos', help = 'The position (normal counting) of the identifying string within the sequence definition lines split by the delimiter. Example: >seq12345 gene=polymerase GO1;GO2;GO3" should be use pos 1')
+parser.add_argument('-pos', required = True, dest = 'pos', help = 'The position (starting at 1) of the identifying string within the sequence definition lines split by the delimiter. Example: >seq12345 gene=polymerase GO1;GO2;GO3" should be use pos 1 if you want seq12345')
 args = parser.parse_args()
 
 #Assign Arguments
@@ -67,7 +67,7 @@ def clean_file(InfileName, OutfileName, Delimiter, Index):
                         line = identifier
                     #otherwise add the carrot
                     else:
-                        line = '>' + cleanLine
+                        line = '>' + identifier
                 if lineNumber == 1:
                     out.write(line)
                 else:

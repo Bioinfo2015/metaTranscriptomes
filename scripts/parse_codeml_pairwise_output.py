@@ -24,7 +24,7 @@ Additional Program Information:
 '''
 
 ##Import Modules 
-
+DEBUG = 'FALSE'
 import time
 import argparse
 from sys import argv
@@ -43,7 +43,7 @@ args = parser.parse_args()
 
 #Assign Arguments
 FileList = args.files
-Spp1 = args.spp1
+Spp1 = args.spp1 #the species we are gathering data for
 SppListName = args.sppList
 OutfileName = args.out
 SppList = []
@@ -60,13 +60,17 @@ def read_files(FileList, Spp1, SppList):
     geneList = []
     dNList = []
     dSList = []
+    dndsList = []
     speciesList = []
+    highDScount = 0
+    #iterate through all the species in the species list to find data for each pairing
     for species in SppList:
         if species == Spp1:
-            continue
+            continue #don't look for comparisons of the species to itself
+        #iterate through all the codeml output files to gather data
         for file in FileList:
             with open(file, 'r') as infile:
-                hit = 0
+                hit = 0 #this variable specifies whether we have found the species pair yes
                 hitCount = 0 #this should never exceed 1
                 for line in infile:
                     if hitCount > 1:
@@ -80,42 +84,61 @@ def read_files(FileList, Spp1, SppList):
                                     continue
                     elif hit == 1:
                         if "dN/dS=" in line:
-                            line = line.split()
-                            try:
-                                dn = line[10]
-                                ds = line[13]
-                            except IndexError: #occurs sometimes when dS is very large
+                            line = line.strip("\n")
+                            noWhite = line.replace(" ", "")
+                            dn = noWhite.split("dN=")[1].split("dS")[0]
+                            ds = noWhite.split("dN/dS=")[1].split("dN=")[1].split("dS=")[1]
+                            dnds = noWhite.split("dN/dS=")[1].split("dN")[0]
+                            if DEBUG == 'TRUE':
                                 print line
-                                #the dn value is also sometimes so high it must be split differently
-                                #this probably means its a bad alignment/ortholog call, but pasrse it anyway
-                                try:
-                                    dn = line[10]
-                                    ds = line[12].split('=')[1] #split the large ds value assuming that dS is >= 10.0 but dN is not
-                                except IndexError:
-                                    dn = line[9].split('=')[1] #this means that the dN value was also >= 10.0, so grab it differently
-                                    ds = line[11].split('=')[1] #dS is also in a different place because of the big dN, so grab it
+                                print noWhite
+                                print "dN = {}".format(dn)
+                                print "dS = {}".format(ds)
+                                print "dNdS = {}".format(dnds)
                             geneName = file.strip(".codeml")
                             geneList.append(geneName)
                             dNList.append(dn)
                             dSList.append(ds)
+                            dndsList.append(dnds)
                             speciesList.append(species)
                             hit = 0
                             hitCount += 1
                             # print geneName
                             # print species
                             # print dn
-    return geneList, dNList, dSList, speciesList
+    return geneList, dNList, dSList, dndsList, speciesList
                         
-def output(OutfileName, geneList, dNList, dSList, speciesList):
+def output(OutfileName, geneList, dNList, dSList, dndsList, speciesList):
     """Outputs the data into a table"""
+    badValues = []
+    lineNums = []
     with open(OutfileName, 'w') as out:
-        out.write("EST\tspecies\tdN\tdS")
+        out.write("EST\tspecies\tdN\tdS\tdNdS")
         for i in range(len(geneList)):
-            out.write("\n{}\t{}\t{}\t{}".format(geneList[i], speciesList[i], dNList[i], dSList[i]))         
+            #########
+            ##there is a bug that occurs when the synonymous substitution rate is >99.99
+            #these are obviously wrong anyway and they stop the output from uploading into R so skip them
+            # fourData = 'TRUE'
+            # outList = [geneList[i], speciesList[i], dNList[i], dSList[i]]
+            # try:
+            #     float(dNList[i])
+            #     float(dSList[i])
+            # except ValueError:
+            #     badValues.append([dNList[i], dSList[i]])
+            #     lineNums.append(i)
+            #     continue
+            # for x in outList:
+            #     if x == "":
+            #         fourData = 'FALSE'
+            # if fourData == 'FALSE':
+            #     continue
+            ###########
+            outString = "\n{}\t{}\t{}\t{}\t{}".format(geneList[i], speciesList[i], dNList[i], dSList[i], dndsList[i])
+            out.write("\n{}\t{}\t{}\t{}\t{}".format(geneList[i], speciesList[i], dNList[i], dSList[i], dndsList[i]))         
                             
 
-geneList, dNList, dSList, speciesList = read_files(FileList, Spp1, SppList)
-output(OutfileName, geneList, dNList, dSList, speciesList)
+geneList, dNList, dSList, dndsList, speciesList = read_files(FileList, Spp1, SppList)
+output(OutfileName, geneList, dNList, dSList, dndsList, speciesList)
 
 
 #return time to run
