@@ -1,0 +1,693 @@
+##THIS IS A WALKTHROUGH FOR GENERATING CPGOE DATA FROM CORAL TRANSCRIPTOMES, BUILDING A SPECIES TREE AND ESTIMATING SUBSTITUTION RATES
+##THE IDEA IS TO COPY AND PASTE THE COMMANDS DIRECTLY INTO THE TERMINAL
+##COMMANDS DO NOT HAVE ANY PROMPT CHARACTER IN FRONT OF THEM
+##INSTRUCTIONS ARE COMMENTED AND IN CAPS
+##THIS IS WRITTEN SPECIFICALLY FOR EXECUTION IN LONESTAR (TEXAS ADVANCED COMPUTING CENTER)
+##Groves Dixon
+#2/24/15
+
+#--------------------------------------------------------------------------
+#------------- STEP 1 DOWNLOAD AND PREP THE TRANSCRIPTOMES ----------------
+#--------------------------------------------------------------------------
+#(THESE LINKS ARE MORE FOR CONVENIENCE AND ARE NOT GUARANTEED TO WORK)
+
+#AIPTASIA FROM THE PRINGLE LAB
+wget "http://pringlelab.stanford.edu/project%20files/SymTranscriptsClustered_id_99_frac_20_seeds_rereunRev%20(2).fa.gz" #Aiptasia
+
+#TRANSCRIPTOMES AVAILABLE FROM MEYER LAB WEBSITE (http://people.oregonstate.edu/~meyere/data.html)
+wget "http://meyerlab:coral@files.cgrb.oregonstate.edu/Meyer_Lab/transcriptomes/MaurN/Maur_transcriptome_v1.fasta.gz" #Madracis auretenra
+wget "http://meyerlab:coral@files.cgrb.oregonstate.edu/Meyer_Lab/transcriptomes/DstrN/Pstr_transcriptome_v1.fasta.gz" #Pseudodiploria strigosa
+wget "http://meyerlab:coral@files.cgrb.oregonstate.edu/Meyer_Lab/transcriptomes/Fscu/Fscu_transcriptome_v1.fasta.gz" #Fungia scutaria
+wget "http://meyerlab:coral@files.cgrb.oregonstate.edu/Meyer_Lab/transcriptomes/Shys/Shys_transcriptome_v1.fasta.gz" #Seriatopora hystrix
+wget "http://meyerlab:coral@files.cgrb.oregonstate.edu/Meyer_Lab/transcriptomes/Mcav/Mcav_transcriptome_v1.fasta.gz" #Montastaea cavernosa
+wget "http://meyerlab:coral@files.cgrb.oregonstate.edu/Meyer_Lab/transcriptomes/Aele/Aele_transcriptome_v1.fasta.gz" #Anthopleura elegantissima
+wget "http://meyerlab:coral@files.cgrb.oregonstate.edu/Meyer_Lab/transcriptomes/Pdae/Pdae_v1.fasta.gz"               #Platygyra daedalea
+
+#TRANSCRIPTOMES FROM MATZ LAB WEBSITE
+wget "https://dl.dropboxusercontent.com/u/37523721/amillepora_transcriptome_july2014.zip" #Acropora millepora (by Moya)
+wget "https://dl.dropboxusercontent.com/u/37523721/ahyacinthus_transcriptome_july2014.zip" #Acropora hyacinthus
+wget "https://dl.dropboxusercontent.com/u/37523721/pastreoides_transcriptome_july2014.zip" #Porites asteoides
+wget "https://dl.dropboxusercontent.com/u/37523721/atenuis_transcriptome_july2014.zip" #Acropora tenuis
+
+#AVAILABLE FROM OIST MARINE GENOMICS UNIT
+wget "http://marinegenomics.oist.jp/genomes/download/adi_transcriptome_assembly.v1.fa.gz" #Acropora digitifera transcriptome
+wget "http://marinegenomics.oist.jp/genomes/download/adi_v1.0.1.prot.fa.gz" #Acropora digitifera proteome
+
+#Cnidarian Database
+wget "http://data.centrescientifique.mc/Data/454Isotigs.fas.zip" #Stylophora pistillata (Karako-Lampert et al. Plos One 2014)
+
+#PocilloporaBase
+wget "http://cnidarians.bu.edu/PocilloporaBase/cgi-bin/blast/contigs.fan" #Pocillopora damicornis
+
+#Baums Lab
+#this one has some different formatting, so do some followup adjustments
+wget "https://usegalaxy.org/datasets/cb51c4a06d7ae94e/display?to_ext=fasta" #Acropora palmata (Polato et al. 2011)
+sed 's/"//' Apalmata.fa > Apalmata__.fa ##get rid of some quotation marks that are in there for some random reason
+capitalize_fasta.py -fa Apalmata__.fa > Apalmata.fa ##make all the letter capitalized also
+rm Apalmata__.fa #get rid of the intermediate file
+
+
+#PcarnBase
+wget "http://www.comp.hkbu.edu.hk/~db/PcarnBase/db/nucleotide/CoralDNA" #Platygyra carnosus (Sun et al 2013) Couldn't get this one to work anymore
+
+#SIDERASTREA SIDEREA NOT YET PUBLICLY AVAILABLE
+
+
+#BUILD JOINT CNIDARIAN DATABASE FROM  N.vectensis and A.digitifera PROTEOMES
+wget "ftp://ftp.jgi-psf.org/pub/JGI_data/Nematostella_vectensis/v1.0/annotation/transcripts.Nemve1FilteredModels1.fasta.gz" #Nematostella transcriptome
+wget "http://marinegenomics.oist.jp/genomes/download/adi_v1.0.1.prot.fa.gz" #Acropora digitifera proteome
+cat adi_v1.0.1.prot.fa transcripts.Nemve1FilteredModels1.fasta > cnidarianProteinDB.fasta
+
+#INDEX THE COMBINED DATABASE FOR BLASTING
+module load blast
+echo "makeblastdb -in cnidarianProteinDB.fasta -dbtype prot" > mdb
+GDlauncher_creator.py -j mdb -n mdb -l mmm -a tagmap
+qsub mmm
+
+#ADD PATH TO THIS FILE TO YOUR .bashrc or .bash_profile FOR EASY ACCESS
+export CNIDARIANDB="/work/02260/grovesd/Nvectensis_references/cnidarianProteinDB.fasta"
+
+#ONCE ALL THE TRANSCRIPTOMES ARE DOWNLOADED, CHANGE THEIR NAMES TO MAKE THEM CONSISTENT
+#BECAUSE WE'LL BE USING RAXML AND PAML, ITS EASIEST TO USE JUST THE FIRST 10 LETTERS FOR EACH SPECIES IDENTIFER FROM THE BEGINNING
+#YOUR FINAL FILES SHOULD BE NAMED LIKE THIS
+Adigitifer.fa
+Aelegantis.fa
+Ahyacinthu.fa
+Amillepora.fa
+Apallida.fa
+Apalmata.fa
+Atenuis.fa
+Fscutaria.fa
+Mauretenra.fa
+Mcavernosa.fa
+Nvectensis.fa
+Pastreoide.fa
+Pcarnosus.fa
+Pdaedalea.fa
+Pdamicorni.fa
+Pstrigosa.fa
+Shystrix.fa
+Spistillat.fa
+Ssiderea.fa
+
+
+######## CLEANING DEFINITION LINES ##################################################
+
+#DOWNSTREAM IT WILL BE EASIER IF EACH CONTIG IS DEFINED ONLY WITH A SINGLE IDENTIFYING STRING
+#CLEAN UP THE SEQUENCE DEFINITIONS USING CLEAN_SEQ_DEFINITIONS.PY
+#Adigitifera - already good
+cp Adigitifer.fa Adigitifer_clean.fa
+#Aelegantisima
+clean_seq_definitions.py -i Aelegantis.fa -o Aelegantis_clean.fa -pos 1
+#Ahyacinthus
+clean_seq_definitions.py -i Ahyacinthu.fa -pos 1 -o Ahyacinthu_clean.fa
+#Amillepora
+clean_seq_definitions.py -i Amillepora.fa -o Amillepora_clean.fa -pos 1
+#Apallida
+clean_seq_definitions.py -i Apallida.fa -o Apallida_clean.fa -pos 1 -delimit /
+#Apalmata - already good
+cp Apalmata.fa Apalmata_clean.fa
+#Atenuis
+clean_seq_definitions.py -i Atenuis.fa -o Atenuis_clean.fa -pos 1
+#Fscutaria
+clean_seq_definitions.py -i Fscutaria.fa -o Fscutaria_clean.fa -pos 1
+#Mauretenra
+clean_seq_definitions.py -i Mauretenra.fa -o Mauretenra_clean.fa -pos 1
+#Mcavernosa
+clean_seq_definitions.py -i Mcavernosa.fa -o Mcavernosa_clean.fa -pos 1
+#Nvectensis - already good
+cp Nvectensis.fa Nvectensis_clean.fa
+#Pastreoides
+clean_seq_definitions.py -i Pastreoide.fa -o Pastreoide_clean.fa -pos 1
+#Pcarnosus -already good
+cp Pcarnosus.fa Pcarnosus_clean.fa
+#Pdaedalea
+clean_seq_definitions.py -i Pdaedalea.fa -o Pdaedalea_clean.fa -pos 1
+#Pdamicornis - already good
+cp Pdamicorni.fa Pdamicorni_clean.fa
+#Pstrigosa
+clean_seq_definitions.py -i Pstrigosa.fa -o Pstrigosa_clean.fa -pos 1
+#Shystrix
+clean_seq_definitions.py -i Shystrix.fa -o Shystrix_clean.fa -pos 1
+#Spistillata
+clean_seq_definitions.py -i Spistillat.fa -o Spistillat_clean.fa -pos 1
+#Ssiderea
+clean_seq_definitions.py -i Ssiderea.fa -o Ssiderea_clean.fa -pos 1
+
+#NOW MOVE THE ORIGINALS INTO ANOTHER DIRECTORY AND SWITCH THE NAMES OF THE CLEAN FILES BACK
+for file in $(ls *clean.fa); do mv $file ${file/_clean.fa}.fa; done
+
+#NOW ALL THE TRANSCRIPTOMES HAVE SINGLE IDENTIFYING SEQUENCE IDENTIFIERS
+#MOVE THEM INTO THEIR OWN DIRECTORY BEFORE CONTINUING SO THEY ARE YOUR ONLY .fa FILES
+
+#--------------------------------------------------------------------------------------
+#------- STEP 2 EXTRACT PROTEIN AND CODING SEQUENCES BASED ON REFERENCE PROTEOMES -----
+#--------------------------------------------------------------------------------------
+
+#HERE YOU WILL USE THE "CNIDARIAN DATABASE" ASSEMBLED ABOVE.
+
+#BLAST EACH INDIVIDUAL TRANSCRIPTOME AGAINST THE COMBINED (DIGITIFERA + NEMATOSTELLA) PROTEIN DATABASE
+
+#LOAD THE BLAST MODULE
+module load blast
+
+#MAKE AN EMPTY COMMANDS FILE
+>doblast
+
+#LOOP THROUGH YOUR FASTA FILES AND WRITE OUT A BLAST COMMAND FOR EACH ONE TO THE COMMANDS FILE
+for file in $(ls *.fa); do echo blastx -query $file -db $CNIDARIANDB -evalue 1e-5 -num_threads 12 -num_descriptions 5 -num_alignments 5 -out ${file/.fa/}.br >> doblast; done
+
+#USE LAUNCHER_CREATOR.PY TO MAKE A LAUNCH FILE
+GDlauncher_creator.py -j doblast -n doblast -l doblast.job -a tagmap -q normal -t 24:00:00 -c 12
+#note this is a modified version of the launcher creator script. It has an argument -c to supply the number of cores to use
+
+#SUBMIT THE JOB
+qsub doblast.job
+
+#RUN CDS EXTRACTOR ON THE BLAST OUTPUTS *(note this doesn't seem to like overwriting files, so you may need to remove old output files first if running multiple times)
+#CDS_extractor_v2.pl BY MIKHAIL MATZ USES BIOPERL TO EXTRACT CODING NUCLEOTIDE SEQUENCES AND PROTEIN SEQUENCES FROM TRANSCRIPTOMES BASED ON HITS TO A REFERENCE PROTEOME.
+
+module load bioperl
+>extract; for file in $(ls *.fa); do echo "CDS_extractor_v2.pl $file ${file/.fa/}.br allhits bridgegaps" >> extract ; done
+GDlauncher_creator.py -j extract -n extract -l extract.job -a tagmap -c 24
+qsub extract.job
+
+#CHECK IF YOU GOT BACK CDS FILES FOR ALL SPECIES
+ll *CDS.fas | wc -l
+
+######## GETTING CPG DATA #################
+#NOW THAT WE HAVE THE CODING SEQUENCES WE CAN EXTRACT CPGOE DATA FOR EACH SPECIES
+
+> getcpg; for file in $(ls *CDS.fas); do echo getCpGoe.py -i $file -sub 1000 -o ${file/_CDS.fas}CpG.txt >> getcpg; done
+GDlauncher_creator.py -j getcpg -n getcpg -l getcpg.job -a tagmap -c 12
+qsub getcpg.job
+#output should be a CpG.txt file for each species
+#use these downstream to infer strength of gene body methylation 
+
+###########################################
+
+#--------------------------------------------------------------------------------------
+#-------------------- STEP 2 GETTING ORTHOLOGS ----------------------------------------
+#--------------------------------------------------------------------------------------
+#HERE WE WILL PULL ORTHOLOGS FROM EACH SPECIES BASED ON RECIPROCAL BEST HITS TO A CHOSEN 'ANCHOR' TRANSCRIPTOME (it's best to chose one that is of high quality)
+#BECAUSE A. DIGITIFERA CURRENTLY HAS THE BEST GENOMIC TOOLS AVAILABLE I USED IT AS THE BASE
+
+#MAKE A BLAST DATABASE FOR EACH SPECIES
+module load blast
+> makeDBs; for file in $(ls *PRO.fas); do  echo makeblastdb -in $file -dbtype prot >> makeDBs; done
+GDlauncher_creator.py -j makeDBs -n makeDBs -l makeDBs.job -e grovesdixon@gmail.com -a tagmap -c 12
+qsub makeDBs.job
+
+
+#NOW DO RECIPROCAL BLASTS FOR EACH PROTEIN SET WITH A.DIGITIFERA
+#here each 'PRO.fas' file will be used as the query once with Adigitifer_PRO.fas as the database, then as the database with Adigitifer_PRO.fas as the query
+>blastps
+for file in $(ls *PRO.fas); do 
+echo "blastp -query $file -db Adigitifer_PRO.fas -evalue 1e-5 -num_threads 12 -num_alignments 1 -outfmt 5 -out ${file/_PRO.fas/_2_Adigitifer_PRO.br}" >> blastps;
+echo "blastp -query Adigitifer_PRO.fas -db $file -evalue 1e-5 -num_threads 12 -num_alignments 1 -outfmt 5 -out Adigitifer_PRO_2_${file/_PRO.fas/.br}" >> blastps;
+done
+
+GDlauncher_creator.py -n blastps -j blastps -l blastps.job -q normal -a tagmap -t 24:00:00 -c 36
+qsub blastps.job
+
+
+#NOW POOL ALL THE ORTHOLOGS INTO A TABLE WHILE APPLYING FILTERS FOR EVALUE AND HIT PERCENTAGE
+#these are the orthologs we will use to build the phylogenetic tree, so we want stringent filtering to be sure they are true orthologs
+E="1e-20"
+HP="80"
+>getOrthos; for file in $(ls *PRO.fas); do echo get_reciprocal_orthos.py -br1 Adigitifer_PRO_2_${file/_PRO.fas/}.br -br2 ${file/_PRO.fas/}_2_Adigitifer_PRO.br -fa2 $file -fa1 Adigitifer_PRO.fas -o ./Adigitifer-PRO_${file/_PRO.fas/}_orthos.txt -e $E -hp $HP >> getOrthos; done
+
+GDlauncher_creator.py -n getOrthos -j getOrthos -l getOrthos.job
+qsub getOrthos.job
+
+
+#MERGE THE ORTHOLOG DATA INTO A SINGLE TABLE
+
+orthotable="Adigitifer_CDS_Ortholog_Table_e20_hp80_c80.txt"
+
+mergeReciprocalOrthos.py -f Adigitifer*orthos.txt -c .80 -o $orthotable -r Adigitifer > mergeOrthos.log
+cat mergeOrthos.log
+#-c argument specifies the proportion of species that must have an ortholog to include it in the table
+
+
+##========================================================================================================================
+
+#-----------------------------------------------------------------------------------
+#-------------------- PART 4 ALIGN ORTHOLOGS FOR PHYLOGENY CONSTRUCTION ------------
+#-----------------------------------------------------------------------------------
+
+#FIRST OUTPUT FASTA FILES FOR EACH GENE IN THE ORHTOLOG TABLE BY PULLING THE SEQUENCES FROM THEIR PROTEIN FASTA FILES
+echo output_ortholog_seqs.py -prot *PRO.fas -nucl *CDS.fas -orthos $orthotable > orthoOuter
+GDlauncher_creator.py -j orthoOuter -n orthoOuter -l orthoOuter.job -q development -c 12
+qsub orthoOuter.job
+
+#USE MAFFT TO MAKE MULTIPLE ALIGNMENTS OF THE ORTHOLOG PROTEIN SEQUENCES
+#NOTE THAT THIS DOESN'T RUN WHEN YOU DO IT THROUGH A JOB. I GOT IT TO WORK BY RUNNING ON FRONT NODES.
+module load mafft
+for fa in $(ls *prot.fasta); do mafft --localpair --maxiterate 1000 $fa > ${fa/.fasta/}.aln; done
+
+#WE NEED TO THESE BE HIGH QUALITY ALIGNMENTS OF REAL ORHTOLOGS. SO THESE ARE WORTH LOOKING AT MANUALLY. 
+>alignments.txt; for file in $(ls *.aln); do echo $file >> alignments.txt; cat $file >> alignments; done
+
+
+##USE PAL2NAL TO REVERSE TRANSLATE THE PROTEIN ALIGNMENTS BACK INTO CODONS BASED ON THE CDS FILES
+for aln in $(ls *.aln); do pal2nal.pl $aln ${aln/prot.aln/}nuc.fasta -output paml -nogap > ${aln/_prot.aln/}.codon; done
+
+#BUILD A SPECIES LIST FOR EASY ACCESS TO THE SPECIES NAMES
+#note this works by calling on the original transcriptome files, so if you have them elsewhere it won't work.
+>speciesList.txt; for i in $(ls *CDS.fas); do echo ${i/_CDS.fas/} >> speciesList.txt; done
+
+#CONCATENATE THE CODON SEQUENCES INTO A NEXUS FILE
+concatenate_genes_into_nexus.py -spp speciesList.txt -f *.codon -o seqs.nex
+
+#-----------------------------------------------------------------------------------
+#-------------------- PART 5 AUSING raxML TO BUILD TREE ----------------------------
+#-----------------------------------------------------------------------------------
+
+module load raxml
+
+#CONVERT THE NEXUS FILE INTO A PHYLIP FILE
+#(I originally planned to use BEAST, but found raxML better suited to my level)
+nex2phy.py -i seqs.nex
+
+#SET UP SOME VARIABLES FOR RUNNING THE raxML COMMAND
+S="seqs.phy"                              #the sequence file
+Q="seqs_partitions.txt"                   #the sequence partition file (separates the concatenated seqs into genes)
+R="T1"                                    #the run name (this must be different for each run)
+N="100"                                 #iterations for bootstrapping (10K may be too many if you have a lot of genes, but is nice for 100 - 200 genes)
+
+#RUN raxML USING THE 'RAPID' ALGORITHM
+echo raxmlHPC-PTHREADS-SSE3 -s $S -n $R -m GTRGAMMA -f a -p 12345 -x 12345 -N $N -T 12 -q $Q -o Apallida,Nvectensis > rapid_c60TreeBoot
+GDlauncher_creator.py -n rapid_c60TreeBoot -j rapid_c60TreeBoot -l rapid_c60TreeBoot.job -q normal -t 24:00:00
+qsub rapid_c60TreeBoot.job
+
+#LOOK AT THE RESULT
+cat RAxML_bipartitions.T1
+
+#-------------------------------------------------------------------------------------------------
+#-------------------- PREPARE FILES FOR EACH GENE TO RUN PAML ------------------------------------
+#-------------------------------------------------------------------------------------------------
+
+#BEFORE WE PULLED ORTHOLOGS STRICTLY TO BUILD THE PHYLOGENETIC TREE
+#NOW WE WILL RELAX THE ORTHOLOG STRINGENCY TO GET MORE GENES
+##This gets really messy because you make so many files
+#I like to do all this in a new directory, so make a directory called paml, then subdirectory within it called pair-wise 
+#I copy the PRO.fas, CDS.fas, and .br files to that subdirectory
+mkdir paml
+cp *PRO.fas paml/ &
+cp *CDS.fas paml/ &
+cp *.br paml/ &
+
+#OUTPUT THE ORTHOLOG SEQUENCES AGAIN, BUT THIS TIME WITH REDUCED STRINGENCY
+E="1e-5"
+HP="50"
+>getOrthos; for file in $(ls *PRO.fas); do echo get_reciprocal_orthos.py -br1 Adigitifer_PRO_2_${file/_PRO.fas}.br -br2 ${file/_PRO.fas/}_2_Adigitifer_PRO.br -fa2 $file -fa1 Adigitifer_PRO.fas -o ./Adigitifer-PRO_${file/_PRO.fas/}_orthos.txt -e $E -hp $HP >> getOrthos; done
+GDlauncher_creator.py -n getOrthos -j getOrthos -l getOrthos.job
+qsub getOrthos.job
+
+#MERGE INTO A TABLE
+orthotable="Adigitifera_CDS_Ortholog_Table_e5_hp50_c1.txt"
+mergeReciprocalOrthos.py -f Adigitifer*orthos.txt -c .1 -o $orthotable -r Adigitifer > mergeOrthos.log
+#0.15 equivalent to requirement of at least 3 taxa = 12878 genes
+
+#PULL THE SEQUENCES FROM THE FASTA FILES AGAIN
+#this is when your directory will get messy
+echo output_ortholog_seqs.py -prot *PRO.fas -nucl *CDS.fas -orthos $orthotable > orthoOuter
+GDlauncher_creator.py -j orthoOuter -n orthoOuter -l orthoOuter.job -q development -c 12
+qsub orthoOuter.job
+
+#SEE THAT YOU GOT SEQUENCES FOR ALL THE ORTHOLOGS
+ls *prot.fasta | wc -l
+
+#USE MAFFT TO MAKE ALIGNMENTS
+#NOTE THAT THIS DOESN'T RUN WHEN YOU DO IT THROUGH A JOB. I GOT IT TO WORK BY RUNNING ON FRONT NODES.
+#TACC hasn't got mad about it yet
+module load mafft
+for fa in $(ls *prot.fasta); do mafft --localpair  --maxiterate 1000 $fa > ${fa/.fasta/}.aln; done
+
+##USE PAL2NAL TO REVERSE TRANSLATE TO CODONS
+>reverseTrans; for aln in $(ls *.aln); do echo "pal2nal.pl $aln ${aln/prot.aln/}nuc.fasta -output paml -nogap > ${aln/_prot.aln/}.codon" >> reverseTrans; done
+
+#MAKE SURE THAT YOU'RE REVERSE TRASLATING ALL THE FILES
+cat reverseTrans | wc -l
+
+#SUBMIT JOB
+GDlauncher_creator.py -n reverseTrans -j reverseTrans -l reverseTrans.job -c 12
+qsub reverseTrans.job 
+
+#MAKE SURE YOU STILL HAVE ALL YOUR FILES
+ls *.codon | wc -l
+
+#-----------------------------------------------------------------------------------------------
+#-------------------- RUN PAML TO GET PAIR-WISE COMPARISONS ------------------------------------
+#-----------------------------------------------------------------------------------------------
+
+#GET YOUR BEST TREE FROM RAxML. 
+#Here the tree does not need to have node labels or terminal branch labels (see Tree_file_notes.txt)
+#The tree is actually irrelevant here, I just kept it so this would be consistent with the next steps
+TREE="c40TREE.txt"
+
+#PASTE A TREE INTO THE TREE FILE
+nano $TREE
+#PASTE IN THE TREE (it doesn't really matter here)
+(Apallida:6.9465165,Nvectensis:6.9893827,(((((Amillepora:0.098179996,Ahyacinthu:0.15129063)100:0.042407155,Adigitifer:0.11577912)100:0.06821834,Apalmata:0.16118355)100:0.20276575,Atenuis:0.35493436)100:4.111598,(((Pdamicorni:1.0011904,Spistillat:0.9963246)100:2.6886046,Pcarnosus:2.5793998)100:1.3686339,Pastreoide:3.3344834)98:0.4518157)100:0.9)100;
+#IF YOU DIDN'T GRAB THE SPECIES LIST FROM BEFORE, COPY IT OVER INTO YOUR WORKING DIRECTORY
+
+##BUILD A PAML CONTROL FILE FOR EACH GENE
+>buildControls;for file in $(ls *.codon); do echo "build_paml_control.py -i $file -t $TREE -spp speciesList.txt -runMode -2" >> buildControls; done
+GDlauncher_creator.py -n buildControls -j buildControls -l buildControls.job -c 12
+qsub buildControls.job
+
+#RUN CODEML
+>runCodeml; for file in $(ls *.cnt); do echo "codeml $file" >> runCodeml; done
+GDlauncher_creator.py -n runCodeml -j runCodeml -l runCodeml.job -c 12 -q normal -t 10:00:00
+qsub runCodeml.job
+
+
+##NOW PARSE THE CODEML OUTPUTS
+>parse
+for file in $(ls *_CDS.fas); do echo "parse_codeml_pairwise_output.py -f *.codeml -spp1 ${file/_CDS.fas/} -sppList speciesList.txt -o pair-wise_dNdS_${file/_CDS.fas/}.txt" >> parse; done
+GDlauncher_creator.py -n parse -j parse -l parse.job -c 12
+qsub parse.job
+
+##ANALYZE THE OUTPUT WITH R SCRIPT 
+##YOU WILL ALSO NEED THE ORTHOLOG TABLE FROM ABOVE
+##
+#===============================================================================================
+
+#-------------------- RUN PAML TO TEST FOR EVIDENCE OF LINEAGE/SITE-SPECIFIC SUBSTITUTION RATES ------------------------------------
+
+#OVERVIEW:
+#Here we are running the "Branch-site test for positive selection" (PAML manual)
+#We run the alternative model A and the Null model A
+#Likelihood ratio tests between the two models may identify genes under positive selection in our specified lineage
+#Use one degree of freedom for likelihood ratio test (PAML manual)
+#control file settings for the alternative and null model are shown below:
+#ALTERNATIVE:
+	#model     = 2
+	#NSsites   = 2
+	#fix_omega = 0
+#NULL
+	#model     = 2
+	#NSsites   = 2
+	#fix_omega = 1
+	#omega     = 1
+
+#each of the two models allows W to vary between sites and between branches.
+#Which branches (lineages) can have their own W values is assigned in the tree file
+
+#I LIKE TO RUN THIS IN ITS OWN DIRECTORY TOO
+#IF YOU'RE USING THE SAME SETS OF GENES YOU CAN JUST COPY THE *.codon FILES OVER FROM THE PAIRED-END ANALYSIS
+
+
+
+#GET YOUR BEST TREE FROM RAxML
+#here I had to do some tree formatting. First I remove all bootstrap values from the newick format
+because these make the labels for PAML less clear. Then I use Dendroscope to make sure the tree is rooted
+#from the NODE leading to the actiniarian species (N.vectensis, A.elegantissima, and A. pallida)
+#This way the tree is not formally a rooted tree, but the acroporids are left in a clear monophyletic group.
+#The newick tree results are also pasted below.
+
+
+TREE="c60TREE.txt"
+nano $TREE
+#PASTE IN THE TREE(see Tree results above)
+((((((((Amillepora:0.31285512,Ahyacinthu:0.6135038):0.13657682,Adigitifer:0.37872902):0.22242224,Apalmata:0.47059497):0.6358878,Atenuis:1.0983626):15.5942135,Ssiderea:6.608552):1.280127,Pastreoide:10.985205):2.1665459,(Pcarnosus:8.031351,(Spistillat:3.3550951,Pdamicorni:3.451845):9.322783):2.7561538):0.9,Apallida:24.318794,Nvectensis:24.501934);
+
+#THE CONTROL FILES BUILDING SCRIPT NEEDS THE CLADE YOU ARE INTERESTED IN
+#This must be a monophyletic group in your species tree
+nano acroporids.txt
+#paste in the names of the acroporid species
+
+
+#BUILD THE PAML CONTROL FILES FOR RUNNING THE NULL MODEL
+>buildControlsNull;for file in $(ls *.codon); do echo "build_paml_control.py -i $file -t $TREE -spp speciesList.txt -runMode 0 -model 2 -NSsites 2 -fix_omega 1 -omega 1 -suffix NULL -clade acroporids.txt" >> buildControlsNull; done &
+GDlauncher_creator.py -n buildControlsNull -j buildControlsNull -l buildControlsNull.job -c 12
+qsub buildControlsNull.job
+
+#MAKE A LOG OF ALL THE TREES FOR MANUAL INSPECTIONS
+print_tree.py -i *.tree > ortholog_trees.txt
+
+#BUILD THE PAML CONTROL FILES FOR RUNNING THE ALTERNATIVE MODEL
+>buildControlsALT;for file in $(ls *.codon); do echo "build_paml_control.py -i $file -t $TREE -spp speciesList.txt -runMode 0 -model 2 -NSsites 2 -fix_omega 0 -suffix ALT -clade acroporids.txt" >> buildControlsALT; done &
+GDlauncher_creator.py -n buildControlsALT -j buildControlsALT -l buildControlsALT.job -c 12
+qsub buildControlsALT.job
+
+#CHECK ALL THE CONTROL FILES WERE MADE
+
+#RUN THE NULL MODEL
+> runNullModel; for file in $(ls *NULL.cnt); do echo codeml $file >> runNullModel; done &
+GDlauncher_creator.py -n runNullModel -j runNullModel -l runNullModel.job -q normal -t 24:00:00 -c 48
+qsub runNullModel.job
+
+> runAltModel; for file in $(ls *ALT.cnt); do echo codeml $file >> runAltModel; done &
+GDlauncher_creator.py -n runAltModel -j runAltModel -l runAltModel.job -q normal -t 24:00:00 -c 48
+qsub runAltModel.job
+
+
+#ASSEMBLE LIKELIHOODS FOR NULL MODELS
+>nullResults;for file in $(ls *NULL.codeml); do dat=$(grep lnL $file); echo "${file/_NULL.codeml/}   $dat" >> nullResults;  done &
+
+#ASSEMBLE LIKELIHOODS FOR NULL MODELS
+>altResults;for file in $(ls *ALT.codeml); do dat=$(grep lnL $file); echo "${file/_ALT.codeml/}   $dat" >> altResults;  done &
+
+#PARSE THE DATA INTO TABLES
+parse_codeml_branch_sites.py -i nullResults -o nullLikelihoods.txt
+parse_codeml_branch_sites.py -i altResults -o altLikelihoods.txt
+
+#ANALYZE THE DATA WITH mut_model_likelihood_ratio_testsV2.R
+
+#-------------------------------------------------------------------------------------
+#------------------------- GET CODON BIAS DATA ---------------------------------------
+#-------------------------------------------------------------------------------------
+
+#GRAB THE SET OF RIBOSOMAL GENES FROM A.MILLEPORA ISOGROUPS 
+grep GO:0005840 amil_iso2go.tab > ribosomalGenes.txt
+
+#CONVERT THEM INTO CONTIG NAMES USING R SCRIPT convert_iso2seq.R
+#this should give you a single column table of contig names that are ribosomal
+
+#CONCATENATE THE RIBOSOMAL CODING SEQUENCES INTO A SINGLE GENE
+concatenate_fasta.py -i Amillepora_CDS.fas -o ribosomal_seqs_amil.fasta -sub ribosomalContigs.txt
+
+#USE DnaSP TO GET THE CODON USAGE DATA FOR THIS SET OF RIBOSOMAL GENES
+#save the image output as "dnaSp_optimal_codon_output"
+
+#
+
+#BUILD AN OPTIMAL CODON TABLE
+#unfortunately this has to be done by hand from the output from dnaSP
+#it should look like this:
+AA	optimal
+F	UUU
+L	UUG
+I	AUU
+V	GUU
+S	UCU
+P	CCA
+T	ACA
+A	GCU
+Y	UAU
+H	CAU
+Q	CAA
+N	AAU
+K	AAA
+D	GAU
+E	GAA
+C	UGU
+R	AGA
+S	AGU
+G	GGA
+
+#CALCULATE THE FREQUENCY OF OPTIMAL CODONS FOR EACH SEQUENCE
+calculate_frequency_optimal_codons.py -i Amillepora_CDS.fas -optimal optimal_codons.txt -o amil_Fop.txt
+
+#COMPARE WITH MBD-SEQ DATA USING MBD-seq_analysis.R
+
+
+#------------------------ TRANSCRIPTIONAL NOISE ANALYSIS ----------------------------------
+#idea here is to test for relationship between gene body methylation and transcriptional noise
+#assemble the adult RNA seq data from the 'Genomic adaptation across latitudes' paper
+#get the transcriptome also
+
+#INDEX TRANSCRIPTOME FOR BOWTIE
+module load bowtie
+bowtie2-build amil.fasta amil.fasta
+
+#MAP THE READS TO THE TRANSCRIPTOME
+iRNAseq_bowtie2map.pl "trim$" ./amil.fasta > maps
+GDlauncher_creator.py -n maps -j maps -l maps.job
+qsub maps.job
+
+#GENERATE COUNTS DATA FROM THE ALIGNMENTS
+>get_counts; for file in $(ls *.trim.sam); do echo "samcount.pl $file ./amil_seq2iso.tab aligner=bowtie2 > ${file/.fq.trim.sam/}.counts" >> get_counts; done
+GDlauncher_creator.py -n get_counts -j get_counts -l get_counts.job
+qsub get_counts.job
+
+
+#COMPILE INTO A SINGLE TABLE
+expression_compiler.pl *.counts > allcounts.txt
+
+#---------------------- APPENDICES ----------------------------
+
+######### INSTALLING CD-HIT ##################
+#naviagate to bin and download current version of cd-hit
+wget "https://cdhit.googlecode.com/files/cd-hit-v4.6.1-2012-08-27.tgz"
+#unzip the file
+tar -zxvf cd-hit-v4.6.1-2012-08-27.tgz
+cd cd-hit-v4.6.1-2012-08-27
+#compile it for enabling multithreading
+make openmp=yes
+#############################################
+
+#################### CLUSTERING SIMILAR SEQUENCES INTO 'ISOGROUPS' ##################
+
+##NOT ALL OF THESE TRANSCRIPTOMES HAVE HAD SIMILAR CONTIGS CLUSTERED INTO ISOGROUPS
+##PERFORM THE CLUSTERING WITH CD-HIT
+#IF YOU ARE NOT WORRIED ABOUT CLUSTERING SIMILAR SEQUENCES THIS STEP CAN BE SKIPPED (in this case change the 'clean.fa' files back to just .fa to keep with naming scheme for downstream operations)
+#TO INSTALL CD-HIT SEE APPENDIX BELOW
+
+#MOVE ALL THE CLEAN.FA FILES INTO THEIR OWN DIRECTORY AND NAVIGATE TO IT
+#PERFORM CLUSTERING
+>cluster;for file in $(ls *clean.fa); do echo "cd-hit-est -i $file -o ${file/clean.fa/}clust.fa -c 0.99 -G 0 -aL 0.3 -aS 0.3" >> cluster; done
+GDlauncher_creator.py -n cluster -j cluster -l cluster.job
+qsub cluster.job
+#outputs a cluster file that lets you know which sequences were collapsed, and outputs a new file specified by -o that has only the longest of each isogroup
+
+#MOVE THE UNCLUSTERED RAW TRANSCRIPTOMES INTO THEIR OWN DIRECTORY
+
+#NOW CLEAN THE NAMES BACK UP
+for file in $(ls *_clust.fa); do mv $file ${file/_clust.fa/}.fa; done
+#now all files should be like this: (First 10 characters of Genus abbreviation + species name (example = Pdamicorni.fa)
+
+#################################################################################
+
+
+
+
+
+##################################################################################################################################################################
+##################################################################################################################################################################
+#BUILDING A REDUCED SPECIES TREE
+
+#EDIT THE SPECIES LIST TO ONLY INCLUDE A SMALL SUBSET OF THE BEST GENOTYPED DUDES
+reducedSpeciesList.txt 
+
+#COPY OVER THE .codon FILES FROM PAIR-WISE COMPARISONS DIRECTORY
+
+#CONCATENATE THE CODON SEQUENCES INTO A NEXUS FILE
+concatenate_genes_into_nexus.py -spp reducedSpeciesList.txt -f *.codon -o seqsReduced.nex
+
+#-----------------------------------------------------------------------------------
+#-------------------- PART 5 AUSING raxML TO BUILD TREE ----------------------------
+#-----------------------------------------------------------------------------------
+
+module load raxml
+
+#CONVERT THE NEXUS FILE INTO A PHYLIP FILE
+#(I originally planned to use BEAST, but found raxML better suited to my level)
+nex2phy.py -i seqs.nex
+
+#SET UP SOME VARIABLES FOR RUNNING THE raxML COMMAND
+S="seqs.phy"                              #the sequence file
+Q="seqs_partitions.txt"                   #the sequence partition file (separates the concatenated seqs into genes)
+R="T1"                                    #the run name (this must be different for each run)
+N="5000"                                 #iterations for bootstrapping (10K may be too many if you have a lot of genes, but is nice for 100 - 200 genes)
+
+#RUN raxML USING THE 'RAPID' ALGORITHM
+echo raxmlHPC-PTHREADS-SSE3 -s $S -n $R -m GTRGAMMA -f a -p 12345 -x 12345 -N $N -T 12 -q $Q -o Aelegantis,Apallida,Nvectensis > rapid_c60TreeBoot
+GDlauncher_creator.py -n rapid_c60TreeBoot -j rapid_c60TreeBoot -l rapid_c60TreeBoot.job -q normal -t 24:00:00
+qsub rapid_c60TreeBoot.job
+
+#LOOK AT THE RESULT
+cat RAxML_bipartitions.T1
+
+##################################################################################################################################################################
+##################################################################################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#----------------- HAMSTER 2ND ATTEMPT ------------------
+
+#INSTALLING HAMSTR
+wget "http://www.deep-phylogeny.org/hamstr/download/current/hamstr.v13.1.tar.gz"
+tar -zxvf hamstr.v13.1.tar.gz
+
+#there are several dependencies for hamstr. Most are available as modules.
+module load blast
+module load clustalw2
+module load mafft
+module load hmmer
+
+#But Genewise is trickier
+#first download and unzip it
+wget "http://www.ebi.ac.uk/~birney/wise2/wise2.4.1.tar.gz"
+tar -zxvf wise2.4.1.tar.gz
+
+############## GETTING GENEWISE TO WORK #########################
+Then Do the following: (these instructions are from http://computationalgenomicsiicb.blogspot.com/2013/05/installing-cegma.html)
+
+#go to wise-2.4.1/src/HMMer2
+then replace 'getline' to 'my_getline' in sqio.c
+replace 'isnumber' in src/models/phasemodel.c into 'isdigit'
+
+Then go and check the makefile under each directory under src and relace 'glib-config --libs' to 'pkg-config --libs glib-2.0'  and also glib-config --cflags' to 'pkg-config --cflags glib-2.0' 
+using the following commands:
+
+find ./ -type f -name "makefile" -exec sed -i.old 's/glib-config --cflags/pkg-config --cflags glib-2.0/g' "{}" +;
+
+and
+
+find ./ -type f -name "makefile" -exec sed -i.old 's/glib-config --libs/pkg-config --libs glib-2.0/g' "{}" +;
+
+Also set path for wiseconfigdir to wisecfg file that is somewhere inside the distribution with following command:
+
+export wiseconfigdir="/home1/02260/grovesd/bin/wise2.4.1/wisecfg"
+
+Then do
+
+make all
+
+make test
+
+#if this worked, you should now have the necessary executables
+#finally add the path to the genewise bin to your path so that hamstr can find them
+#so add this to your .bash_profile
+PATH="$PATH:/home1/02260/grovesd/bin/wise2.4.1/src/bin"
+#also hamstr wants WISECONFIGDIR environmental variable to point to the directory so add this to your .bash_profile too
+export WISECONFIGDIR="/home1/02260/grovesd/bin/wise2.4.1/wisecfg"
+#you also want to add the path to the hamstr executables so add this too
+PATH="$PATH:/home1/02260/grovesd/bin/hamstr.v13.1/bin"
+####################################################################################################
+
+#now we should be able to install hamstr
+#navigate to the bin for the hamster installation then type
+./configure
+
+#hopefully you get "All tests succeeded, HaMStR should be ready to run"
+##############################################################################################
+
+###################### RUNNING HAMSTR #################################
+#a little more testing first. Now following the hamstr README file
+#navigate to the data directory within the hamstr installation
+#run this test run of hamstr
+hamstr -sequence_file=testset-cDNA.fa -taxon=TEST -hmmset=modelorganisms_hmmer3 -refspec=DROME  -hmm=317.hmm
+
+#NOW THAT I'M AT THE BOTTOM I REALIZED THE CREATORS DON'T HAVE IT READY TO CREATE YOUR OWN CORE ORTHOLOG SETS, SO I'M GIVING UP FOR NOW
+
+
+
+
+
