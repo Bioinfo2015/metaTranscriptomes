@@ -44,6 +44,12 @@ Amillepora_Nuc.fasta
 amil_prot.fasta
 
 Note that species names included in outputs will be reduced to first 10 characters to make RAxML happy.
+The base species must be in the first column.
+
+Note the one file fasta file will be output for each ortholog. The sequences for each species with a sequence in that 
+ortholog pool will be included with the species name for the >sequence_id.
+The fasta file name will be the name of the sequence ID for the base species in that orthologous group. In the rare
+event that pipes "|" are included in sequence IDs, these will be changed to "-" when saving the fasta file names.
 '''
 
 ##Import Modules 
@@ -66,7 +72,7 @@ parser.add_argument('-prot', required = True, dest = 'prot', nargs="+", help = '
 parser.add_argument('-nucl', required = True, dest = 'nucl', nargs="+", help = 'A glob to the nucleotide fastas, for example *CDS.fas')
 parser.add_argument('-spp', required = False, dest = 'spp', default = 0, help = 'Integer designating the pythonic position of the species identifier in the names of the fasta files. The default is 0, which would apply to a fasta file name like this: Amillepora_protein_seqs.fasta. Note that ortholog headings in the ortholog table must match the species identifiers in the fasta file names.')
 parser.add_argument('-sep', required = False, dest = 'sep', default = '_', help = 'The delimiter used in the fasta file names. (Default is "_")')
-parser.add_argument('-as_base', required = False, dest = 'base', default = "none", help = 'The species name that was used as the base when building the ortholog table. Default is to leave this blank. Use only if you did your reciprocal blasts against one of your species of interest.')
+# parser.add_argument('-as_base', required = False, dest = 'base', default = "none", help = 'The species fasta name that you used as the base.')
 args = parser.parse_args()
 
 #Assign Arguments
@@ -76,27 +82,27 @@ Nucs = args.nucl
 Spp = args.spp
 Spp = int(Spp)
 Sep = args.sep
-Base = args.base
-sppList = []
+sppListFromFastas = []
+sppListFromOrthologTable = []
 
 
 def check_files(Nucs, Prots):
     for i in Nucs:
-        sppList.append(i.split(Sep)[Spp])
-    print "\nFound Nucleotide Fastas detected for the following species:"
-    for i in sppList:
+        sppListFromFastas.append(i.split(Sep)[Spp])
+    print "\nFound Nucleotide Fastas for the following {} species:".format(len(sppListFromFastas))
+    for i in sppListFromFastas:
         print i
     sppList2 = [] 
     for i in Prots:
         sppList2.append(i.split(Sep)[Spp])
-    print "\nFound Protein Fastas detected for the following species:"
+    print "\nFound Protein Fastas for the following {} species:".format(len(sppList2))
     for i in sppList2:
         print i
 
 
 
-def read_orthos(Orthos, Base):
-    """Function to read in the ortholog list and build 
+def read_orthos(Orthos):
+    """Function to read in the ortholog table and build 
     a set of nested dictionaries linking each species'
     ortholog to the basal ortholog name (assumed to be the first column of the table)
     Output is like this:
@@ -106,44 +112,55 @@ def read_orthos(Orthos, Base):
     {Species1 : {sppOrtho1 : base1, sppOrtho2 : base2}, Species2 : {sppOrtho1 : base 1, etc.} etc.}
     """
     with open(Orthos, 'r') as infile:
+        sppListFromOrthologTable = []
         base2xDict = {}
         x2baseDict = {}
-        orthoList = []
+        orthoList = [] #list of all the base orthologs
         lineNumber = 0
         for line in infile:
             lineNumber += 1
             line = line.strip('\n').split('\t')
             if lineNumber == 1:
-                if Base == "none":
-                    sppList = line[1:]
-                else:
-                    if Base == line[0]:
-                        print "\nUsing sequence names from species '{}' as ortholog base names".format(Base)
-                        sppList = line
-                    else:
-                        exit("\nError. The species name given for argument '-as_base' did not match the species name in the header of the ortholog table. Check that the species name given matches the first column of ortholog table and continue")
+                baseSpecies = line[0].split(Sep)[Spp]
+                fastaList = line #grab the list of all fasta files including the base fasta
+                #edit them into species names using arguments Sep and Spp to edit fasta file names
+                for x in fastaList:
+                    speciesName = x.split(Sep)[Spp]
+                    sppListFromOrthologTable.append(speciesName)
+                    if speciesName not in sppListFromFastas:
+                        exit("Failed to Match this species Name {} from the ortholog header with Fasta species Names".format(x.split("_")[0]))
                 continue
+            #for all lines other than the header line
+            #assign the base sequence ID, set up the dictionary keyed to this base sequence ID and add it to the ortholist.
             base = line[0]
             base2xDict[base] = {}
             orthoList.append(base)
-            for i in range(len(sppList)):
-                spp = sppList[i]
-                if Base == "none":
-                    ortho = line[1:][i]
-                else:
-                    ortho = line[i]
+            for i in range(len(sppListFromOrthologTable)):
+                spp = sppListFromOrthologTable[i] #grab the species name
+                ortho = line[i]#set the sequence ID for this species
+                #attach the species name with its orthologous sequence ID to the base ID in the base2xDict (link the species and its ortholog to the base ortholog ID)
                 base2xDict[base][spp] = ortho
+                #record the converse dictionary
+                #the species may not have been encountered yet, so do it with error exceptions
                 try:
                     x2baseDict[spp][ortho] = base
                 except KeyError:
-                    x2baseDict[spp] = {}
-    return orthoList, base2xDict, x2baseDict
+                    x2baseDict[spp] = {ortho : base}
+    #now we have the ortholist (all base ortholog IDs), base2xDict (links base ortholog IDs to species linked to their specific orhtolog ID), and the converse dictionary that goes {spp: {ortho: base}
+    print "\nUsing {} as the base species name".format(baseSpecies)
+    return orthoList, base2xDict, x2baseDict, baseSpecies, sppListFromOrthologTable
         
 def pull_seqs(orthoList, base2xDict, x2baseDict, fileSet):
+    """go through the dictionaries that have the ortholog data and pull out the sequences.
+    Generates a single dictionary that holds the orthologous sequences for all species.
+    seqDict = {species1 : {baseID1 = species1_orthologous_sequence, baseID2 : species1_orthologous_sequence}}"""
+    print "\nPulling sequences from fastas..."
     seqDict = {}
     for fasta in fileSet:
+        # print fasta
         #pull the species name from the fasta file name
         species = fasta.split(Sep)[Spp]
+        # print species
         #set up the nested dictionary for this sepcies
         seqDict[species] = {}
         #parse the fasta
@@ -153,11 +170,11 @@ def pull_seqs(orthoList, base2xDict, x2baseDict, fileSet):
             try:
                 x2baseDict[species]
             except KeyError:
-                continue
                 exit("Species {} is missing for some reason".format(species))
             try:
                 #try to pull the base ortholog connected with this sequence id
-                base = x2baseDict[species][seq.id]
+                SEQID = seq.id.split()[0]
+                base = x2baseDict[species][SEQID]
             except KeyError:
                 #if you can't find a base ortholog for this one then it is not one of the reciprocal orthologs
                 continue
@@ -165,7 +182,18 @@ def pull_seqs(orthoList, base2xDict, x2baseDict, fileSet):
             seqDict[species][base] = seq.seq.upper()
     return seqDict
 
-def output(sppList, orthoList, seqDict, outSuffix):
+def output(sppListFromOrthologTable, orthoList, seqDict, outSuffix):
+    """Output the fasta files for each ortholog. Note that file name is based on the 
+    base ortholog sequence name and that pipes switched for dashes if present.
+    Iterates through all the base sequence names included in the ortholog table.
+    Then iterates through each species included in the species table.
+    Fasta files are like this:
+    >species1
+    ATGCATGC
+    >species2
+    ATGCAGTAC
+    etc.
+    """
     for base in orthoList:
         outFileName = base + outSuffix
         #sometimes sequence names have pipe characters in them
@@ -179,7 +207,7 @@ def output(sppList, orthoList, seqDict, outSuffix):
         outFileName = out2
         with open(outFileName, 'w') as out:
             counter = 0
-            for species in sppList:
+            for species in sppListFromOrthologTable:
                 counter += 1
                 if counter == 1:
                     carrot = ">"
@@ -195,18 +223,23 @@ def output(sppList, orthoList, seqDict, outSuffix):
     
 
 check_files(Nucs, Prots)
-orthoList, base2xDict, x2baseDict = read_orthos(Orthos, Base)
-# print "\n\nx2baseDict:"
-# for i in x2baseDict.keys():
-#     print i
-# print base2xDict.keys()
-# exit()
-nucSeqDict = pull_seqs(orthoList, base2xDict, x2baseDict, Nucs)   
-protSeqDict = pull_seqs(orthoList, base2xDict, x2baseDict, Prots)        
+orthoList, base2xDict, x2baseDict, baseSpecies, sppListFromOrthologTable = read_orthos(Orthos)
+# if debug != 'FALSE':
+#     print "finished reading orthos"
+#     for i in orthoList:
+#         print "---------"
+#         print i
+#         f = base2xDict[i]['Fscutaria']
+#         b = x2baseDict['Fscutaria'][f]
+#         print "{} == {}?".format(i, b)
+#         print b == i
+
+nucSeqDict = pull_seqs(orthoList, base2xDict, x2baseDict, Nucs)
+protSeqDict = pull_seqs(orthoList, base2xDict, x2baseDict, Prots)
 # for i in nucSeqDict.keys():
 #     print nucSeqDict[i]
-output(sppList, orthoList, nucSeqDict, "_nuc.fasta")
-output(sppList, orthoList, protSeqDict, "_prot.fasta")
+output(sppListFromOrthologTable, orthoList, nucSeqDict, "_nuc.fasta")
+output(sppListFromOrthologTable, orthoList, protSeqDict, "_prot.fasta")
 
 #return time to run
 Time = time.time() - Start_time

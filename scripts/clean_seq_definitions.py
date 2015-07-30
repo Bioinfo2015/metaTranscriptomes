@@ -18,8 +18,8 @@ Cleans the sequence definitions of transcriptomes based on some given arguments.
 AdditionalProgramInfo = '''
 Additional Program Information:
 
-Use this when working with transcriptomes with lots of junk in their sequence definitions lines other than the
-identifying string. 
+Use this when working with transcriptomes with lots of junk in their sequence definitions (lines other than the
+identifying string). 
 
 '''
 
@@ -57,21 +57,24 @@ def clean_file(InfileName, OutfileName, Delimiter, Index):
             for line in infile:
                 lineNumber += 1
                 line = line.strip("\n")
-                if line[0] == ">":
-                    if Delimiter == 'use_space':
-                        identifier = line.split()[Index]
+                try:
+                    if line[0] == ">":
+                        if Delimiter == 'use_space':
+                            identifier = line.split()[Index]
+                        else:
+                            identifier = line.split(Delimiter)[Index]
+                        #if it was first then we got the carrot already
+                        if Index == 0:
+                            line = identifier
+                        #otherwise add the carrot
+                        else:
+                            line = '>' + identifier
+                    if lineNumber == 1:
+                        out.write(line)
                     else:
-                        identifier = line.split(Delimiter)[Index]
-                    #if it was first then we got the carrot already
-                    if Index == 0:
-                        line = identifier
-                    #otherwise add the carrot
-                    else:
-                        line = '>' + identifier
-                if lineNumber == 1:
-                    out.write(line)
-                else:
-                    out.write('\n' + line)
+                        out.write('\n' + line)
+                except IndexError: #this allows skipping of blank lines in case the fasta if formatted that way
+                    continue
 
 
 clean_file(InfileName, OutfileName, Delimiter, Index)
