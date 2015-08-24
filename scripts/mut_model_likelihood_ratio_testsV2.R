@@ -23,7 +23,7 @@ np.Mo = 28
 np.Ma = 29
 #NOW WE HAVE ALL THE DATA WE NEED TO PERFORM A LOG LIKELIHOOD TEST
 #GET THE LIKELIHOOD RATIO TEST STATISTIC (G)
-G = 2*(lnL.Ma - lnL.Mo) 
+G = 2*(lnL.Ma - lnL.Mo)
 #(in terms of likelihood it would look like this: G = 2*log(likelihood.Ma/likelihood.Mo) )
 #WHEN THE NULL HYPOTHESIS IS TRUE, G HAS AN APPROXIMATE CHI-SQUARE DISTRIBUTION
 #SO WE CAN USE THE CHI-SQUARE DISTRIBUTION WITH THE RIGHT NUMBER OF DEGREE OF FREEDOM (df)
@@ -45,19 +45,6 @@ dchisq(G, df = 1)
 
 x = seq(from = 0, to = 8, by = 0.001)
 curve (dchisq(x, df = 5))
-#use help(Chisquare) for more information
-#FOR STARTING LIKELIHOODS L.Mo = 1e-10 and L.Ma = 1e-9 WE GET P-VALUE = 0.0024
-#BASED ON THIS WE REJECT THE NULL MODEL. THE ALTERNATIVE MODEL PROVIDES SIGNIFICANTLY BETTER FIT TO OUR DATA.
-#HERE IS A FUNCTION TO PEFORM THIS
-lrt = function(lnL.Ma,  lnL.Mo, np.Mo, np.Ma){
-  G = 2*(lnL.Ma -  lnL.Mo)
-  df = np.Ma - np.Mo
-  p.value = pchisq(G, d.f., ncp = 0, lower.tail = F)
-  print(p.value)
-}
-
-x = c(np.Ma, lnL.Ma, np.Mo, lnL.Mo)
-lrt(x)
 #=============================================================================
 
 ########################################################################################
@@ -68,7 +55,7 @@ lrt(x)
 #OUR QUESTION IS WHICH ORTHOLOGS ARE BETTER DESCRIBED WITH OUR ALTERNATIVE MODEL
 
 #READ IN THE SET OF MODEL STATISTICS
-setwd("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/data_files")
+setwd("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/data_files/")
 altdat = read.table('altLikelihoods.txt', header = T)
 nulldat = read.table('nullLikelihoods.txt', header = T)
 head(altdat)
@@ -78,10 +65,14 @@ colnames(ldat) = c('EST', 'np.a', 'l.a', 'np.o', 'l.o')
 nrow(ldat)
 head(ldat)
 
-#SET UP FUNCTION TO RETURN THE P VALUE FOR THE LRT BETWEEN TWO CODEML MODELS
+#PERFORM THE LIKELIHOOD RATIO TEST 
+#get G 
 ldat$G = 2*(ldat$l.a - ldat$l.o)
+#get degrees of freedom (should be 1)
 ldat$df = ldat$np.a - ldat$np.o
-ldat$p.value = pchisq(ldat$G, ldat$df, lower.tail = F)
+#get p value
+ldat$p.value = pchisq(ldat$G, ldat$df, lower.tail = F)/2 #note PAML manula page 31 says to divide the p value by 2
+#adjust p values for FDR
 ldat$adj.p = p.adjust(ldat$p.value, method = 'BH')
 
 
@@ -92,7 +83,7 @@ mdat$isogroup = rownames(mdat)
 #UPLOAD DATASETS NEEDED TO TRANSITION BETWEEN GENE NAMES
 #UPLOAD MILLEPOR-DIGITIFERA ORHTOLOG TABLE
 #UPLOAD THE ORTHOLOG DATA
-orthos = read.table('/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/data_files/Adigitifera_CDS_Ortholog_Table_e5_hp50_c2.txt', header = T)##best
+orthos = read.table('Adigitifera_CDS_Ortholog_Table_e5_hp50_c2.txt', header = T)##best
 #UPLOAD THE SEQ2ISO DATA FOR MILLEPORA
 iso2seq = read.table("/Users/grovesdixon/Documents/lab_files/Amillepora_transcriptome/amillepora_transcriptome_july2014/amil_seq2iso.tab", col.names = c('EST', 'isogroup'))
 colnames(iso2seq) = c('Amillepora', 'isogroup')
@@ -120,6 +111,7 @@ head(m2)
 #now pull in the MBD-seq data
 cdat = merge(m2, mdat, by = 'isogroup')
 head(cdat)
+nrow(cdat)
 
 #CLEAN UP THE MESS WE MADE GETTING THERE
 rm(m1)
@@ -129,10 +121,13 @@ rm(orthos)
 
 #WHAT ARE THE GENES THAT ARE UNDER SELECTION?
 CUT = 0.05
+#HOW MANY GENES HAVE FDR BELOW CUT?
 nrow(cdat[cdat$adj.p < CUT,])
-cdat[cdat$adj.p < CUT,]
-write.table(cdat[cdat$adj.p < CUT, 'EST'], 'isogroupsUnderSelection.txt', sep = '\t', quote = F, row.names = F)
+#HOW MANY UNADJUSTED?
 nrow(cdat[cdat$p.value < CUT,])
+
+#OUTPUT THE SIGNIFICANT GENES
+write.table(cdat[cdat$adj.p < CUT, 'isogroup'], 'isogroupsUnderSelection_Run8_cut1.txt', sep = '\t', quote = F, row.names = F)
 
 #CORRELATION BETWEEN POSITIVE SELECTION IN ACROPORIDS AND MBD-SCORE
 plot(-log(p.value, 10)~log2FoldChange, data = cdat)
@@ -168,11 +163,21 @@ quantile_plot = function(size, dat, Xcolumn, Ycolumn, sig.threshold){
   plot_dat = data.frame(mn,x,strr,n, n.sig)
   return(plot_dat)
 }
-qdat = quantile_plot(1/20, cdat, 'log2FoldChange', 'p.value', 0.1)
-plot(n.sig~x, data = qdat)
-loess_fit <- loess(n.sig ~ x, qdat, span = 1.5, se = T)
-lines(qdat$x, predict(loess_fit),col="red",lwd=1)
+size = 1/8
+quartz()
+par(mfrow = c(1,2))
+qdat = quantile_plot(size, cdat, 'log2FoldChange', 'adj.p', 0.05)
+barplot(rev(qdat$n.sig), names = rev(round(qdat$x, digits = 1)), main = "FDR 0.05")
+qdat = quantile_plot(size, cdat, 'log2FoldChange', 'p.value', 0.05)
+barplot(rev(qdat$n.sig), names = rev(round(qdat$x, digits = 1)), main = "Unadjusted P < 0.05")
+
 #SO APPARENTLY NO CORRELATION WHATSOEVER WITH MBD-SCORE
+
+########### COMPARE BETWEEN METHYLATED AND NONMETHYLATED ####################
+met = cdat[cdat$log2FoldChange > 0,]
+non = cdat[cdat$log2FoldChange < 0,]
+hist(met$adj.p)
+hist(non$adj.p)
 
 ################# NOW SAVE THE DATAFRAME TO DO SOME GO ENRICHMENT ####################
 #MISHA'S SCRIPTS USE ISOGROUP100 INSTEAD OF ISOGROUP=100, SO CHANGE THAT HERE
@@ -186,8 +191,7 @@ colnames(out) = c('gene', 'logp')
 head(out)
 nrow(out)
 #write out for GO
-write.table(out, '/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/go/Acroporid_evolution_pvalues2-21-15.txt', quote = F, row.names = F, sep = ",")
+#use this file as input for 
+write.table(out, '/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/go/Acroporid_evolution_pvalues5-8-15.txt', quote = F, row.names = F, sep = ",")
 #write out for KOGG
-write.table(out, '/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/kog/Acroporid_evolution_pvalues2-21-15.txt', quote = F, row.names = F, sep = ",")
-
-
+write.table(out, '/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/kog/Acroporid_evolution_pvalues5-8-15.txt', quote = F, row.names = F, sep = ",")
