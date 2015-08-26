@@ -28,8 +28,8 @@ plotCI(wdat$x, wdat$mn, uiw = wdat$sterr, liw = wdat$sterr, add = F, scol = 'bla
 
 #choose global plotting variables to plot
 #pair-wise substitution rates vs methylation scores
-mut.type = 'dNdS'
-filter.mut = 'dNdS'
+mut.type = 'dN'
+filter.mut = 'dS'
 meth.type = 'mbd.score'    #mbd.score or cpg
 filter = T
 remove.zeros = T
@@ -37,17 +37,84 @@ factor = 2
 span = .5
 loess = T
 window = 1/20
+line.width = 2
+cex.axis = 1.25
+cex.lab = 1.25
+title.line = .6
 
 #plot for acroporids
 quartz()
 par(mfrow = c(2,2))
+par(mar = c(4,3.5,1.5,.5) + 0.1)
 acro = c("Adigitifer", "Ahyacinthu", "Apalmata", "Atenuis")
+acro.right = c("A.digitifera", "A.hyacinthus", "A.palmata", "A.tenuis")
 speciesList = acro
-for (sp in speciesList){
-  sp = as.character(sp)
+for (i in 1:length(speciesList)){
+  sp = as.character(speciesList[i])
   sub = filter.sub.rates(dnds.dat, sp, mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
-  do.window.plot(window, meth.type, mut.type, sub, 10, meth.type, mut.type, paste(sp, nrow(sub)), loess, span, limits = F)
+  sp = as.character(acro.right)[i]
+  win = do.window.plot(window, meth.type, mut.type, sub, 10, "\n", "\n", '\n', loess, span, limits = F)
+  title(paste(sp, nrow(sub)), font.main = 3, line = .75)
+  title(xlab = "MBD-score", ylab = mut.type, cex.lab = cex.lab, line = 2.25)
+  yat = signif(seq(from = min(win$mn - win$sterr), to = max(win$mn + win$sterr), by = (max(win$mn + win$sterr) - min(win$mn - win$sterr))/2), 2)
+  axis(1, cex.axis = cex.axis, at = c(-2, 0, 2))
+  axis(2, cex.axis = cex.axis, at = yat)
+  # axis(2)
 }
+
+#set margins for top figures
+par(mar = c(3.5,3.5,1.5,.6) + 0.1)
+#Adig
+line.width = 2
+sub = filter.sub.rates(dnds.dat,'Adigitifer', mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
+sp = "A.digitifera"
+win = do.window.plot(window, meth.type, mut.type, sub, 10, "\n", "\n", '\n', loess, span, limits = F)
+title(paste(sp, nrow(sub)), font.main = 3, line = title.line)
+title(xlab = "\n", ylab = mut.type, cex.lab = cex.lab, line = 2.25)
+yat = signif(seq(from = min(win$mn - win$sterr), to = max(win$mn + win$sterr), by = (max(win$mn + win$sterr) - min(win$mn - win$sterr))/2), 2)
+axis(1, cex.axis = cex.axis, at = c(-2, 0, 2))
+axis(2, cex.axis = cex.axis, at = yat)
+line.width = 3
+plot.meth.bars(sub, 'mbd.score', 'dN', 0, c('green', 'red'))
+#Ahyacinthus
+line.width = 2
+sub = filter.sub.rates(dnds.dat,'Ahyacinthu', mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
+sp = "A.hyacinthus"
+win = do.window.plot(window, meth.type, mut.type, sub, 10, "\n", "\n", '\n', loess, span, limits = F)
+title(paste(sp, nrow(sub)), font.main = 3, line = title.line)
+title(xlab = "\n", ylab ="\n", cex.lab = cex.lab, line = 2.25)
+yat = signif(seq(from = min(win$mn - win$sterr), to = max(win$mn + win$sterr), by = (max(win$mn + win$sterr) - min(win$mn - win$sterr))/2), 2)
+axis(1, cex.axis = cex.axis, at = c(-2, 0, 2))
+axis(2, cex.axis = cex.axis, at = yat)
+line.width = 3
+plot.meth.bars(sub, 'mbd.score', 'dN', 0, c('green', 'red'))
+
+# par(mar = c(4,3.5,1.5,.5) + 0.1) #set margins for bottom figures
+#Apalmata
+line.width = 2
+sub = filter.sub.rates(dnds.dat,'Apalmata', mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
+sp = "A.palmata"
+win = do.window.plot(window, meth.type, mut.type, sub, 10, "\n", "\n", '\n', loess, span, limits = F)
+title(paste(sp, nrow(sub)), font.main = 3, line = title.line)
+title(xlab = "MBD-score", ylab ="dN", cex.lab = cex.lab, line = 2.25)
+yat = signif(seq(from = min(win$mn - win$sterr), to = max(win$mn + win$sterr), by = (max(win$mn + win$sterr) - min(win$mn - win$sterr))/2), 2)
+axis(1, cex.axis = cex.axis, at = c(-2, 0, 2))
+axis(2, cex.axis = cex.axis, at = yat)
+line.width = 3
+plot.meth.bars(sub, 'mbd.score', 'dN', 0, c('green', 'red'))
+#Atenuis
+line.width = 2
+sub = filter.sub.rates(dnds.dat,'Atenuis', mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
+sp = "A.tenuis"
+win = do.window.plot(window, meth.type, mut.type, sub, 10, "\n", "\n", '\n', loess, span, limits = F)
+title(paste(sp, nrow(sub)), font.main = 3, line = title.line)
+title(xlab = "MBD-score", ylab ="\n", cex.lab = cex.lab, line = 2.25)
+yat = signif(seq(from = min(win$mn - win$sterr), to = max(win$mn + win$sterr), by = (max(win$mn + win$sterr) - min(win$mn - win$sterr))/2), 2)
+axis(1, cex.axis = cex.axis, at = c(-2, 0, 2))
+axis(2, cex.axis = cex.axis, at = yat)
+line.width = 3
+plot.meth.bars(sub, 'mbd.score', 'dN', 0, c('green', 'red'))
+
 
 
 #plot for non acroporid corals

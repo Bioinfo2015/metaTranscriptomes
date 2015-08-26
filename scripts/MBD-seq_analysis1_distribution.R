@@ -1,30 +1,23 @@
 #MBD-seq_analysis1_distribution.R
 #Groves Dixon
 #1/16/15
-####################################################################################################
-## THIS R SCRIPT ANALYZES MBD-seq DATA OUTPUT FROM DESeq (SEE DESeq_for_MBDseq.R)                 ##  
-## GENES ARE LABELED AS ISOGROUPS CLUSTERED FROM THE A. MILLEPORA TRANSCRIPTOME (Moya et al. 2011)##
-####################################################################################################
+#This script is the first of a set for analysis and figure generation
+#from methylation, and substitution rate data from A.millepora and 
+#other anthozoan species. This script generates a baseline set of 
+#dataframes that are used in all subsequent scripts.  
+#it is recommmended that you keep all input and output files in one
+#working directory that you use for all the scripts.
 
-############# UPLOAD THE MBD FOLD COVERAGE RESULTS ############
-#THE TABLE IS EXPORTED BY DESeq_ForMBDseq.R
-setwd('/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/MBD-seq/data_files/')
-# mdat = read.table("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/MBD-seq/data_files/methylDESeq_v1.txt")###previous dataset without duplicates removed
-# mdat = read.table("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/MBD-seq/data_files/methylDESeq_v4_8-1-15.txt")#
-# mdat = read.table("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/MBD-seq/data_files/methylDESeq_v5_8-3-15_clusted_dupIncluded.txt")#
+#upload MBD-seq data
+setwd('/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/')
 mdat = read.table("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/MBD-seq/data_files/methylDESeq_v6_8-3-15_clusted_dupRemoved.txt")#
-# mdat = read.table("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/MBD-seq/data_files/methylDESeq_v3_7-31-15.txt")##current dataset with duplicates removed. Mapped against transcriptome
 mdat$isogroup = rownames(mdat)
 head(mdat)
 
 #upload the iso2seq table which we'll need later
 iso2seq = read.table("/Users/grovesdixon/Documents/lab_files/Amillepora_transcriptome/amillepora_transcriptome_july2014/amil_seq2iso.tab", col.names = c('contig', 'isogroup'))
 
-###############################################################
-############ LOOK AT CORRELATION WITH CPGOE ###################
-###############################################################
-
-#make new CpG data
+#upload CpG data, filter and calculate CpGoe
 cdat = read.table("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/data_files/cpgoe_data/AmilleporaCpG.txt", header = T)
 head(cdat)
 minlength = 100
@@ -49,11 +42,11 @@ cg = na.omit(cg)
 head(cg)
 colnames(cg)[1] = 'contig'
 
-##UPLOAD THE OLD CPGOE DATAFRAME AND MERGE WITH NEW DATA
+#merge the CpGoe data with the MBD-seq data
 cgm = merge(cg, iso2seq, by = 'contig')
 cpg.dat = merge(mdat, cgm, by = 'isogroup')
 
-#PLOT CORRELATION BETWEEN FOLD CHANGE AND CPGOE
+#plot the correlation between mbd-score and CpGoe
 plot(log2FoldChange~cpgOE, data = cpg.dat, pch = 19, cex = 0.2)
 plot(log2FoldChange~cpgOE, data = cpg.dat, pch = 19, cex = 0.1, ylim = c(-3, 3), xlim = c(0,1.5))
 
@@ -69,48 +62,46 @@ spear.test
 #############################################################
 ### LOOK AT CLUSTERING OF POINTS IN THE MBD VS CPGOE PLOT ###
 #############################################################
-#keep commented out unless want to plot figure 1
-# library(cluster)
-# x = data.frame(cpg.dat$cpgOE, cpg.dat$log2FoldChange)
-# # #CLUSTER INTO TWO COMPONENTS
-# colnames(x) = c('cpg', 'mbd')
-# part <- pam(x, 2)
-# id=part$clustering
-# quartz()
-# plot(mbd~cpg, data = x, col = id, ylim = c(-3, 3), xlim = c(0, 1.5), cex = .2, ylab = "log2 Fold Change", xlab = "CpGoe")
-# # legend(1.05, 3.20, c('strong', 'weak'), fill = c('red', 'black'), title = "Methylation")
-# legend(0, -2.3, c('strong', 'weak'), fill = c('red', 'black'), title = "Methylation")
+require(mclust)
+y = mdat$log2FoldChange
+x = sample(y, 1000)
+# x = mdat$log2FoldChange         #comment this back in to do actual figure
 
+#
+bic = mclustBIC(x, G = c(1:5))
+summary(bic)
+plot(bic, G = c(1:5))
+isogroup = mdat$isogroup
+mod2 = Mclust(x, G = 3, modelNames = c('V'))
+par(mfrow = c(2, 1))
+par(mar = c(0, 4, 0, 2) + .1)
+hist(mdat$log2FoldChange, breaks = 70, xlim = c(-5.3, 10), main = "", xlab = "\n", axes = F)
+at = c(-5, 0, 5, 10)
+# abline(v = at)
+# axis(1, at = at)
+axis(2, at = c(0, 1e3, 2e3), las = 1)
+par(mar = c(5, 4, 0, 2) + .1)
+plot(mod2, what = "classification", col = c('red', 'green', 'purple'), axes = F, main = "\n", xlab = "\n", xlim = c(-5.3, 10))
+# abline(v = at)
+axis(1, at = at)
+title(ylab = 'Component')
+title(xlab = "MBD-score")
+result = data.frame(isogroup, x, mod2$classification)
+mdat2 = merge(mdat, result, by = 'isogroup')
 
+head(result)
+nrow(result)
+head(cpg.dat)
+r1 = data.frame(cpg.dat$isogroup, cpg.dat$cpgOE)
+head(r1)
+colnames(r1) = c('isogroup', 'cpgOE')
+result2 = merge(result, r1, by = 'isogroup')
+head(result2)
+colnames(result2) = c('isogroup', 'mbd.score', 'class', 'cpgOE')
+plot(mbd.score~cpgOE, data = result2, cex = .2)
+plot(log2FoldChange~cpgOE, data = cpg.dat, pch = 19, cex = 0.2, col = result2$class)
+plot(mbd.score ~cpgOE, data = result2, pch = 19, cex = 0.1, ylim = c(-3, 3), xlim = c(0,1.5), col = c(result2$class))
 
-
-
-#still in progress
-## clustering using mclust
-# library(mclust)
-# head(dat)
-# y = data.frame(cpg.dat$mbd.score, cpg.dat$cpgOE)
-# colnames(y) = c('mbd', 'cpg')
-# z = y[1:500,]
-# head(z)
-# nrow(y)
-# head(y)
-# # clPairs(y, one)
-# BIC = mclustBIC(z)
-# plot(BIC)
-# summary(BIC)
-# mod1 = Mclust(z, G = 3)
-# summary(mod1, parameters = TRUE)
-# mod1$G
-# mod1$BIC
-# quartz()
-# plot(mod1, what = "classification")
-# mod1$G
-# mod1$call
-# mod1$classification
-# z$class = mod1$classification
-# head(z)
-# plot(cpg~mbd, data = z, col = class)
 
 
 
@@ -124,7 +115,7 @@ spear.test
 
 ######################## PLOT FIGURE 1 ###################################
 quartz()
-hist(mdat$log2FoldChange, breaks = 70, xlim = c(5,-4), main = "", xlab = "Log2 Fold Difference")
+hist(mdat$log2FoldChange, breaks = 70, xlim = c(-5, 10), main = "", xlab = "Log2 Fold Difference")
 abline(v = 0, lty = 2)
 plot(mbd~cpg, data = x, col = c('darkgreen', 'black')[id], ylim = c(-3, 3), xlim = c(0, 2), cex = .3, ylab = "log2 Fold Change", xlab = "CpGoe", pch = 1)
 # legend(1.31, -1.5, c('strong', 'weak'), fill = c('red', 'black'), title = "Methylation", bg = 'white')
@@ -139,29 +130,6 @@ add.alpha <- function(col, alpha=1){
 alpha.cols = add.alpha(c('black', 'darkgreen'), .1)
 plot(mbd~cpg, data = x, ylim = c(-3, 3), xlim = c(0, 1.5), cex = .3, ylab = "log2 Fold Change", xlab = "CpGoe", pch = 19, col = alpha.cols[id])
 
-###########################################################################
-############ LOOK INTO POTENTIAL PULLDOWN-ONLY MEASURES ###################
-###########################################################################
-
-#UPLOAD THE COUNTS DATA
-# setwd("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/MBD-seq/data_files/")
-# dat = read.table('/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/MBD-seq/data_files/counts_2-10-15_dupsIncluded.txt', header = T)
-# colnames(dat) = c("met1", "met2", "ub1", "ub2")#note this is correcting for the mislabeling before sequencing
-# head(dat)
-# 
-# dat$EST = rownames(dat)
-
-#################################################################
-############# TEST FOR BIMODAL DISTRIBUTION #####################
-#################################################################
-#keep commented out 
-# require(mclust)
-# x = mdat$log2FoldChange
-# # x = rnorm(n=500, m=1, sd=1) 
-# # hist(x)
-# clust = Mclust(x, G = c(1:5), modelNames = c("V"))
-# bic = mclustBIC(x, G = c(1:9), modelNames = c("V"))
-# plot(bic, G = c(1:9), modelNames = c("V"))
 
 ###########################################################
 ###### MODEL THE DISTRIBUTION WITH A MIXTURE MODEL ########
@@ -175,7 +143,7 @@ emmix = function(dat, col, means, sigma, lambda, k){
   plot(cpgNull, which = 2, breaks = 50, density = F, xlab2 = "CpGo/e") 
   return(cpgNull)
 }#function to find a best mixture model
-mix.model = emmix(mdat, 'log2FoldChange', NULL, NULL, NULL, 2) #run the function for two components and no prior estimates of component parameters
+mix.model = emmix(mdat, 'log2FoldChange', NULL, NULL, NULL, 3) #run the function for two components and no prior estimates of component parameters
 model_df = function(lambda,mean,sigma){
   df = data.frame(cbind(lambda,mean,sigma))
   rownames(df) = paste("comp",rownames(df),sep="")
@@ -187,7 +155,7 @@ mod.tab = model_df(mix.model$lambda, mix.model$mu, mix.model$sigma)
 ########## PLOT THE DISTRIBUTION WITH THE MODEL COMPONENTS OVERLAID #########
 #############################################################################
 
-hist(mdat$log2FoldChange, breaks = 70, prob = T)
+hist(mdat$log2FoldChange, breaks = 70, prob = T, xlim = c(-5, 7))
 make_comp = function(model.name, comp.num){
   comp = function(x){
     model.name$lambda[comp.num]*dnorm(x, model.name$mean[comp.num], model.name$sigma[comp.num])
@@ -199,7 +167,7 @@ comp2 = make_comp(mod.tab, 2)
 comp3 = make_comp(mod.tab, 3)
 curve(comp1, add = TRUE, col='red', lwd=3)
 curve(comp2, add = TRUE, col='green', lwd=3)
-curve(comp3, add = TRUE, col='purple', lwd=3)
+curve(comp3, add = TRUE, col='yellow', lwd=3)
 #OPTIONALL TRACE THE SUMMED MODEL 
 pnormmix <- function(x,mixture){
   lambda <- mixture$lambda
@@ -211,6 +179,9 @@ pnormmix <- function(x,mixture){
   return(rowSums(pnorms))
 }
 curve(pnormmix(x,mod.tab),add=T,col="purple",lty=1,lwd=2)
+
+comp1
+
 
 
 ##save the data
