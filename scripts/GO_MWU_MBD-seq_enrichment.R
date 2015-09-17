@@ -1,126 +1,52 @@
-setwd("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/go")
 
+# GO_MWU uses continuous measure of significance (such as fold-change or -log(p-value) ) to identify GO categories that are significantly enriches with either up- or down-regulated genes. The advantage - no need to impose arbitrary significance cutoff.
 
-# Edit these as needed, then highlight everything and execute (takes ~5 min for MF and BP):
-input = "MBD-scores_for_GO_MWU.csv" ## use this for go enrichment by MBD fold changes
+# If the measure is binary (0 or 1) the script will perform a typical "GO enrichment" analysis based Fisher's exact test: it will show GO categories over-represented among the genes that have 1 as their measure. 
 
-goAnnotations="amil_defog_iso2go.tab"
-goDatabase="go.obo.txt"
-goDivision="MF"####MF is most interesting here
-extraOptions="alternative=t"  #alternative=g/l/t
-absValue=-log(0.1, 10) # we want to count genes with this or better absolute measure value within each displayed GO category. This does not affect statistics.
+# On the plot, different fonts are used to indicate significance and color indicates enrichment with either up (red) or down (blue) regulated genes. No colors are shown for binary measure analysis.
 
-level1=1e-6 # p-value cutoff for the GO categories to plot as a tree; the worst ones will be printed in small italic font. Specify cutoff=1 to summarize all the genes at or exceeding absValue. 
-level2=1e-8# # p-value cutoff for printing in regular font.
-level3=1e-10 # p-value cutoff for printing in large bold font.
-adjusted=T # replace with F to plot un-adjusted p-values.
-txtsize=1  # decrease this one to squeeze more GO descriptions on the same panel.
-font.family="sans" #"serif"
+# The tree on the plot is hierarchical clustering of GO categories based on shared genes. Categories with no branch length between them are subsets of each other.
+
+# The fraction next to GO category name indicates the fracton of "good" genes in it; "good" genes being the ones exceeding the arbitrary absValue cutoff (option in gomwuPlot). For Fisher's based test, specify absValue=0.5. This value does not affect statistics and is used for plotting only.
+
+# Stretch the plot manually to match tree to text
+
+# Mikhail V. Matz, UT Austin, February 2015; matz@utexas.edu
 
 ################################################################
-# generating MWU and dissim files; only need to do this once
-system(paste("perl ./gomwu.pl", goDatabase, goAnnotations, input, goDivision, extraOptions))
-################################################################
+#set the working directory
+setwd("/Users/grovesdixon/git_Repositories/metaTranscriptomes/working_directory/go_mwu")
 
-require(ape)
-in.mwu=paste("MWU", goDivision, input,sep="_")
-in.dissim=paste("dissim", goDivision, goAnnotations,sep="_")
 
-cutoff=-log(level1,10)
-pv=read.table(in.mwu,header=T)
-row.names(pv)=pv$term
-in.raw=paste(goDivision,input,sep="_")
-rsq=read.table(in.raw,sep="\t",header=T)
-rsq$term=as.factor(rsq$term)
+# Edit these to match your data file names: 
+input="MBD-scores_for_GO_MWU.csv" # two columns of comma-separated values: gene id, continuous measure of significance. To perform standard GO enrichment analysis based on Fisher's exact test, use binary measure (0 or 1, i.e., either sgnificant or not).
+goAnnotations="amil_defog_iso2go.tab" # two-column, tab-delimited, one line per gene, multiple GO terms separated by semicolon. If you have multiple lines per gene, use nrify_GOtable.pl prior to running this script.
+goDatabase="go.obo" # download from http://www.geneontology.org/GO.downloads.ontology.shtml
+goDivision="MF" # either MF, or BP, or CC
+source("/Users/grovesdixon/git_Repositories/metaTranscriptomes/scripts/gomwu.functions.R")
 
-if (adjusted==TRUE) { pvals=pv$p.adj } else { pvals=pv$pval }
-heat=data.frame(cbind("pval"=pvals)) 
-row.names(heat)=pv$term
-heat$pval=-log(heat$pval+1e-15,10)
-heat$direction=0
-heat$direction[pv$delta.rank>0]=1
-if (cutoff>0) { 
-	goods=subset(heat,pval>=cutoff) 
-} else {
-	goods.names=unique(rsq$term[abs(rsq$value)>=absValue])
-	goods=heat[row.names(heat) %in% goods.names,]
-}
 
-colors=c("dodgerblue2","firebrick1","skyblue","lightcoral")
-if (sum(goods$direction)==nrow(goods) | sum(goods$direction)==0) { 
-	colors=c("black","black","grey50","grey50")
-}
-goods.names=row.names(goods)
+# Calculating stats. It takes ~3 min for MF and BP. Do not rerun it if you just want to replot the data with different cutoffs, go straight to gomwuPlot. If you change any of the numeric values below, delete the files that were generated in previos runs first.
+gomwuStats(input, goDatabase, goAnnotations, goDivision,
+	perlPath="perl", # replace with full path to perl executable if it is not in your system's PATH already
+	largest=0.1,  # a GO category will not be considered if it contains more than this fraction of the total number of genes
+	smallest=5,   # a GO category should contain at least this many genes to be considered
+	clusterCutHeight=0.25, # threshold for merging similar (gene-sharing) terms. 
+#	Alternative="g" # by default the MWU test is two-tailed; specify "g" or "l" of you want to test for "greater" or "less" instead
+)
+# do not continue if the printout shows that no GO terms pass 10% FDR.
 
-# reading and subsetting dissimilarity matrix
-diss=read.table(in.dissim,sep="\t",header=T,check.names=F)
-row.names(diss)=names(diss)
-diss.goods=diss[goods.names,goods.names]
 
-# how many genes out of what we started with we account for with our best categories?
-good.len=c();good.genes=c()
-for (g in goods.names) {
-	sel=rsq[rsq$term==g,]	
-	pass=abs(sel$value)>=absValue
-	sel=sel[pass,]
-	good.genes=append(good.genes,as.character(sel$seq))
-	good.len=append(good.len,nrow(sel))
-}
-ngenes=length(unique(good.genes))
-
-#hist(rsq$value)
-totSum=length(unique(rsq$seq[abs(rsq$value)>=absValue]))
-row.names(goods)=paste(good.len,"/",pv[pv$term %in% goods.names,]$nseqs," ",pv[pv$term %in% goods.names,]$name,sep="")
-row.names(heat)=paste(good.len,"/",pv$nseqs," ",pv$name,sep="")
-row.names(diss.goods)=paste(good.len,"/",pv[pv$term %in% goods.names,]$nseqs," ",pv[pv$term %in% goods.names,]$name,sep="")
-
-# clustering terms better than cutoff
-GO.categories=as.dist(diss.goods)
-cl.goods=hclust(GO.categories,method="average")
-labs=cl.goods$labels[cl.goods$order] # saving the labels to order the plot
-goods=goods[labs,]
-
+# Plotting results
 quartz()
-plot(as.phylo(cl.goods),show.tip.label=FALSE)
-
-step=100
-left=1
-top=step*(2+length(labs))
-quartz()
-plot(c(1:top)~c(1:top),type="n",axes=F,xlab="",ylab="")
-ii=1
-goods$color=1
-goods$color[goods$direction==1 & goods$pval>cutoff]=colors[4]
-goods$color[goods$direction==0 & goods$pval>cutoff]=colors[3]
-goods$color[goods$direction==1 & goods$pval>(-log(level2,10))]=colors[2]
-goods$color[goods$direction==0 & goods$pval>(-log(level2,10))]=colors[1]
-goods$color[goods$direction==1 & goods$pval>(-log(level3,10))]=colors[2]
-goods$color[goods$direction==0 & goods$pval>(-log(level3,10))]=colors[1]
-for (i in length(labs):1) {
-	ypos=top-step*ii
-	ii=ii+1
-	if (goods$pval[i]> -log(level3,10)) { 
-		text(left,ypos,labs[i],font=2,cex=1*txtsize,col=goods$color[i],adj=c(0,0),family=font.family) 
-	} else {
-		if (goods$pval[i]>-log(level2,10)) { 
-			text(left,ypos,labs[i],font=1,cex=0.8* txtsize,col=goods$color[i],adj=c(0,0),family=font.family)
-		} else {
-#			if (goods$pval[i]>cutoff) { 
-#				text(left,ypos,labs[i],font=3,cex=0.8* txtsize,col=goods$color[i],adj=c(0,0),family=font.family)
-	#		} else { 
-		text(left,ypos,labs[i],font=3,cex=0.8* txtsize,col=goods$color[i],adj=c(0,0),family=font.family) 
-		#}
-		}
-	}
-}
-
-quartz()
-
-plot(c(1:top)~c(1:top),type="n",axes=F,xlab="",ylab="")
-text(left,top,paste("p < ",level3,sep=""),font=2,cex=1* txtsize,adj=c(0,0),family=font.family)
-text(left,top-step,paste("p < ",level2,sep=""),font=1,cex=0.8* txtsize,adj=c(0,0),family=font.family)
-text(left,top-step*2,paste("p < ",10^(-cutoff),sep=""),font=3,col="grey50",cex=0.8* txtsize,adj=c(0,0),family=font.family)
-
-print(paste("GO terms dispayed: ",length(goods.names)))
-print(paste("Good genes accounted for:  ", ngenes," out of ",totSum, " ( ",round(100*ngenes/totSum,0), "% )",sep=""))
-
+gomwuPlot(input,goAnnotations,goDivision,
+	absValue=-log(0.05,10),  # genes with the measure value exceeding this will be counted as "good genes". Specify absValue=0.5 if you are doing Fisher's exact test for standard GO enrichment.
+	level1= 1e-6, # FDR threshold for plotting. Specify level1=1 to plot all GO categories containing genes exceeding the absValue.
+	level2= 1e-8, # FDR cutoff to print in regular (not italic) font.
+	level3= 1e-10, # FDR cutoff to print in large bold font.
+	txtsize=1.2,    # decrease to fit more on one page, or increase (after rescaling the plot so the tree fits the text) for better "word cloud" effect
+	treeHeight=0.5, # height of the hierarchical clustering tree
+#	colors=c("dodgerblue2","firebrick1","skyblue","lightcoral") # these are default colors, un-remar and change if needed
+)
+# manually rescale the plot so the tree matches the text 
+# if there are too many categories displayed, try make it more stringent with level1=0.01,level2=0.005,level3=0.001.  

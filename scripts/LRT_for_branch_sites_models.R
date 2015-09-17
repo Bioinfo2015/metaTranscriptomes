@@ -1,16 +1,24 @@
+#LRT_for_branch_sites_models
+#Groves Dixon
+#8/28/15
 #R script LRT_for_branch_site_models.R
-#read and analyze data from all five sites models in CODEML (model = 0, NSsites = 0, 1, 2, 7, 8)
-#the different sites models are refered to by the value given for NSsites in the codeml control file
-load("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/MBD-seq/data_files/MBD-seq_Image.R")
+
+
+#set working directory and 
+setwd("/Users/grovesdixon/git_Repositories/metaTranscriptomes/working_directory")
+load("MBD-seq_Image.R")
 source("~/git_Repositories/metaTranscriptomes/scripts/MBD-seq_analysis_functions.R")
 
-#read in the data
-setwd("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/data_files")
-null = read.table("nullLikelihoods.txt", header = T)
-alt = read.table("altLikelihoods.txt", header = T)
+#read in the data from the null and alternative models for the branch-site test for positive selection
+#see PAML manual for descriptions of these models
+null = read.table("nullLikelihoods_branchSites.txt", header = T)
+alt = read.table("altLikelihoods_branchSites.txt", header = T)
 
-#first run lrt between model 0 and model 1
-#filter the dataset to only include genes that are somewhat significant
+#these should show the contig, the number of parameters for the model, and it's log likelihood
+head(null); head(alt)
+
+
+#first run lrt between the models
 contig = alt$contig
 contigs.null = null$contig
 la = alt$likelihood
@@ -20,9 +28,11 @@ p.values = lrt(la, lo, 1) #note degrees of freedom is difference in number of pa
 #record the results of the test in a new dataframe
 result = data.frame(la, lo, p.values, contig, contigs.null)
 head(result)
+
+#merge the dataset with the contig-isogroup table 
 dat = merge(result, iso2seq, by = 'contig')
 
-#adjust the p values for multiple tests
+#get adjusted p values for multiple tests
 dat$adj.p = p.adjust(dat$p.values, method = 'BH')
 
 #get an idea of how many genes are significant
@@ -32,6 +42,11 @@ for (i in cuts){
 	unadjust = dat[dat$p.values < i,]
 	print(paste(paste(i, nrow(sub)), nrow(unadjust)))
 }
+
+
+#write our the results
+write.table(dat, "branch_sites_LRT_results.txt", quote = F, row.names = F)
+
 
 #export the data for GO and KOGG enrichment tests using MWU-tests
 #MISHA'S SCRIPTS USE ISOGROUP100 INSTEAD OF ISOGROUP=100, SO CHANGE THAT HERE
@@ -46,6 +61,6 @@ head(out)
 nrow(out)
 #write out for GO
 #use this file as input for 
-write.table(out, '/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/go/Acroporid_evolution_pvalues8-20-15.txt', quote = F, row.names = F, sep = ",")
+write.table(out, 'branch_site_LRT_results_for_GOmwu.csv', quote = F, row.names = F, sep = ",")
 #write out for KOGG
-write.table(out, '/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/kog/Acroporid_evolution_pvalues8-20-15.txt', quote = F, row.names = F, sep = ",")
+write.table(out, 'branch_site_LRT_results_for_GOmwu.csv', quote = F, row.names = F, sep = ",")

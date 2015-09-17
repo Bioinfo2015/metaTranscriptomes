@@ -1,0 +1,11 @@
+These are the files used to run the branch-site test for 
+positive selection for orthologous sequences based on 
+contig c015579 from the A. millepora transcriptome.
+This was randomly selection from the set of contigs 
+annotated as ribosomal. The files include:
+	The tree file                                     - c015579.tree
+	The codon alignment file                          - c015579.codon
+	The codeml control file for the null model        - c015579_NULL.cnt
+	The codeml control file for the alternative model - c015579_ALT.cnt
+	The codeml output file for the null model         - c015579_NULL.codeml
+	The codeml output file for the alternative model  - c015579_ALT.codeml

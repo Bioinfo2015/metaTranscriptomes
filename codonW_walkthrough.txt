@@ -1,0 +1,236 @@
+#USING CODONW
+#recommend using a single directory for each file that you analyze
+#below are instructions for running CodonW on three subsets of isogroups from Amillepora transcriptome
+#since making this I realized that running it on all coding genes was the right way. 
+#I've left the others just for instructional purposes
+
+
+#--------- RUNNING CODONW ON ALL CODING SEQUENCES IN A.MILLEPORA -------------
+
+#codonW works with RNA, so first transform the CDS file into RNA
+DNA_2_RNA.py Amillepora_CDS.fas > Amillepora_RNA.fas
+
+
+#set path to script
+cw="/Applications/codonW/codonw"
+
+
+#get the optimal codon estimates for the entire set of coding sequences
+$cw Amillepora_RNA.fas -silent
+
+	#pick Menu 5 for Correspondence analysis
+	#pick 1 for COA on codon usage
+	#type X to return to main menu
+	#type R to run 
+	
+#This will estimate the optimal codons and codon use for the entire set of genes
+#optimal codons are stored in the file 'fop.coa'
+#the most information about the results is at the bottom of the file 'summary.coa'
+
+
+#now we have optimal codon data, so lets calculate Fop for each gene
+
+$cw Amillepora_RNA.fas -silent -fop_file fop.coa -cai_file cai.coa -cbi_file cbi.coa -nomenu
+
+#the output file with codon adaptation index (CAI), codon bias index (CBI), and frequency of optimal codons (Fop) is the .out file
+
+
+
+#Analyze results using MBD-seq_analysis5_codon_bias.R
+
+/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/codonW_analyses/all_genes
+
+#------------- TESTING BIAS AGAINST HIGH EXPRESSION ---------------
+#when codonW tries to find optimal codons for Fop and for CBI it does it based on the 
+#most biased genes according to axis 1 of the correspondance analysis
+#these genes have the lowest effective number of codons, a basic measure of codon bias
+#the creator of codonW recommends that you confirm that these highly biased genes are also highly expressed
+#the following is a walkthorugh on doing that
+
+
+#first extract the Axis 1 values from the summary.coa file
+parse_axis1_codonW_summary.py summary.coa > axis1.txt
+
+#next get the effective number of codons data
+cw="/Applications/codonW/codonw"
+$cw Amillepora_CDS.fas -silent
+	#under Menu pick 4 for codon usage indices
+	#then pick 4 for effective number of codons
+	#then type X to return to main and then R to run
+
+#edit the output
+parse_codonW_effectiveNumberCodons.py Amillepora_CDS.out > effectiveNumberCodons.txt
+
+#then use this output file in MBD-seq_analysis5_codon_bias.R to test some assumptions
+
+#check for enrichment of ribosomal genes along axis 1
+#first grab the ribosomal genes (you can find the amil_defog_iso2go.tab in the master zip file for goMWU on misha's github).
+grep GO:0003735 amil_defog_iso2go.tab > ribosomal_isogroups.txt  #ribosomal components
+grep GO:0005840 amil_defog_iso2go.tab >> ribosomal_isogroups.txt
+#alter isogroup notation to fit with old way
+sed 's/isogroup/isogroup=/' < ribosomal_isogroups.txt > ribosomal_isogroups.txt
+#this did not provide very convincing results.
+
+
+#upload these data into MBD-seq_analysis5_codon_bias.R and analyze at bottom of script
+
+
+#--------------- RUN CODON W ON ALL SPECIES --------------
+#note that we cannot test all the assumptions of codonW for species other than A.millepora
+#so these results should be treated carefully
+#the main interest in this analysis is how codons with CpGs in them behave
+#the hypothesis is that CpG codons should never be optimal and have lower CAI values
+
+#start by gathering together the *CDS.fas files output from Misha's coding sequence extractor
+#first convert them all into RNA
+for file in $(ls *CDS.fas); do echo "DNA_2_RNA.py $file > ${file/CDS.fas/}RNA.fas"; done
+
+
+#run codonW on all of them
+cw="/Applications/codonW/codonw"
+for file in $(ls *RNA.fas); do 
+$cw $file -coa_cu -nomenu -silent
+$cw $file -silent -fop_file fop.coa -cai_file cai.coa -cbi_file cbi.coa -nomenu
+mv summary.coa ${file/_RNA.fas/}_summary.coa
+done
+
+#check to make sure you have a summary file for each species
+ll *summary.coa | wc -l
+
+
+#parse all the summary files
+rm *cai.txt
+rm *hilo.txt
+for file in $(ls *summary.coa); do echo "Now Running $file..."; parse_codonW_hilo_and_cai.py -i $file -hilo ${file/_summary.coa/}_hilo.txt -cai ${file/_summary.coa/}_cai.txt -spp ${file/_summary.coa/}; done
+
+#make sure all the files were made
+ll *cai.txt | wc -l
+ll *hilo.txt | wc -l
+
+#concatenate them all
+>hilo_data.txt; for file in $(ls *hilo.txt); do cat $file >> hilo_data.txt; done
+>cai_data.txt; for file in $(ls *cai.txt); do cat $file >> cai_data.txt; done
+
+
+#analyze the outputs using codon_biase_analysis.R
+
+
+#----------------- USE OPTIMAL CODONS BASED ON CORRELATION BETWEEN RSCU AND GENE EXPRESSION ----------------
+#use get_RSCU_for_fasta.py to pull codon usage data for a fasta file
+get_RSCU_for_fasta.py -i Amillepora_RNA.fas -o Amillepora_all_RSCU.txt
+#then correlate with expression to find optimal codons
+
+
+
+#----------- GET DELTA RSCU VALUES FOR A.MILLEPORA ---------------------
+#delta RSCU is the difference in RSCU values from a set of highly expressed genes and lowly expressed genes
+#first export the top 5% highest and lowest expressed isogroups using MBD-seq_analysis5_codon_bias.R:
+	top5_hiExpressed_contigs.txt
+	bottom5_hiExpressed_contigs.txt
+
+#use these contig lists to export concatenated versions of those hi and low expression genes
+concatenate_fasta.py -i Amillepora_CDS.fas -o top5_express_concatentated.fasta -sub top5_hiExpressed_contigs.txt
+concatenate_fasta.py -i Amillepora_CDS.fas -o bottom5_express_concatentated.fasta -sub bottom5_hiExpressed_contigs.txt
+
+#transform the resulting concatenated sequences into RNA
+DNA_2_RNA.py bottom5_express_concatentated.fasta > bottom5_RNA.fasta
+DNA_2_RNA.py top5_express_concatentated.fasta > top5_RNA.fasta
+
+#now get the RSCU values for each
+get_RSCU_for_fasta.py -i bottom5_RNA.fasta -o bottom5_RSCU.txt
+get_RSCU_for_fasta.py -i top5_RNA.fasta -o top5_RSCU.txt
+
+
+#now you can upload the RSCU files back into R to look at delta RSCU
+
+
+#-------------------------------------------------------------------
+#use bootleg ribosomal version to double check the codonW results:
+
+
+#GRAB THE SET OF RIBOSOMAL GENES FROM A.MILLEPORA ISOGROUPS
+>ribosomalGenes.txt
+grep GO:0005840 amil_defog_iso2go.tab >> ribosomalIsogroups.txt
+grep GO:0003735 amil_defog_iso2go.tab >> ribosomalIsogroups.txt
+sed -i .backup 's/isogroup/isogroup=/' ribosomalIsogroups.txt
+
+
+#CONVERT THEM INTO CONTIG NAMES USING R SCRIPT convert_iso2seq.R
+#this should give you a single column table of contig names that are ribosomal
+
+#CONCATENATE THE RIBOSOMAL CODING SEQUENCES INTO A SINGLE GENE
+concatenate_fasta.py -i Amillepora_CDS.fas -o ribosomal_seqs_amil.fasta -sub ribosomalContigs.txt
+
+#USE DnaSP TO GET THE CODON USAGE DATA FOR THIS SET OF RIBOSOMAL GENES
+
+#save the image output as "dnaSp_optimal_codon_output"
+
+#
+
+#BUILD AN OPTIMAL CODON TABLE
+#this has to be done by hand from the output from dnaSP--each gets the most frequent codon assigned as optimal
+#it should look like this:
+AA	optimal
+F	UUU
+L	UUG
+I	AUU
+V	GUU
+S	UCU
+P	CCA
+T	ACA
+A	GCU
+H	CAU
+Q	CAA
+N	AAU
+K	AAA
+D	GAU
+E	GAA
+C	UGU
+R	AGA
+S	AGU
+G	GGA
+
+#CALCULATE THE FREQUENCY OF OPTIMAL CODONS FOR EACH SEQUENCE
+calculate_frequency_optimal_codons.py -i Amillepora_CDS.fas -optimal optimal_codons.txt -o amil_ribosome_Fop.txt
+
+#WE WANT TO REPEAT THIS FOR ALL OUR SPECIES 
+#SO USE THE ORTHOLOG TABLE TO EXTRACT THEIR GENE NAMES
+>ribosomalOrthologs.txt
+cat reciprocalOrthos_cov75_pctID10_rep0.15.txt | awk 'NR > 0 && NR < 2 { print }' >> ribosomalOrthologs.txt
+for i in `cat ribosomalContigs.txt`; do grep -w $i reciprocalOrthos_cov75_pctID10_rep0.15.txt >> ribosomalOrthologs.txt; done
+
+#now we have a table of the ribosome orthologous sequences
+#check how many columns there are
+awk '{print NF}' ribosomalOrthologs.txt | sort -nu | tail -n 1
+
+#now make a unique file for each column
+for i in $(seq 1 20); do cat ribosomalOrthologs.txt | cut -f $i > col$i; done
+
+#now replace the headers
+for file in $(ls col*); do sed -i .trash 's/_PRO.fas//' $file; done
+rm *.trash
+
+#now change the file names
+for file in $(ls col*); do sp=$(sed -n 1,1p $file)_ribosomalContigs.txt; cp $file $sp; done
+
+#now move these lists to where we have the CDS files and make a concatenated ribosomal sequence for each
+for file in $(ls *ribosomalContigs.txt); do echo "concatenate_fasta.py -i ${file/_ribosomalContigs.txt/}_CDS.fas -o ${file/_ribosomalContigs.txt/}_ribosomal_seqs.fasta -sub $file -checkCoding yes"; done
+
+#now we have a single long ribosomal reading frame for each species
+#get the RSCU data from these using dnaSP (>analysis >codon bias)
+#save the results by going >File >Save current output...
+#save it simply as the species name followed by .txt (eg Adigitifera.txt)
+#get rid of the windows endlines
+for file in $(ls *.txt); do fle $file; done
+
+#then gather the RSCU data into tables
+for file in $(ls *.txt); do parse_dnaSP_RSCU.py -i $file -spp ${file/.txt/} -o ${file/.txt/}_ribosomal_rscu.txt; done
+
+#concatenate them into a single file for import into R
+>all_species_ribosomal_RSCUs_Rinput.txt
+for file in $(ls *rscu.txt); do cat $file >> all_species_ribosomal_RSCUs_Rinput.txt; done
+#-----------------------------------------------------------------------------------------------
+
+
+
+

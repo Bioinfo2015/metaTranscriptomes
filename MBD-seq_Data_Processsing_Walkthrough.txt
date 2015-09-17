@@ -1,0 +1,120 @@
+#ANALYZING METHYLATION PULLDOWN DATA
+#THESE DATA WERE GENERATED USING DIAGENODE PULL DOWN KIT
+#FOUR LIBRARIES WERE GENERATED FROM THE SAME SAMPLE
+#TWO REPRESENT THE UNBOUND FRACTION OF THE PULLDOWN, AND ARE ASSUMED TO BE WEAKLY METHYLATED
+#THE OTHER TWO REPRESENT THE PULL-DOWN FRACTION AND ARE ASSUMED TO BE STRONGLY METHYLATED
+
+#---------------------------------------------------------
+#------------ PREPARE THE READS FOR MAPPING --------------
+#---------------------------------------------------------
+#DOWNLOAD FROM GSAF
+gsaf_download.sh "http://gsaf.s3.amazonaws.com/JA14893.SA14209.html?AWSAccessKeyId=AKIAJPRTJ4ZGKJIUA6XA&Expires=1419707888&Signature=fG8V3AndJRvw7MAHCq%2BkmHrJ5VA%3D"
+#UNZIP
+
+#OR DOWNLOAD FROM CORRAL
+scp grovesd@corral.tacc.utexas.edu:/corral-repl/utexas/comparative_genomics/DNA_methylation_pulldown_data/DNA_pulldown_raw_data.tar.gz .
+
+#RENAME THE FILES
+mv amil_met_1_AGTTCC_L004_R1_001.fastq ub1.fastq
+mv amil_met_2_CCGTCC_L004_R1_001.fastq met1.fastq
+mv amil_ub_1_ATGTCA_L004_R1_001.fastq ub2.fastq
+mv amil_ub_2_GTAGAG_L004_R1_001.fastq met2.fastq
+
+#CHECK QUALITY WITH FASTQC
+mkdir Fastqc_Restults_raw/
+echo fastqc -o Fastqc_Restults_raw/ -f fastq *.fastq > runFQC
+launcher_creator.py -n runFQC -j runFQC -l runFQC.job -a tagmap -e grovesdixon@gmail.com
+qsub runFQC.job
+
+#MOVE THE OUTPUT FILES TO YOUR COMPUTER TO LOOK AT THE K-MER PROFILES AND THE DATA TEXT FILE
+
+#there were many reads (about a million) that seemed to be just a truSeq adapter: GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTTCCCGATCTCGTATG2311441.5697892848692427TruSeq Adapter, Index 8 (97% over 37bp)
+#so we need to trim this: GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTTCCCGATCTCGTATG
+
+#USE CUTADAPT TO TRIM AWAY THIS SEQUENCE FROM THE 5' END OF HTE READS
+
+>trim1; for file in $(ls *.fastq); do echo "cutadapt -g GATCGGAAGAGCACACGTCTGAACTCCAGTCACAGTTCCCGATCTCGTATG  --minimum-length 20 $file > ${file/.fastq/}_trim1.fastq" >> trim1; done
+launcher_creator.py -n trim1 -j trim1 -l trim1.job -a tagmap -e grovesdixon@gmail.com
+qsub trim1.job
+
+#MOVE THE TRIMMED FILES INTO THEIR OWN SUBDIRECTORY SO YOU CAN CALL WITH GLOBS TO .fastq
+
+#now rerun the fastqc to see how they look
+mkdir Fastqc_Restults_trim1
+echo fastqc -o Fastqc_Restults_trim1/ -f fastq *.fastq > runFQC
+GDlauncher_creator.py -n runFQC -j runFQC -l runFQC.job
+qsub runFQC.job
+
+#That seemed to solve the K-mer problem
+
+#check how many reads were filtered because they were too short after trimming
+for file in $(ls *.fastq); do count=$(grep "@HWI" $file | wc -l); echo $file: $count;done
+
+#RESULTS:
+	met1_trim1.fastq: 14470939
+	met2_trim1.fastq: 16628457
+	ub1_trim1.fastq: 19934375
+	ub2_trim1.fastq: 23625112
+
+
+#now quality filter the reads
+module load fastx_toolkit
+fastq_filter_launcher.py 1 t *trim1.fastq > filt
+GDlauncher_creator.py -l filt.job -j filt -n filt
+qsub filt.job
+#outputs have just .trim as suffix
+
+
+#check how many reads were filtered for quality
+for file in $(ls *.trim); do count=$(grep "@HWI" $file | wc -l); echo $file: $count;done
+
+#RESULTS:
+	met1.trim: 13655061
+	met2.trim: 15930958
+	ub1.trim: 19282480
+	ub2.trim: 22977434
+
+
+#---------------------------------------------------------
+#------------ MAPPING TO THE TRANSCRIPTOME ---------------
+#---------------------------------------------------------
+
+# mapping against coding sequences #
+# move the CDS file for the A.millepora transcriptome to a working directory
+# copy the .trim files there as well
+
+#INDEX THE REFERENCE FOR MAPPING
+module load bowtie
+bowtie2-build amil.fasta amil.fasta
+
+#MAP READS AGAINST THE A.MILLEPORA TRANSCRIPTOME
+iRNAseq_bowtie2map.pl "trim$" ./amil.fasta > maps
+GDlauncher_creator.py -n maps -j maps -l maps.job
+qsub maps.job
+
+#COUNT THE READ HITS
+#for some reason I always have to run these individually
+>doCounts; for file in $(ls *.sam); do echo "samcount.pl $file ./amil_seq2iso.tab aligner=bowtie2 > ${file/.trim.sam}.counts" >> doCounts; done
+GDlauncher_creator.py -n doCounts -j doCounts -l doCounts.job -q normal -w 1 -c 12
+qsub doCounts.job
+
+#ASSEMBLE THEM INTO A SINGLE TABLE
+expression_compiler.pl *.counts > allcounts.txt
+
+#REFORMAT THE 'isogroup' to 'isogroup='
+sed "s/isogroup/&=/" < allcounts.txt > test
+mv test 
+
+#ANALYZE THE COUNTS DATA USING DESEQ2 WITH THE R SCRIPT DESeq_for_MBDseq.R
+#THIS WILL OUTPUT A DATASET OF LOG2 FOLD CHANGES (MBD.SCORES) THAT ARE USED
+#DOWNSTREAM ANALYSES EXECUTED IN R scripts called MBD-seq_analysis1-6
+
+#GO ENRICHMENT FOR MBD-SCORES
+#export the input data using MBD-seq_analysis1_distribution.R
+#use GO_MWU_MBD-seq_enrichment.R to generate figures
+
+#KOGG ENRICHMENT FOR MBD-SCORES
+#export the input data using MBD-seq_analysis1_distribution.R
+#use kog_MWU_for_MBD_enrichment.R to generate enrichment data and heatmap figure
+
+

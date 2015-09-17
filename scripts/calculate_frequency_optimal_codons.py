@@ -19,7 +19,7 @@ is the first position nucleotide in the first codon.
 
 AdditionalProgramInfo = '''
 Additional Program Information:
-Codons with ambiguous bases are skipped.
+Codons with ambiguous bases (Ns) are skipped.
 Example Optimal codon table:
 AA	optimal
 F	UUU
@@ -44,7 +44,6 @@ G	GGA
 '''
 
 ##Import Modules 
-
 import time
 import argparse
 from sys import argv
@@ -64,6 +63,7 @@ parser.add_argument('-optimal', required = True, dest = 'optimal', help = 'A sub
 args = parser.parse_args()
 
 #Assign Arguments
+debug = False
 InfileName = args.input
 OutfileName = args.out
 OptimalCodonFile = args.optimal
@@ -105,13 +105,7 @@ def get_Fop(InfileName, optimalList):
         indexSeries = range(0, codonCount * 3, 3)
         codonList = []
         for i in indexSeries:
-            codonList.append(seqString[i:i+3])
-        # print "\n\n"
-        # print "length = {}".format(len(seqString))
-        # print codonCount
-        # print indexSeries
-        # print seqString
-        # print codonList
+            codonList.append(seqString[i:i+3].upper())    
         for codon in codonList:
             good = 1
             for nucleotide in codon:
@@ -126,6 +120,16 @@ def get_Fop(InfileName, optimalList):
                     suboptimalCount += 1
             else:
                 ambiguousCodonCount += 1
+        if debug == True:
+            print "\n\n"
+            print "length = {}".format(len(seqString))
+            print "optimalList:"
+            print optimalList
+            print "codonList:"
+            print codonList
+            print "Optimal Count = {}".format(optimalCount)
+            print 'Total of codons = {}'.format(codonCount)
+            print "Fop = {}".format(str(float(optimalCount) / float(codonCount))) 
         Fop = float(optimalCount) / float(codonCount)
         results = [str(codonCount), str(optimalCount), str(suboptimalCount), str(ambiguousCodonCount), str(Fop)]
         resultsDict[seq.id] = results
@@ -135,7 +139,7 @@ def get_Fop(InfileName, optimalList):
 def output(OutfileName, seqIdList, resultsDict):
     """Output the results as a table"""
     with open(OutfileName, 'w') as out:
-        out.write('EST\ttotal\toptimal\tsuboptimal\tambiguous\tFop')
+        out.write('contig\ttotal\toptimal\tsuboptimal\tambiguous\tfop')
         for i in seqIdList:
             results = i + '\t' + '\t'.join(resultsDict[i])
             out.write('\n' + results)

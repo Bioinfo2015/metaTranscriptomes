@@ -2,10 +2,10 @@
 
 
 #upload the data
-load("/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/MBD-seq/data_files/MBD-seq_Image.R")
+setwd('/Users/grovesdixon/git_Repositories/metaTranscriptomes/working_directory')
+load("MBD-seq_Image.R")
 source("~/git_Repositories/metaTranscriptomes/scripts/MBD-seq_analysis_functions.R")
-setwd('/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/data_files/')
-dnds = read.table('/Users/grovesdixon/Documents/lab_files/projects/metaTranscriptomes/data_files/cov75_pctid10_rep15/pair-wise_dNdS_Amillepora.txt', header = T)#for digitifera
+dnds = read.table('pair-wise_dNdS_Amillepora.txt', header = T)#for digitifera
 colnames(dnds) = c('contig', 'species', 'dN', 'dS', 'dNdS')
 
 #Get isogroup names for the contigs
@@ -22,7 +22,7 @@ QUANTILE = TRUE
 Cutoff = 50
 mut.type = 'dN'
 meth.type = 'mbd.score'
-dig = filter.sub.rates(dnds.dat, 'Adigitifer', mut.type, meth.type, TRUE, TRUE, 2)
+dig = filter.sub.rates(dnds.dat, 'Adigitifer', mut.type, meth.type, TRUE, TRUE, 2, 'dS')
 wdat = window_plot(1/15, 'mbd.score', 'dN', dig, 10)
 plotCI(wdat$x, wdat$mn, uiw = wdat$sterr, liw = wdat$sterr, add = F, scol = 'black', lwd = 1, main = paste('dig', nrow(sub)), xlim = c(2,-2), pch = 26)
 
@@ -37,7 +37,7 @@ factor = 2
 span = .5
 loess = T
 window = 1/20
-line.width = 2
+line.width = 1.5
 cex.axis = 1.25
 cex.lab = 1.25
 title.line = .6
@@ -48,22 +48,24 @@ par(mfrow = c(2,2))
 par(mar = c(4,3.5,1.5,.5) + 0.1)
 acro = c("Adigitifer", "Ahyacinthu", "Apalmata", "Atenuis")
 acro.right = c("A.digitifera", "A.hyacinthus", "A.palmata", "A.tenuis")
-speciesList = acro
-for (i in 1:length(speciesList)){
-  sp = as.character(speciesList[i])
-  sub = filter.sub.rates(dnds.dat, sp, mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
-  sp = as.character(acro.right)[i]
-  win = do.window.plot(window, meth.type, mut.type, sub, 10, "\n", "\n", '\n', loess, span, limits = F)
-  title(paste(sp, nrow(sub)), font.main = 3, line = .75)
-  title(xlab = "MBD-score", ylab = mut.type, cex.lab = cex.lab, line = 2.25)
-  yat = signif(seq(from = min(win$mn - win$sterr), to = max(win$mn + win$sterr), by = (max(win$mn + win$sterr) - min(win$mn - win$sterr))/2), 2)
-  axis(1, cex.axis = cex.axis, at = c(-2, 0, 2))
-  axis(2, cex.axis = cex.axis, at = yat)
-  # axis(2)
-}
+# speciesList = acro
+# for (i in 1:length(speciesList)){
+  # sp = as.character(speciesList[i])
+  # sub = filter.sub.rates(dnds.dat, sp, mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
+  # sp = as.character(acro.right)[i]
+  # win = do.window.plot(window, meth.type, mut.type, sub, 10, "\n", "\n", '\n', loess, span, limits = F)
+  # title(paste(sp, nrow(sub)), font.main = 3, line = .75)
+  # title(xlab = "MBD-score", ylab = mut.type, cex.lab = cex.lab, line = 2.25)
+  # yat = signif(seq(from = min(win$mn - win$sterr), to = max(win$mn + win$sterr), by = (max(win$mn + win$sterr) - min(win$mn - win$sterr))/2), 2)
+  # axis(1, cex.axis = cex.axis, at = c(-2, 0, 2))
+  # axis(2, cex.axis = cex.axis, at = yat)
+  # # axis(2)
+# }
 
 #set margins for top figures
-par(mar = c(3.5,3.5,1.5,.6) + 0.1)
+quartz()
+par(mfrow = c(2,2))
+par(mar = c(2.5,3.5,1.5,.6) + 0.1)
 #Adig
 line.width = 2
 sub = filter.sub.rates(dnds.dat,'Adigitifer', mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
@@ -75,7 +77,7 @@ yat = signif(seq(from = min(win$mn - win$sterr), to = max(win$mn + win$sterr), b
 axis(1, cex.axis = cex.axis, at = c(-2, 0, 2))
 axis(2, cex.axis = cex.axis, at = yat)
 line.width = 3
-plot.meth.bars(sub, 'mbd.score', 'dN', 0, c('green', 'red'))
+plot.meth.bars(sub, 'mbd.score', 'dN', separator, c('green', 'red'))
 #Ahyacinthus
 line.width = 2
 sub = filter.sub.rates(dnds.dat,'Ahyacinthu', mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
@@ -87,9 +89,9 @@ yat = signif(seq(from = min(win$mn - win$sterr), to = max(win$mn + win$sterr), b
 axis(1, cex.axis = cex.axis, at = c(-2, 0, 2))
 axis(2, cex.axis = cex.axis, at = yat)
 line.width = 3
-plot.meth.bars(sub, 'mbd.score', 'dN', 0, c('green', 'red'))
+plot.meth.bars(sub, 'mbd.score', 'dN', separator, c('green', 'red'))
 
-# par(mar = c(4,3.5,1.5,.5) + 0.1) #set margins for bottom figures
+par(mar = c(4,3.5,1.5,.5) + 0.1) #set margins for bottom figures
 #Apalmata
 line.width = 2
 sub = filter.sub.rates(dnds.dat,'Apalmata', mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
@@ -101,7 +103,7 @@ yat = signif(seq(from = min(win$mn - win$sterr), to = max(win$mn + win$sterr), b
 axis(1, cex.axis = cex.axis, at = c(-2, 0, 2))
 axis(2, cex.axis = cex.axis, at = yat)
 line.width = 3
-plot.meth.bars(sub, 'mbd.score', 'dN', 0, c('green', 'red'))
+plot.meth.bars(sub, 'mbd.score', 'dN', separator, c('green', 'red'))
 #Atenuis
 line.width = 2
 sub = filter.sub.rates(dnds.dat,'Atenuis', mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
@@ -113,34 +115,59 @@ yat = signif(seq(from = min(win$mn - win$sterr), to = max(win$mn + win$sterr), b
 axis(1, cex.axis = cex.axis, at = c(-2, 0, 2))
 axis(2, cex.axis = cex.axis, at = yat)
 line.width = 3
-plot.meth.bars(sub, 'mbd.score', 'dN', 0, c('green', 'red'))
+plot.meth.bars(sub, 'mbd.score', 'dN', separator, c('green', 'red'))
 
 
 
 #plot for non acroporid corals
+mut.type = "dN"
+window = 1/20
+line.width = 2
 non.acro = c('Ssiderea', 'Pastreoide', 'Fscutaria', 'Mcavernosa', 'Pstrigosa', 'Mfaveolata', 'Pdaedalea', 'Pcarnosus', 'Mauretenra', 'Pdamicorni', 'Spistillat', 'Shystrix')
+format.list = c('S.siderea', 'P.astreoides', 'F.scutaria', 'M.cavernosa', 'P.strigosa', 'O.faveolata', 'P.daedalea', 'P.carnosus', 'M.auretenra', 'P.damicornis', 'S.pistillata', 'S.hystrix')
 quartz()
 par(mfrow = c(3,4))
 speciesList = non.acro
-for (sp in speciesList){
-  sp = as.character(sp)
+percent.dif.list = c()
+for (i in 1:length(speciesList)){
+  sp = as.character(speciesList[i])
   sub = filter.sub.rates(dnds.dat, sp, mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
   print(head(sub))
+  sp = format.list[i]
   do.window.plot(window, meth.type, mut.type, sub, 10, meth.type, mut.type, paste(sp, nrow(sub)), T, span, limits = F)
+  axis(1)
+  axis(2)
+  line.width = 3
+  pct = plot.meth.bars(sub, 'mbd.score', mut.type, separator, c('green', 'red'))
+  line.width = 2
+  percent.dif.list = append(percent.dif.list, pct)
 }
-plot.new()
+#look at the mean percent increase between categories
+mean(percent.dif.list); std.error(percent.dif.list)
 
 #plot anemones
 quartz()
 par(mfrow = c(1,3))
 actin = c('Nvectensis', 'Apallida', 'Aelegantis')
+format.list = c('N.vectensis', 'A.pallida', 'A.elegantissima')
+percent.dif.list = c()
 speciesList = actin
-for (sp in speciesList){
-  sp = as.character(sp)
+line.width = 2
+for (i in 1:length(speciesList)){
+  sp = as.character(speciesList[i])
   sub = filter.sub.rates(dnds.dat, sp, mut.type, meth.type, remove.zeros, filter, factor, filter.mut)
+  print(head(sub))
+  sp = format.list[i]
   do.window.plot(window, meth.type, mut.type, sub, 10, meth.type, mut.type, paste(sp, nrow(sub)), T, span, limits = F)
+  axis(1)
+  axis(2)
+  line.width = 3
+  pct = plot.meth.bars(sub, 'mbd.score', mut.type, separator, c('green', 'red'))
+  line.width = 2
+  percent.dif.list = append(percent.dif.list, pct)
 }
-
+#look at the mean percent increase between categories
+mean(percent.dif.list); std.error(percent.dif.list)
 
 #build plots with lines stacked
 #dN
@@ -150,9 +177,12 @@ window = 1/10
 line.width = 3
 remove.zeros = T
 filter = T
+cex.X = 2
+cex.Y = 1.75
 xlim = c(-2.6, 3)
 colors = rainbow(24)
 par(mfrow = c(3, 1))
+par(mar = c(2, 4, 1, -.1) + 0.1)
 plot.stacked.lines(acro, colors[20:24], xlim, c(.0048, .0265))
 plot.stacked.lines(non.acro, colors[6:18], xlim, c(.10, .235))
 plot.stacked.lines(actin, colors[1:3], xlim, c(.25, .41))

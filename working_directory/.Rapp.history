@@ -1,0 +1,271 @@
+#UPLOAD THE DATA#
+#mbd data#
+setwd("/Users/grovesdixon/git_Repositories/metaTranscriptomes/working_directory")#
+load("MBD-seq_Image.R")#
+source("~/git_Repositories/metaTranscriptomes/scripts/MBD-seq_analysis_functions.R")#
+library(plotrix)#
+#
+#UPLOAD CODON BIAS DATASET#
+#from codonW#
+cb = read.table('codonW_results.txt', header = T)  #see codonW walkthrough for generating this file#
+head(cb)#
+#based on RSCU in hi- and low-expression genes#
+fop = read.table('amil_Fop_by_rscu_hi-low.txt', header = T)#
+head(fop)#
+#effective number of codons (also calculated by codonW)#
+nc = read.table("effectiveNumberCodons.txt", header = T)#
+head(nc)#
+#CAI based on exact calculations from top 5% highly expressed genes#
+cai = read.table("amil_exact_cai_values.txt", header = T)#
+head(cai)#
+#format and merge the codonW dataset with the mbd data#
+colnames(cb) = c('contig', 'cai', 'cbi', 'fop')#
+sub = merge(cb, iso2seq, by = 'contig')#
+cb = sub[,2:5]#
+head(cb)#
+head(mdat)#
+dat = merge(cb, mdat, by = 'isogroup')#
+head(dat)#
+#repeat for the fop dataset#
+sub = merge(fop, iso2seq, by = 'contig')#
+fop = merge(sub, mdat, by = 'isogroup')#
+head(fop)#
+#repeat for the Nc dataset#
+sub = merge(nc, iso2seq, by = 'contig')#
+nc = merge(sub, mdat, by = 'isogroup')#
+head(nc)#
+#repeat for the cai dataset#
+sub = merge(cai, iso2seq, by = 'contig')#
+cai = merge(sub, mdat, by = 'isogroup')#
+head(cai)#
+#
+#look at correlation between mbd.score and all the different codon bias indices#
+QUANTILE = T#
+line.width = 1.5#
+quartz()#
+par(mfrow = c(2, 6))#
+xlim = c(-5, 6)#
+plot.lm('mbd.score', 'fop', dat, 'MBD-score', 'Frequency Optimal Codons', '\n', limits = T, xlim, c(.3, .7))#
+plot.lm('mbd.score', 'cbi', dat, 'MBD-score', 'Codon Bias Index', '\n', limits = T, xlim, c(-.25, .4))#
+plot.lm('mbd.score', 'cai', dat, 'MBD-score', 'CAI (codonW)', '\n', limits = T, xlim, c(.66, .85))#
+plot.lm('mbd.score', 'fop', fop, 'MBD-score', 'Frequency Optimal Codons', '\n', limits = T, xlim, c(.04,.21))#
+plot.lm('mbd.score', 'Nc', nc, 'MBD-score', 'Effective Number of Codons', '\n', limits = T, xlim, c(40, 61))#
+plot.lm('mbd.score', 'cai', cai, 'MBD-score', 'CAI exact', '\n', limits = T, xlim, c(0.6, 0.9))#
+#
+#plot error bar plots#
+do.window.plot(1/10, 'mbd.score', 'fop', dat, 10, 'MBD-score', 'Frequency Optimal Codons', 'Fop', limits = F)#
+plot.meth.bars(dat, 'mbd.score', 'fop', 0, c('green', 'red'))#
+do.window.plot(1/10, 'mbd.score', 'cbi', dat, 10, 'MBD-score', 'Codon Bias Index', 'CBI', limits = F)#
+plot.meth.bars(dat, 'mbd.score', 'cbi', 0, c('green', 'red'))#
+do.window.plot(1/10, 'mbd.score', 'cai', dat, 10, 'MBD-score', 'CAI', 'CAI(codonW)', loess = F, limits = F)#
+plot.meth.bars(dat, 'mbd.score', 'cai', 0, c('green', 'red'))#
+do.window.plot(1/10, 'mbd.score', 'fop', fop, 10, 'MBD-score', 'Frequency Optimal Codons', 'Fop', loess = F, limits = F)#
+plot.meth.bars(fop, 'mbd.score', 'fop', 0, c('green', 'red'))#
+do.window.plot(1/10, 'mbd.score', 'Nc', nc, 10, 'MBD-score', 'Effective Number of Codons', 'Nc', loess = F, limits = F)#
+plot.meth.bars(nc, 'mbd.score', 'Nc', 0, c('green', 'red'))#
+do.window.plot(1/10, 'mbd.score', 'cai', cai, 10, 'MBD-score', 'CAI', 'CAI (exact)', loess = F, limits = F)#
+plot.meth.bars(cai, 'mbd.score', 'cai', 0, c('green', 'red'))#
+#
+#----------- PLOT MAIN FIGURE ---------------------------#
+#plot the main figure based on CAI (codonW), Fop (RSCU hi-low), and Nc (codonW)#
+#first set up some plotting variables#
+require(plotrix)#
+quartz()#
+par(mar = c(3, 4.2, 1,1) + 0.1)#
+par(mfrow = c(3, 2))#
+cor.line = -1.6#
+cex.lab = 1.75#
+cex.axis = 1.5#
+lab.line = 2.75#
+cex.main = 1.5#
+adj = 1#
+line.width = 2#
+alpha = .075#
+#
+#CAI#
+r = plot.lm('mbd.score', 'cai', cai, '\n', '\n', '\n', limits = T, xlim, c(.6, .9))#
+title(paste(paste('r =', r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'CAI', , line = lab.line)#
+wdat = do.window.plot(1/10, 'mbd.score', 'cai', cai, 10, '\n', '\n', '\n', loess = F, limits = F, xlim = c(-2.5, 3), ylim = c(0.7375, 0.781))#
+ydif = max(wdat$mn) - min(wdat$mn)#
+axis(1, cex.axis = cex.axis, cex.lab = cex.lab)#
+axis(2, at = c(0.73, 0.75, 0.77), cex.axis = cex.axis, cex.lab = cex.lab)#
+plot.meth.bars(cai, 'mbd.score', 'cai', 0, c('green', 'red'))#
+title(cex.lab = cex.lab, ylab = 'CAI', , line = lab.line)#
+#
+#Fop#
+r = plot.lm('mbd.score', 'fop', dat, '\n', '\n', '\n', limits = T, xlim, ylim = c(.3, .7))#
+title(paste(paste('r =', r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Fop', , line = 2.5)#
+wdat = do.window.plot(1/10, 'mbd.score', 'fop', dat, 10, '\n', '\n', '\n', loess = F, limits = T, xlim = c(-2.5, 3), ylim = c(.45, .52))#
+ydif = max(wdat$mn) - min(wdat$mn)#
+axis(1, cex.axis = cex.axis, cex.lab = cex.lab)#
+axis(2, at = c(.45, .48, .51), cex.axis = cex.axis, cex.lab = cex.lab)#
+plot.meth.bars(dat, 'mbd.score', 'fop', 0, c('green', 'red'))#
+title(cex.lab = cex.lab, ylab = 'Fop', , line = 2.5)#
+#
+#Nc#
+par(mar = c(4.5, 4.2,.5,1) + 0.1)#
+# cor.line = -5#
+r = plot.lm('mbd.score', 'Nc', nc, '\n', '\n', '\n', limits = T, xlim, c(40, 61))#
+title(paste(paste('r = -0.30'), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Nc', , line = 2.5)#
+title(xlab = 'MBD-score', line = 2.75, cex.lab = cex.lab)#
+wdat = do.window.plot(1/10, 'mbd.score', 'Nc', nc, 10, '\n', '\n', '\n', loess = F, limits = T, xlim = c(-2.5, 3), ylim = c(51.5,56))#
+ydif = max(wdat$mn) - min(wdat$mn)#
+axis(1, cex.axis = cex.axis, cex.lab = cex.lab)#
+axis(2, at = round(seq(from = min(wdat$mn), to = max(wdat$mn), by = ydif/2), digits = 0), cex.axis = cex.axis, cex.lab = cex.lab)#
+plot.meth.bars(nc, 'mbd.score', 'Nc', 0, c('green', 'red'))#
+title(xlab = 'MBD-score', cex.lab = cex.lab, ylab = 'Nc', , line = 2.75)#
+#---------------------------------------------
+head(sdat)
+#----------- PLOT MAIN FIGURE ---------------------------#
+#plot the main figure based on CAI (codonW), Fop (RSCU hi-low), and Nc (codonW)#
+#first set up some plotting variables#
+require(plotrix)#
+quartz()#
+par(mar = c(3, 4.2, 1,1) + 0.1)#
+par(mfrow = c(3, 2))#
+cor.line = -1.6#
+cex.lab = 1.75#
+cex.axis = 1.5#
+lab.line = 2.75#
+cex.main = 1.5#
+adj = 1#
+line.width = 2#
+alpha = .075#
+#
+#CAI#
+r = plot.lm('mbd.score', 'cai', cai, '\n', '\n', '\n', limits = T, xlim, c(.6, .9))#
+title(paste(paste('r =', r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'CAI', , line = lab.line)#
+wdat = do.window.plot(1/10, 'mbd.score', 'cai', cai, 10, '\n', '\n', '\n', loess = F, limits = F, xlim = c(-2.5, 3), ylim = c(0.7375, 0.781))#
+ydif = max(wdat$mn) - min(wdat$mn)#
+axis(1, cex.axis = cex.axis, cex.lab = cex.lab)#
+axis(2, at = c(0.73, 0.75, 0.77), cex.axis = cex.axis, cex.lab = cex.lab)#
+plot.meth.bars(cai, 'mbd.score', 'cai', 0, c('green', 'red'))#
+title(cex.lab = cex.lab, ylab = 'CAI', , line = lab.line)#
+#
+#Fop#
+r = plot.lm('mbd.score', 'fop', dat, '\n', '\n', '\n', limits = T, xlim, ylim = c(.3, .7))#
+title(paste(paste('r =', r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Fop', , line = 2.5)#
+wdat = do.window.plot(1/10, 'mbd.score', 'fop', dat, 10, '\n', '\n', '\n', loess = F, limits = T, xlim = c(-2.5, 3), ylim = c(.45, .52))#
+ydif = max(wdat$mn) - min(wdat$mn)#
+axis(1, cex.axis = cex.axis, cex.lab = cex.lab)#
+axis(2, at = c(.45, .48, .51), cex.axis = cex.axis, cex.lab = cex.lab)#
+plot.meth.bars(dat, 'mbd.score', 'fop', 0, c('green', 'red'))#
+title(cex.lab = cex.lab, ylab = 'Fop', , line = 2.5)#
+#
+#Nc#
+par(mar = c(4.5, 4.2,.5,1) + 0.1)#
+# cor.line = -5#
+r = plot.lm('mbd.score', 'Nc', nc, '\n', '\n', '\n', limits = T, xlim, c(40, 61))#
+title(paste(paste('r = -0.30'), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Nc', , line = 2.5)#
+title(xlab = 'MBD-score', line = 2.75, cex.lab = cex.lab)#
+wdat = do.window.plot(1/10, 'mbd.score', 'Nc', nc, 10, '\n', '\n', '\n', loess = F, limits = T, xlim = c(-2.5, 3), ylim = c(51.5,56))#
+ydif = max(wdat$mn) - min(wdat$mn)#
+axis(1, cex.axis = cex.axis, cex.lab = cex.lab)#
+axis(2, at = round(seq(from = min(wdat$mn), to = max(wdat$mn), by = ydif/2), digits = 0), cex.axis = cex.axis, cex.lab = cex.lab)#
+plot.meth.bars(nc, 'mbd.score', 'Nc', 0, c('green', 'red'))#
+title(xlab = 'MBD-score', cex.lab = cex.lab, ylab = 'Nc', , line = 2.75)#
+#---------------------------------
+c.e = merge(cai, sdat, by = 'isogroup')
+sdat = read.table("mean_transcript_abundance.txt", header = T)
+head(sdat)
+c.e = merge(cai, sdat, by = 'isogroup')
+f.e = merge(dat, sdat, by = 'isogroup')
+n.e = merge(nc, sdat, by = 'isogroup')
+plot.lm('rlog', 'fop', dat, 'MBD-score', 'Frequency Optimal Codons', '\n', limits = F, xlim, c(.3, .7))
+plot.lm('rlog', 'fop', f.e, 'MBD-score', 'Frequency Optimal Codons', '\n', limits = F, xlim, c(.3, .7))
+plot.lm('rlog', 'cai', c.e, 'MBD-score', 'CAI', '\n', limits = F, xlim, c(.3, .7))
+plot.lm('rlog', 'cai', c.e, 'Expression (log2)', 'CAI', '\n', limits = F, xlim, c(.3, .7))
+plot.lm('rlog', 'cai', c.e, 'Expression', 'CAI', '\n', limits = F, xlim, c(.3, .7))
+plot.lm('rlog', 'cai', c.e, 'Expression', 'CAI', '\n', limits = T, xlim, c(.6, .9))
+xlim = c(-4, 10)
+plot.lm('rlog', 'cai', c.e, 'Expression', 'CAI', '\n', limits = T, xlim, c(.6, .9))
+r = plot.lm('rlog', 'cai', c.e, 'Expression', 'CAI', '\n', limits = T, xlim, c(.6, .9))
+r
+title(paste(paste(r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)
+par(mfrow = c(3,1))
+quartz()#
+par(mfrow = c(3,1))#
+xlim = c(-4, 10)#
+#
+#cai#
+r = plot.lm('rlog', 'cai', c.e, 'Expression', 'CAI', '\n', limits = T, xlim, c(.6, .9))#
+title(paste(paste(r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Nc', , line = 2.5)#
+title(xlab = 'MBD-score', line = 2.75, cex.lab = cex.lab)
+r = plot.lm('rlog', 'cai', c.e, '\n', '\n', '\n', limits = T, xlim, c(.6, .9))
+title(paste(paste(r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Nc', , line = 2.5)
+title(xlab = 'MBD-score', line = 2.75, cex.lab = cex.lab)
+title(xlab = 'Expression', line = 2.75, cex.lab = cex.lab)
+#cai#
+r = plot.lm('rlog', 'cai', c.e, '\n', '\n', '\n', limits = T, xlim, c(.6, .9))#
+title(paste(paste(r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Nc', , line = 2.5)#
+title(xlab = 'Expression', line = 2.75, cex.lab = cex.lab)#
+#fop
+#fop#
+plot.lm('rlog', 'fop', f.e, 'MBD-score', 'Fop', '\n', limits = F, xlim, c(.3, .7))#
+title(paste(paste('r = -0.30'), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Fop', , line = 2.5)#
+title(xlab = 'Expression', line = 2.75, cex.lab = cex.lab)
+#fop#
+plot.lm('rlog', 'fop', f.e, 'MBD-score', 'Fop', '\n', limits = T, xlim, c(.3, .7))#
+title(paste(paste('r = -0.30'), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Fop', , line = 2.5)#
+title(xlab = 'Expression', line = 2.75, cex.lab = cex.lab)
+title(paste(paste(r[1]), "****", sep = ""), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)
+title(paste(paste(r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)
+#cai#
+r = plot.lm('rlog', 'cai', c.e, '\n', '\n', '\n', limits = T, xlim, c(.6, .9))#
+title(paste(paste(r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'CAI', , line = 2.5)#
+title(xlab = 'Expression', line = 2.75, cex.lab = cex.lab)#
+#fop#
+plot.lm('rlog', 'fop', f.e, 'MBD-score', 'Fop', '\n', limits = T, xlim, c(.3, .7))#
+title(paste(paste(r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Fop', , line = 2.5)#
+title(xlab = 'Expression', line = 2.75, cex.lab = cex.lab)
+r = plot.lm('rlog', 'fop', f.e, 'MBD-score', 'Fop', '\n', limits = T, xlim, c(.3, .7))
+r
+#cai#
+r = plot.lm('rlog', 'cai', c.e, '\n', '\n', '\n', limits = T, xlim, c(.6, .9))#
+title(paste(paste(r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'CAI', , line = 2.5)#
+title(xlab = 'Expression', line = 2.75, cex.lab = cex.lab)#
+#fop#
+r = plot.lm('rlog', 'fop', f.e, '\n', '\n', '\n', limits = T, xlim, c(.3, .7))#
+title(paste(paste(r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Fop', , line = 2.5)#
+title(xlab = 'Expression', line = 2.75, cex.lab = cex.lab)
+r
+r = plot.lm('rlog', 'nc', n.e, '\n', '\n', '\n', limits = F, xlim, c(.3, .7))
+head(n.e)
+r = plot.lm('rlog', 'Nc', n.e, '\n', '\n', '\n', limits = F, xlim, c(.3, .7))
+r
+r = plot.lm('rlog', 'Nc', n.e, '\n', '\n', '\n', limits = T, xlim, c(.3, .7))
+r = plot.lm('rlog', 'Nc', n.e, '\n', '\n', '\n', limits = T, xlim, c(40, 61))
+head(n.e)
+r = plot.lm('mbd.score', 'Nc', n.e, '\n', '\n', '\n', limits = T, xlim, c(40, 61))
+r = plot.lm('rlog', 'Nc', n.e, '\n', '\n', '\n', limits = T, xlim, c(40, 61))
+r
+#cai#
+r = plot.lm('rlog', 'cai', c.e, '\n', '\n', '\n', limits = T, xlim, c(.6, .9))#
+title(paste(paste(r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'CAI', , line = 2.5)#
+title(xlab = 'Expression', line = 2.75, cex.lab = cex.lab)#
+#fop#
+r = plot.lm('rlog', 'fop', f.e, '\n', '\n', '\n', limits = T, xlim, c(.3, .7))#
+title(paste(paste(r[1]), "****", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Fop', , line = 2.5)#
+title(xlab = 'Expression', line = 2.75, cex.lab = cex.lab)#
+#nc#
+r = plot.lm('rlog', 'Nc', n.e, '\n', '\n', '\n', limits = T, xlim, c(40, 61))#
+title(paste(paste(r[1]), "***", sep = ""), line = cor.line, adj = adj, font.main = 3, cex.main = cex.main)#
+title(cex.lab = cex.lab, ylab = 'Nc', , line = 2.5)#
+title(xlab = 'Expression', line = 2.75, cex.lab = cex.lab)

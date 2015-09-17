@@ -366,7 +366,7 @@ qsub runCodeml.job
 
 ##NOW PARSE THE CODEML OUTPUTS
 >parse
-for file in $(ls *_CDS.fas); do echo "parse_codeml_pairwise_output.py -f *.codeml -spp1 ${file/_CDS.fas/} -sppList speciesList.txt -o pair-wise_dNdS_${file/_CDS.fas/}.txt" >> parse; done
+for file in $(ls *_CDS.fas); do echo "parse_codeml_pairwise_output.py -f *.codeml -spp1 ${file/_CDS.fas/} -sppList speciesList.txt -o pair-wise_dNdS_${file/_CDS.fas/}.txt -orthos reciprocalOrthos_cov50_pctID75_rep1.0.txt" >> parse; done
 GDlauncher_creator.py -n parse -j parse -l parse.job -c 12
 qsub parse.job
 

@@ -1,0 +1,8 @@
+These are example files required to run pair-wise
+dNdS estimates for orthologous sequences based on
+contig c004922 in the A.millepora transcriptome. 
+They include:
+	The tree file            - c004922.tree
+	The codon alignment file - c004922.codon
+	The codeml control file  - c004922.cnt
+	The codeml output file   - c004922.codeml

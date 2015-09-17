@@ -44,6 +44,5 @@ quartz()
 plotMA(dds,ylim=c(-4.5,9),main="DESeq2")
 
 
-
 #---------- OUTPUT RESULTS ----------------------
 write.table(res, "./ageDiffExpression.txt", quote = F, sep = "\t")

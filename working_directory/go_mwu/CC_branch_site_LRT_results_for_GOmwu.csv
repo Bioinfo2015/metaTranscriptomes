@@ -1,0 +1,1905 @@
+name	term	lev	seq	value
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup10728	0.332935647780161
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup11682	0.911285153601303
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup12717	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup13634	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup13752	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup1387	2.10840267227371
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup15626	0.0900499651257392
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup16068	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup16193	0.63810013500333
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup16330	0.000849619122848727
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup17701	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup17722	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup19485	0.558348534798619
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup19567	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup20057	1.74628943590579
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup20855	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup21627	0.019769960754724
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup21829	0.441830193345459
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup2195	0.280530090019978
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup22638	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup22838	2.36677496115974
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup23820	0.00358228011000957
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup24038	0.678987436749525
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup24215	0.193952740287991
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup25055	0.448519516015119
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup25498	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup26413	0.843885140804054
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup28585	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup29481	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup29745	0.284644209866708
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup30558	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup31486	0.250792234467215
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup32918	0.127848763647001
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup35281	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup4452	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup4874	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup5436	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup5914	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup8147	1.52277611448693
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup8453	0.674163626672534
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup8497	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup8596	0
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup1765	0.808779677024742
+"cytosolic part"	GO:0044445;GO:0044391	2	isogroup24272	0.0275968619808823
+"mitochondrion"	GO:0005739	4	isogroup10048	0
+"mitochondrion"	GO:0005739	4	isogroup11480	1.46645321991104
+"mitochondrion"	GO:0005739	4	isogroup11940	0.895118867837818
+"mitochondrion"	GO:0005739	4	isogroup12099	0.232645635285543
+"mitochondrion"	GO:0005739	4	isogroup13222	0.374104027207976
+"mitochondrion"	GO:0005739	4	isogroup13829	0
+"mitochondrion"	GO:0005739	4	isogroup15469	0
+"mitochondrion"	GO:0005739	4	isogroup16393	0
+"mitochondrion"	GO:0005739	4	isogroup16448	0
+"mitochondrion"	GO:0005739	4	isogroup18442	0
+"mitochondrion"	GO:0005739	4	isogroup18750	0.00049032545388679
+"mitochondrion"	GO:0005739	4	isogroup28495	0.617605174854545
+"mitochondrion"	GO:0005739	4	isogroup32717	0
+"mitochondrion"	GO:0005739	4	isogroup3573	0
+"mitochondrion"	GO:0005739	4	isogroup45072	0.284385055934424
+"mitochondrion"	GO:0005739	4	isogroup6742	0.798179011158754
+"mitochondrion"	GO:0005739	4	isogroup7847	0.070263121164241
+"nuclear part"	GO:0044428	3	isogroup1001	0.277347660497372
+"nuclear part"	GO:0044428	3	isogroup10021	0
+"nuclear part"	GO:0044428	3	isogroup10082	0
+"nuclear part"	GO:0044428	3	isogroup1035	0
+"nuclear part"	GO:0044428	3	isogroup10391	0.981768138135219
+"nuclear part"	GO:0044428	3	isogroup10622	0.158892227654282
+"nuclear part"	GO:0044428	3	isogroup11839	0
+"nuclear part"	GO:0044428	3	isogroup12045	0
+"nuclear part"	GO:0044428	3	isogroup13845	0
+"nuclear part"	GO:0044428	3	isogroup13849	0
+"nuclear part"	GO:0044428	3	isogroup1521	0
+"nuclear part"	GO:0044428	3	isogroup1790	0
+"nuclear part"	GO:0044428	3	isogroup1862	0.812743312729771
+"nuclear part"	GO:0044428	3	isogroup2027	0.249666018984349
+"nuclear part"	GO:0044428	3	isogroup22366	0.144352635361119
+"nuclear part"	GO:0044428	3	isogroup22792	0.0607514762197401
+"nuclear part"	GO:0044428	3	isogroup22834	0
+"nuclear part"	GO:0044428	3	isogroup2361	0.465946792645457
+"nuclear part"	GO:0044428	3	isogroup2378	0
+"nuclear part"	GO:0044428	3	isogroup24085	0
+"nuclear part"	GO:0044428	3	isogroup2481	0
+"nuclear part"	GO:0044428	3	isogroup25912	0
+"nuclear part"	GO:0044428	3	isogroup2660	0
+"nuclear part"	GO:0044428	3	isogroup2816	0
+"nuclear part"	GO:0044428	3	isogroup29489	1.15029854020298
+"nuclear part"	GO:0044428	3	isogroup5371	0
+"nuclear part"	GO:0044428	3	isogroup5564	0
+"nuclear part"	GO:0044428	3	isogroup5602	1.65577526028858
+"nuclear part"	GO:0044428	3	isogroup6026	0.258154472112621
+"nuclear part"	GO:0044428	3	isogroup7139	1.55435498880372
+"nuclear part"	GO:0044428	3	isogroup7391	0
+"nuclear part"	GO:0044428	3	isogroup8194	0.618935218619984
+"nuclear part"	GO:0044428	3	isogroup868	0
+"nuclear part"	GO:0044428	3	isogroup8933	1.32246569891107
+"nuclear part"	GO:0044428	3	isogroup8939	0.581122778534521
+"nuclear part"	GO:0044428	3	isogroup8979	0
+"nuclear part"	GO:0044428	3	isogroup9165	0
+"signal recognition particle, endoplasmic reticulum targeting"	GO:0005786;GO:0048500	3	isogroup1622	4.95070251704402
+"signal recognition particle, endoplasmic reticulum targeting"	GO:0005786;GO:0048500	3	isogroup33666	0.980485235555693
+"signal recognition particle, endoplasmic reticulum targeting"	GO:0005786;GO:0048500	3	isogroup34537	0.362956803886047
+"signal recognition particle, endoplasmic reticulum targeting"	GO:0005786;GO:0048500	3	isogroup6348	0.347714234540409
+"signal recognition particle, endoplasmic reticulum targeting"	GO:0005786;GO:0048500	3	isogroup8556	0.00049032545388679
+"signal recognition particle, endoplasmic reticulum targeting"	GO:0005786;GO:0048500	3	isogroup896	0.584937878345878
+"chromosomal part"	GO:0044427	3	isogroup10457	0.000490325342336834
+"chromosomal part"	GO:0044427	3	isogroup1106	0
+"chromosomal part"	GO:0044427	3	isogroup11613	0
+"chromosomal part"	GO:0044427	3	isogroup11932	0
+"chromosomal part"	GO:0044427	3	isogroup12302	0.000490325342336834
+"chromosomal part"	GO:0044427	3	isogroup12578	0.00098120391320292
+"chromosomal part"	GO:0044427	3	isogroup12856	0.85818319179929
+"chromosomal part"	GO:0044427	3	isogroup14238	0.444804547573037
+"chromosomal part"	GO:0044427	3	isogroup14771	0.637447175548651
+"chromosomal part"	GO:0044427	3	isogroup14865	0
+"chromosomal part"	GO:0044427	3	isogroup15453	0
+"chromosomal part"	GO:0044427	3	isogroup15512	0
+"chromosomal part"	GO:0044427	3	isogroup15600	0
+"chromosomal part"	GO:0044427	3	isogroup15940	0
+"chromosomal part"	GO:0044427	3	isogroup16833	0
+"chromosomal part"	GO:0044427	3	isogroup17109	0.355658802514873
+"chromosomal part"	GO:0044427	3	isogroup19429	0.901444161997468
+"chromosomal part"	GO:0044427	3	isogroup23718	0
+"chromosomal part"	GO:0044427	3	isogroup23888	0
+"chromosomal part"	GO:0044427	3	isogroup24744	0
+"chromosomal part"	GO:0044427	3	isogroup25020	0.266360325458067
+"chromosomal part"	GO:0044427	3	isogroup26159	0
+"chromosomal part"	GO:0044427	3	isogroup2653	0
+"chromosomal part"	GO:0044427	3	isogroup26977	0
+"chromosomal part"	GO:0044427	3	isogroup27534	0.0100240728712896
+"chromosomal part"	GO:0044427	3	isogroup2834	0
+"chromosomal part"	GO:0044427	3	isogroup29287	0
+"chromosomal part"	GO:0044427	3	isogroup2967	0.932146087755348
+"chromosomal part"	GO:0044427	3	isogroup31155	0
+"chromosomal part"	GO:0044427	3	isogroup31740	0
+"chromosomal part"	GO:0044427	3	isogroup34386	0
+"chromosomal part"	GO:0044427	3	isogroup4498	2.02677221347083
+"chromosomal part"	GO:0044427	3	isogroup5175	1.29112975720225
+"chromosomal part"	GO:0044427	3	isogroup6287	0
+"chromosomal part"	GO:0044427	3	isogroup6761	0
+"chromosomal part"	GO:0044427	3	isogroup6848	0.930385918644074
+"chromosomal part"	GO:0044427	3	isogroup6852	0.197472074454381
+"chromosomal part"	GO:0044427	3	isogroup71	0.593778037883975
+"chromosomal part"	GO:0044427	3	isogroup7113	0.636656513436327
+"chromosomal part"	GO:0044427	3	isogroup7279	0
+"chromosomal part"	GO:0044427	3	isogroup7574	0
+"chromosomal part"	GO:0044427	3	isogroup8632	0
+"chromosomal part"	GO:0044427	3	isogroup8939	0.581122778534521
+"chromosomal part"	GO:0044427	3	isogroup9265	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup1041	0.633934589164547
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup11409	1.17437630385439
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup11471	0.0899957037877683
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup12740	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup13314	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup13858	0.000490325342336834
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup15047	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup16115	0.0180163105411704
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup17041	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup17377	0.00440528044045774
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup17673	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup19191	0.107354376986536
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup22679	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup22734	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup22893	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup2308	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup23551	0.155689182182229
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup2526	0.839699902273215
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup26229	1.74423040173308
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup26587	0.828859861791231
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup2840	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup2855	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup4252	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup5084	1.09571818074698
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup5236	2.0668669486396
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup5504	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup5649	0.166094072568574
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup5716	0.000693586770689404
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup5718	2.21620247280738
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup6069	0.00049032545388679
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup6206	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup7961	0
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup8834	1.21119563559348
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup9292	0.138932601259331
+"protein serine/threonine phosphatase complex"	GO:0005963;GO:0008287;GO:0017023	2	isogroup4656	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup10986	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup11636	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup11674	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup12096	0.0707484243366399
+"bounding membrane of organelle"	GO:0098588	3	isogroup12790	0.772894861163651
+"bounding membrane of organelle"	GO:0098588	3	isogroup1302	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup13468	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup14691	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup15418	0.395321497702303
+"bounding membrane of organelle"	GO:0098588	3	isogroup17237	0.174989289440343
+"bounding membrane of organelle"	GO:0098588	3	isogroup20111	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup33387	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup4047	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup4453	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup5223	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup6036	0
+"bounding membrane of organelle"	GO:0098588	3	isogroup9469	0
+"oxidoreductase complex"	GO:1990204	3	isogroup10385	0
+"oxidoreductase complex"	GO:1990204	3	isogroup10485	0
+"oxidoreductase complex"	GO:1990204	3	isogroup10654	0
+"oxidoreductase complex"	GO:1990204	3	isogroup11573	0.352701825081994
+"oxidoreductase complex"	GO:1990204	3	isogroup12461	0.701111183548609
+"oxidoreductase complex"	GO:1990204	3	isogroup13369	0.27735703493985
+"oxidoreductase complex"	GO:1990204	3	isogroup13943	0
+"oxidoreductase complex"	GO:1990204	3	isogroup2642	0
+"oxidoreductase complex"	GO:1990204	3	isogroup4186	0.398418687195566
+"oxidoreductase complex"	GO:1990204	3	isogroup5805	0
+"oxidoreductase complex"	GO:1990204	3	isogroup7092	0
+"oxidoreductase complex"	GO:1990204	3	isogroup7262	0
+"oxidoreductase complex"	GO:1990204	3	isogroup8141	0
+"oxidoreductase complex"	GO:1990204	3	isogroup8648	0.0262213785067203
+"oxidoreductase complex"	GO:1990204	3	isogroup9057	2.24726874991596
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup10087	0.55288418912209
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup10128	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup11728	0.150899930404406
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup12220	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup12279	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup13222	0.374104027207976
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup13477	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup14349	0.000693586810146689
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup14638	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup15142	1.55617640201682
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup15256	0.0175504442515954
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup15469	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup17093	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup17880	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup18442	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup18750	0.00049032545388679
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup1885	0.940456178905385
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup19603	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup2369	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup2380	0.301238491749601
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup25826	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup26402	0.694837804784089
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup27717	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup30008	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup30332	0.0205222545718981
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup3573	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup37930	0.937153677758226
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup4251	0.211609329339688
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup43301	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup4964	0.885863461505538
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup5110	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup5490	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup5518	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup6385	0.210119607592099
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup6742	0.798179011158754
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup6859	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup7648	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup8316	0.464360511688016
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup9269	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup9326	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup9360	0.894501457027925
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup9509	0.785578978727228
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup9858	0
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup12096	0.0707484243366399
+"mitochondrial membrane"	GO:0005743;GO:0019866;GO:0031966	4	isogroup33387	0
+"endoplasmic reticulum"	GO:0005783	2	isogroup10635	1.13909588313989
+"endoplasmic reticulum"	GO:0005783	2	isogroup11063	0.090505828393067
+"endoplasmic reticulum"	GO:0005783	2	isogroup11342	0
+"endoplasmic reticulum"	GO:0005783	2	isogroup11923	0.667851670474369
+"endoplasmic reticulum"	GO:0005783	2	isogroup15302	0
+"endoplasmic reticulum"	GO:0005783	2	isogroup25347	0.0789411885706721
+"endoplasmic reticulum"	GO:0005783	2	isogroup26537	0
+"endoplasmic reticulum"	GO:0005783	2	isogroup27044	0
+"endoplasmic reticulum"	GO:0005783	2	isogroup2891	1.18355372588958
+"endoplasmic reticulum"	GO:0005783	2	isogroup4469	1.07864088668845
+"endoplasmic reticulum"	GO:0005783	2	isogroup5129	0.928163893024731
+"endoplasmic reticulum"	GO:0005783	2	isogroup5372	1.13027168539474
+"endoplasmic reticulum"	GO:0005783	2	isogroup6004	1.14187211586034
+"endoplasmic reticulum"	GO:0005783	2	isogroup6415	0.746910155677402
+"endoplasmic reticulum"	GO:0005783	2	isogroup7180	0.119221651988052
+"endoplasmic reticulum"	GO:0005783	2	isogroup7635	0
+"endoplasmic reticulum"	GO:0005783	2	isogroup8149	0
+"endoplasmic reticulum"	GO:0005783	2	isogroup8881	1.04091865080911
+"endoplasmic reticulum"	GO:0005783	2	isogroup9460	0
+"chromatin"	GO:0000785	2	isogroup1106	0
+"chromatin"	GO:0000785	2	isogroup12302	0.000490325342336834
+"chromatin"	GO:0000785	2	isogroup12856	0.85818319179929
+"chromatin"	GO:0000785	2	isogroup14238	0.444804547573037
+"chromatin"	GO:0000785	2	isogroup14865	0
+"chromatin"	GO:0000785	2	isogroup15512	0
+"chromatin"	GO:0000785	2	isogroup19429	0.901444161997468
+"chromatin"	GO:0000785	2	isogroup26159	0
+"chromatin"	GO:0000785	2	isogroup2834	0
+"chromatin"	GO:0000785	2	isogroup2967	0.932146087755348
+"chromatin"	GO:0000785	2	isogroup34386	0
+"chromatin"	GO:0000785	2	isogroup5175	1.29112975720225
+"chromatin"	GO:0000785	2	isogroup6287	0
+"chromatin"	GO:0000785	2	isogroup6761	0
+"chromatin"	GO:0000785	2	isogroup71	0.593778037883975
+"chromatin"	GO:0000785	2	isogroup7113	0.636656513436327
+"chromatin"	GO:0000785	2	isogroup7574	0
+"chromatin"	GO:0000785	2	isogroup8632	0
+"microtubule associated complex"	GO:0005875	2	isogroup10098	0.0895238048709749
+"microtubule associated complex"	GO:0005875	2	isogroup10139	0
+"microtubule associated complex"	GO:0005875	2	isogroup14894	0.766112829138202
+"microtubule associated complex"	GO:0005875	2	isogroup1495	0
+"microtubule associated complex"	GO:0005875	2	isogroup15072	0
+"microtubule associated complex"	GO:0005875	2	isogroup1509	0
+"microtubule associated complex"	GO:0005875	2	isogroup1685	0
+"microtubule associated complex"	GO:0005875	2	isogroup19542	0
+"microtubule associated complex"	GO:0005875	2	isogroup2216	0.341665303398961
+"microtubule associated complex"	GO:0005875	2	isogroup2317	0
+"microtubule associated complex"	GO:0005875	2	isogroup2446	0.117689361610932
+"microtubule associated complex"	GO:0005875	2	isogroup2643	0
+"microtubule associated complex"	GO:0005875	2	isogroup3370	0
+"microtubule associated complex"	GO:0005875	2	isogroup3594	0.785661390202021
+"microtubule associated complex"	GO:0005875	2	isogroup3700	0
+"microtubule associated complex"	GO:0005875	2	isogroup4101	0
+"microtubule associated complex"	GO:0005875	2	isogroup478	0.291394186336857
+"microtubule associated complex"	GO:0005875	2	isogroup4973	0
+"microtubule associated complex"	GO:0005875	2	isogroup5370	0.0201685046044984
+"microtubule associated complex"	GO:0005875	2	isogroup546	0
+"microtubule associated complex"	GO:0005875	2	isogroup6682	2.89319534233171
+"microtubule associated complex"	GO:0005875	2	isogroup6878	0
+"microtubule associated complex"	GO:0005875	2	isogroup7790	0
+"microtubule associated complex"	GO:0005875	2	isogroup789	1.72152068784492
+"microtubule associated complex"	GO:0005875	2	isogroup850	0
+"microtubule associated complex"	GO:0005875	2	isogroup874	0
+"microtubule associated complex"	GO:0005875	2	isogroup984	0.579601783816362
+"vacuole"	GO:0005773;GO:0000323	2	isogroup13013	0
+"vacuole"	GO:0005773;GO:0000323	2	isogroup15096	0
+"vacuole"	GO:0005773;GO:0000323	2	isogroup19421	0.834971003562021
+"vacuole"	GO:0005773;GO:0000323	2	isogroup20599	0.0977954792551823
+"vacuole"	GO:0005773;GO:0000323	2	isogroup20862	0.866344732557983
+"vacuole"	GO:0005773;GO:0000323	2	isogroup22671	0.0832736979297196
+"vacuole"	GO:0005773;GO:0000323	2	isogroup5212	0.213809209080929
+"vacuole"	GO:0005773;GO:0000323	2	isogroup6043	0
+"vacuole"	GO:0005773;GO:0000323	2	isogroup7724	0
+"integral component of Golgi membrane"	GO:0030173	3	isogroup13858	0.000490325342336834
+"integral component of Golgi membrane"	GO:0030173	3	isogroup21165	0.0789198748830261
+"integral component of Golgi membrane"	GO:0030173	3	isogroup24771	0.279418100402489
+"integral component of Golgi membrane"	GO:0030173	3	isogroup27419	0.625760954464996
+"integral component of Golgi membrane"	GO:0030173	3	isogroup5718	2.21620247280738
+"integral component of Golgi membrane"	GO:0030173	3	isogroup7428	0.718419203769166
+"integral component of organelle membrane"	GO:0031301	2	isogroup11072	0.21105484628489
+"integral component of organelle membrane"	GO:0031301	2	isogroup13858	0.000490325342336834
+"integral component of organelle membrane"	GO:0031301	2	isogroup20468	0.00290885411788512
+"integral component of organelle membrane"	GO:0031301	2	isogroup21027	0
+"integral component of organelle membrane"	GO:0031301	2	isogroup21165	0.0789198748830261
+"integral component of organelle membrane"	GO:0031301	2	isogroup24771	0.279418100402489
+"integral component of organelle membrane"	GO:0031301	2	isogroup27419	0.625760954464996
+"integral component of organelle membrane"	GO:0031301	2	isogroup5718	2.21620247280738
+"integral component of organelle membrane"	GO:0031301	2	isogroup6320	0.485689622420948
+"integral component of organelle membrane"	GO:0031301	2	isogroup7428	0.718419203769166
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup12717	0
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup15626	0.0900499651257392
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup16068	0
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup16193	0.63810013500333
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup16330	0.000849619122848727
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup17701	0
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup17722	0
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup19485	0.558348534798619
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup20057	1.74628943590579
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup20855	0
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup21627	0.019769960754724
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup24038	0.678987436749525
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup24215	0.193952740287991
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup25055	0.448519516015119
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup25498	0
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup26413	0.843885140804054
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup29481	0
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup29745	0.284644209866708
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup30558	0
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup31486	0.250792234467215
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup32918	0.127848763647001
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup35281	0
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup4452	0
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup5436	0
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup8147	1.52277611448693
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup8453	0.674163626672534
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup8497	0
+"large ribosomal subunit"	GO:0022625;GO:0015934	3	isogroup24272	0.0275968619808823
+"mitochondrial membrane part"	GO:0044455	3	isogroup13432	0
+"mitochondrial membrane part"	GO:0044455	3	isogroup17218	0
+"mitochondrial membrane part"	GO:0044455	3	isogroup19082	0
+"mitochondrial membrane part"	GO:0044455	3	isogroup22141	0
+"mitochondrial membrane part"	GO:0044455	3	isogroup27006	0
+"cytoskeleton"	GO:0005856	4	isogroup1146	0
+"cytoskeleton"	GO:0005856	4	isogroup11605	0.925999931639722
+"cytoskeleton"	GO:0005856	4	isogroup11697	0
+"cytoskeleton"	GO:0005856	4	isogroup11873	0.40799918859187
+"cytoskeleton"	GO:0005856	4	isogroup1213	2.8084759877797
+"cytoskeleton"	GO:0005856	4	isogroup1217	0
+"cytoskeleton"	GO:0005856	4	isogroup1490	0
+"cytoskeleton"	GO:0005856	4	isogroup16758	0
+"cytoskeleton"	GO:0005856	4	isogroup18499	0
+"cytoskeleton"	GO:0005856	4	isogroup21857	0.775928842332347
+"cytoskeleton"	GO:0005856	4	isogroup2270	1.20569037215951
+"cytoskeleton"	GO:0005856	4	isogroup25175	0.944259048663662
+"cytoskeleton"	GO:0005856	4	isogroup27541	0
+"cytoskeleton"	GO:0005856	4	isogroup2767	0.629210063742009
+"cytoskeleton"	GO:0005856	4	isogroup27928	0
+"cytoskeleton"	GO:0005856	4	isogroup30062	2.00200813492649
+"cytoskeleton"	GO:0005856	4	isogroup30280	0.44376692275959
+"cytoskeleton"	GO:0005856	4	isogroup3836	0
+"cytoskeleton"	GO:0005856	4	isogroup4111	0.147293613357841
+"cytoskeleton"	GO:0005856	4	isogroup4714	0
+"cytoskeleton"	GO:0005856	4	isogroup4965	0
+"cytoskeleton"	GO:0005856	4	isogroup5082	1.46733427864044
+"cytoskeleton"	GO:0005856	4	isogroup549	0
+"cytoskeleton"	GO:0005856	4	isogroup5695	0.272055265570398
+"cytoskeleton"	GO:0005856	4	isogroup5789	0.717024771736466
+"cytoskeleton"	GO:0005856	4	isogroup6211	2.38049600444544
+"cytoskeleton"	GO:0005856	4	isogroup6680	0
+"cytoskeleton"	GO:0005856	4	isogroup833	0
+"cytoskeleton"	GO:0005856	4	isogroup9070	0
+"cytoskeleton"	GO:0005856	4	isogroup930	0
+"cytoskeleton"	GO:0005856	4	isogroup9573	0.385338563445157
+"proteasome core complex"	GO:0005839	3	isogroup11255	0
+"proteasome core complex"	GO:0005839	3	isogroup14186	1.0905782963594
+"proteasome core complex"	GO:0005839	3	isogroup16998	0.0408149398994298
+"proteasome core complex"	GO:0005839	3	isogroup19081	0.478750022156362
+"proteasome core complex"	GO:0005839	3	isogroup21248	0
+"proteasome core complex"	GO:0005839	3	isogroup23106	0.497864295955412
+"proteasome core complex"	GO:0005839	3	isogroup23515	0.491835473716536
+"proteasome core complex"	GO:0005839	3	isogroup23819	0
+"proteasome core complex"	GO:0005839	3	isogroup24054	0.384137171165352
+"proteasome core complex"	GO:0005839	3	isogroup24660	0
+"proteasome core complex"	GO:0005839	3	isogroup26479	0
+"proteasome core complex"	GO:0005839	3	isogroup7534	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup10010	0.328133213784917
+"ubiquitin ligase complex"	GO:0000151	3	isogroup10185	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup10223	0.720873882780338
+"ubiquitin ligase complex"	GO:0000151	3	isogroup10605	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup11304	0.937659077447903
+"ubiquitin ligase complex"	GO:0000151	3	isogroup11444	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup11500	0.721263611558128
+"ubiquitin ligase complex"	GO:0000151	3	isogroup11506	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup11830	0.626003606305882
+"ubiquitin ligase complex"	GO:0000151	3	isogroup11890	0.152342879531196
+"ubiquitin ligase complex"	GO:0000151	3	isogroup12125	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup1224	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup1226	1.33161497770979
+"ubiquitin ligase complex"	GO:0000151	3	isogroup12433	0.663975286688463
+"ubiquitin ligase complex"	GO:0000151	3	isogroup12541	0.00579499696765229
+"ubiquitin ligase complex"	GO:0000151	3	isogroup12762	0.205247389152738
+"ubiquitin ligase complex"	GO:0000151	3	isogroup12764	0.038398342958647
+"ubiquitin ligase complex"	GO:0000151	3	isogroup12884	0.421447938045545
+"ubiquitin ligase complex"	GO:0000151	3	isogroup13033	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup13068	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup13096	0.5415971817913
+"ubiquitin ligase complex"	GO:0000151	3	isogroup13242	1.02836660388874
+"ubiquitin ligase complex"	GO:0000151	3	isogroup13458	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup13706	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup13775	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup1381	0.686226283169875
+"ubiquitin ligase complex"	GO:0000151	3	isogroup13810	0.355783826144095
+"ubiquitin ligase complex"	GO:0000151	3	isogroup14557	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup14567	0.392890525960629
+"ubiquitin ligase complex"	GO:0000151	3	isogroup14625	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup14878	0.241642741228734
+"ubiquitin ligase complex"	GO:0000151	3	isogroup14882	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup14998	0.543403881779124
+"ubiquitin ligase complex"	GO:0000151	3	isogroup15104	0.713857654280354
+"ubiquitin ligase complex"	GO:0000151	3	isogroup15246	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup15526	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup15547	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup15564	1.49341736362322
+"ubiquitin ligase complex"	GO:0000151	3	isogroup1575	0.209106538826851
+"ubiquitin ligase complex"	GO:0000151	3	isogroup16371	0.721082610083938
+"ubiquitin ligase complex"	GO:0000151	3	isogroup16522	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup16670	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup1698	0.686136605358551
+"ubiquitin ligase complex"	GO:0000151	3	isogroup17488	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup17992	0.128244405749051
+"ubiquitin ligase complex"	GO:0000151	3	isogroup1854	1.29034804945251
+"ubiquitin ligase complex"	GO:0000151	3	isogroup18928	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup19556	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup1958	0.188125678764032
+"ubiquitin ligase complex"	GO:0000151	3	isogroup20070	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup2018	0.753568023101673
+"ubiquitin ligase complex"	GO:0000151	3	isogroup20550	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup20552	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup2238	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup2285	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup2333	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup23360	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup2385	0.154148202382144
+"ubiquitin ligase complex"	GO:0000151	3	isogroup24016	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup24085	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup24308	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup2519	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup25291	0.44011915729804
+"ubiquitin ligase complex"	GO:0000151	3	isogroup2537	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup25439	0.648868079719951
+"ubiquitin ligase complex"	GO:0000151	3	isogroup2660	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup2687	0.222506697067314
+"ubiquitin ligase complex"	GO:0000151	3	isogroup2772	1.95607494268331
+"ubiquitin ligase complex"	GO:0000151	3	isogroup28506	0.848299397440142
+"ubiquitin ligase complex"	GO:0000151	3	isogroup29198	4.78164031427641
+"ubiquitin ligase complex"	GO:0000151	3	isogroup2946	0.671084412494879
+"ubiquitin ligase complex"	GO:0000151	3	isogroup2998	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup3022	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup3245	0.657201038481046
+"ubiquitin ligase complex"	GO:0000151	3	isogroup3271	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup33875	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup3457	4.27063309641184
+"ubiquitin ligase complex"	GO:0000151	3	isogroup3701	0.00147263605463498
+"ubiquitin ligase complex"	GO:0000151	3	isogroup3799	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup38607	0.368371018051127
+"ubiquitin ligase complex"	GO:0000151	3	isogroup40069	0.84015781289837
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4020	0.754663717907167
+"ubiquitin ligase complex"	GO:0000151	3	isogroup40349	0.0192908450428851
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4081	1.54632619816235
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4141	0.607065978322438
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4168	0.676312035411591
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4199	0.00443286699077724
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4205	0.326782704024104
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4501	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4618	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4645	2.85412974726773
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4742	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4786	1.92641955543868
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4791	0.00049032545388679
+"ubiquitin ligase complex"	GO:0000151	3	isogroup4965	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup5077	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup5082	1.46733427864044
+"ubiquitin ligase complex"	GO:0000151	3	isogroup5231	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup5753	3.62779945452201
+"ubiquitin ligase complex"	GO:0000151	3	isogroup5774	0.538994499984825
+"ubiquitin ligase complex"	GO:0000151	3	isogroup5789	0.717024771736466
+"ubiquitin ligase complex"	GO:0000151	3	isogroup5847	0.784874067929826
+"ubiquitin ligase complex"	GO:0000151	3	isogroup5903	0.916327261264648
+"ubiquitin ligase complex"	GO:0000151	3	isogroup6176	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup6198	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup6418	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup6559	0.216706923585933
+"ubiquitin ligase complex"	GO:0000151	3	isogroup6629	0.867718101296772
+"ubiquitin ligase complex"	GO:0000151	3	isogroup6811	0.393440069722423
+"ubiquitin ligase complex"	GO:0000151	3	isogroup6954	0.878833459614037
+"ubiquitin ligase complex"	GO:0000151	3	isogroup7145	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup7172	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup7312	1.01463666296818
+"ubiquitin ligase complex"	GO:0000151	3	isogroup7471	0.00521720811404326
+"ubiquitin ligase complex"	GO:0000151	3	isogroup7657	0.278199231370175
+"ubiquitin ligase complex"	GO:0000151	3	isogroup776	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup7762	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup7766	0.982299567366618
+"ubiquitin ligase complex"	GO:0000151	3	isogroup7807	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup7892	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup7975	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup8121	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup8124	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup8195	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup8204	3.08969344026945
+"ubiquitin ligase complex"	GO:0000151	3	isogroup8206	0.613008880917684
+"ubiquitin ligase complex"	GO:0000151	3	isogroup8724	0.00049032523078683
+"ubiquitin ligase complex"	GO:0000151	3	isogroup9161	0
+"ubiquitin ligase complex"	GO:0000151	3	isogroup9554	1.19301946145461
+"ubiquitin ligase complex"	GO:0000151	3	isogroup9703	2.3346390359504
+"actin filament"	GO:0005884	2	isogroup202	0.888523736022395
+"actin filament"	GO:0005884	2	isogroup3651	0.608883330312919
+"actin filament"	GO:0005884	2	isogroup7190	0
+"actin filament"	GO:0005884	2	isogroup7931	0
+"actin filament"	GO:0005884	2	isogroup8530	0
+"actin filament"	GO:0005884	2	isogroup8877	1.94410893321423
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup11582	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup13828	0.986642177937473
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup14117	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup1719	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup21173	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup22367	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup23793	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup24658	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup25544	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup26027	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup29491	3.0190166471958
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup3868	1.32548874261503
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup4628	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup6709	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup7019	2.54230735073324
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup7399	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup8540	0
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup8863	0.1663574486555
+"proton-transporting two-sector ATPase complex"	GO:0016469	2	isogroup9924	0
+"microtubule"	GO:0005874	2	isogroup11552	0
+"microtubule"	GO:0005874	2	isogroup11821	0.264760612599664
+"microtubule"	GO:0005874	2	isogroup12451	0
+"microtubule"	GO:0005874	2	isogroup19199	0
+"microtubule"	GO:0005874	2	isogroup2441	0.481521660350755
+"microtubule"	GO:0005874	2	isogroup2560	0.43260444484921
+"microtubule"	GO:0005874	2	isogroup3164	1.25070029843098
+"microtubule"	GO:0005874	2	isogroup3753	0
+"microtubule"	GO:0005874	2	isogroup3754	0.689073313559093
+"microtubule"	GO:0005874	2	isogroup5396	0
+"microtubule"	GO:0005874	2	isogroup6109	0
+"microtubule"	GO:0005874	2	isogroup6469	0
+"microtubule"	GO:0005874	2	isogroup8064	0
+"microtubule"	GO:0005874	2	isogroup8081	0
+"microtubule"	GO:0005874	2	isogroup9121	0.00344390475964216
+"cytoskeletal part"	GO:0044430	3	isogroup100	2.44077155121697
+"cytoskeletal part"	GO:0044430	3	isogroup10098	0.0895238048709749
+"cytoskeletal part"	GO:0044430	3	isogroup10139	0
+"cytoskeletal part"	GO:0044430	3	isogroup1119	0
+"cytoskeletal part"	GO:0044430	3	isogroup11552	0
+"cytoskeletal part"	GO:0044430	3	isogroup11821	0.264760612599664
+"cytoskeletal part"	GO:0044430	3	isogroup12007	0.339025393507021
+"cytoskeletal part"	GO:0044430	3	isogroup12451	0
+"cytoskeletal part"	GO:0044430	3	isogroup12523	0.529144617996058
+"cytoskeletal part"	GO:0044430	3	isogroup1414	0.404418554118373
+"cytoskeletal part"	GO:0044430	3	isogroup14300	0.0023046200099515
+"cytoskeletal part"	GO:0044430	3	isogroup14894	0.766112829138202
+"cytoskeletal part"	GO:0044430	3	isogroup1495	0
+"cytoskeletal part"	GO:0044430	3	isogroup15072	0
+"cytoskeletal part"	GO:0044430	3	isogroup1509	0
+"cytoskeletal part"	GO:0044430	3	isogroup16086	1.2552890397878
+"cytoskeletal part"	GO:0044430	3	isogroup16672	0.237325096346645
+"cytoskeletal part"	GO:0044430	3	isogroup1685	0
+"cytoskeletal part"	GO:0044430	3	isogroup169	0
+"cytoskeletal part"	GO:0044430	3	isogroup17905	2.22769952215838
+"cytoskeletal part"	GO:0044430	3	isogroup19199	0
+"cytoskeletal part"	GO:0044430	3	isogroup19542	0
+"cytoskeletal part"	GO:0044430	3	isogroup201	0
+"cytoskeletal part"	GO:0044430	3	isogroup202	0.888523736022395
+"cytoskeletal part"	GO:0044430	3	isogroup2027	0.249666018984349
+"cytoskeletal part"	GO:0044430	3	isogroup2179	0.142653208549879
+"cytoskeletal part"	GO:0044430	3	isogroup2216	0.341665303398961
+"cytoskeletal part"	GO:0044430	3	isogroup2317	0
+"cytoskeletal part"	GO:0044430	3	isogroup23425	0
+"cytoskeletal part"	GO:0044430	3	isogroup2441	0.481521660350755
+"cytoskeletal part"	GO:0044430	3	isogroup2446	0.117689361610932
+"cytoskeletal part"	GO:0044430	3	isogroup2560	0.43260444484921
+"cytoskeletal part"	GO:0044430	3	isogroup2643	0
+"cytoskeletal part"	GO:0044430	3	isogroup2696	0
+"cytoskeletal part"	GO:0044430	3	isogroup2784	0.843872687199555
+"cytoskeletal part"	GO:0044430	3	isogroup3164	1.25070029843098
+"cytoskeletal part"	GO:0044430	3	isogroup322	1.55502243960943
+"cytoskeletal part"	GO:0044430	3	isogroup3370	0
+"cytoskeletal part"	GO:0044430	3	isogroup3594	0.785661390202021
+"cytoskeletal part"	GO:0044430	3	isogroup364	0.455942516251968
+"cytoskeletal part"	GO:0044430	3	isogroup3651	0.608883330312919
+"cytoskeletal part"	GO:0044430	3	isogroup3700	0
+"cytoskeletal part"	GO:0044430	3	isogroup3753	0
+"cytoskeletal part"	GO:0044430	3	isogroup3754	0.689073313559093
+"cytoskeletal part"	GO:0044430	3	isogroup3824	0.141121615883748
+"cytoskeletal part"	GO:0044430	3	isogroup4	9.83658377786036
+"cytoskeletal part"	GO:0044430	3	isogroup4053	1.47640085305806
+"cytoskeletal part"	GO:0044430	3	isogroup4101	0
+"cytoskeletal part"	GO:0044430	3	isogroup4196	0
+"cytoskeletal part"	GO:0044430	3	isogroup478	0.291394186336857
+"cytoskeletal part"	GO:0044430	3	isogroup482	0.485530483513314
+"cytoskeletal part"	GO:0044430	3	isogroup489	2.10264917029104
+"cytoskeletal part"	GO:0044430	3	isogroup4973	0
+"cytoskeletal part"	GO:0044430	3	isogroup5370	0.0201685046044984
+"cytoskeletal part"	GO:0044430	3	isogroup5371	0
+"cytoskeletal part"	GO:0044430	3	isogroup5396	0
+"cytoskeletal part"	GO:0044430	3	isogroup546	0
+"cytoskeletal part"	GO:0044430	3	isogroup6109	0
+"cytoskeletal part"	GO:0044430	3	isogroup639	0
+"cytoskeletal part"	GO:0044430	3	isogroup6469	0
+"cytoskeletal part"	GO:0044430	3	isogroup6682	2.89319534233171
+"cytoskeletal part"	GO:0044430	3	isogroup6810	0.225917830024613
+"cytoskeletal part"	GO:0044430	3	isogroup6878	0
+"cytoskeletal part"	GO:0044430	3	isogroup7042	0
+"cytoskeletal part"	GO:0044430	3	isogroup7190	0
+"cytoskeletal part"	GO:0044430	3	isogroup7363	0
+"cytoskeletal part"	GO:0044430	3	isogroup7790	0
+"cytoskeletal part"	GO:0044430	3	isogroup789	1.72152068784492
+"cytoskeletal part"	GO:0044430	3	isogroup7931	0
+"cytoskeletal part"	GO:0044430	3	isogroup8064	0
+"cytoskeletal part"	GO:0044430	3	isogroup8081	0
+"cytoskeletal part"	GO:0044430	3	isogroup850	0
+"cytoskeletal part"	GO:0044430	3	isogroup8530	0
+"cytoskeletal part"	GO:0044430	3	isogroup874	0
+"cytoskeletal part"	GO:0044430	3	isogroup8877	1.94410893321423
+"cytoskeletal part"	GO:0044430	3	isogroup9121	0.00344390475964216
+"cytoskeletal part"	GO:0044430	3	isogroup984	0.579601783816362
+"cytoskeletal part"	GO:0044430	3	isogroup996	0
+"cytoskeletal part"	GO:0044430	3	isogroup9975	2.21051286911212
+"cytoskeletal part"	GO:0044430	3	isogroup9994	1.04791494053594
+"endoplasmic reticulum part"	GO:0044432	3	isogroup10385	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup10654	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup10986	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup11573	0.352701825081994
+"endoplasmic reticulum part"	GO:0044432	3	isogroup13369	0.27735703493985
+"endoplasmic reticulum part"	GO:0044432	3	isogroup13468	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup13943	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup14048	0.165855552443736
+"endoplasmic reticulum part"	GO:0044432	3	isogroup14691	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup15418	0.395321497702303
+"endoplasmic reticulum part"	GO:0044432	3	isogroup17884	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup20468	0.00290885411788512
+"endoplasmic reticulum part"	GO:0044432	3	isogroup21027	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup22192	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup22256	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup2320	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup25418	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup2892	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup4453	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup5805	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup6207	0.770492083702955
+"endoplasmic reticulum part"	GO:0044432	3	isogroup6320	0.485689622420948
+"endoplasmic reticulum part"	GO:0044432	3	isogroup7262	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup7357	0.841973554220489
+"endoplasmic reticulum part"	GO:0044432	3	isogroup8141	0
+"endoplasmic reticulum part"	GO:0044432	3	isogroup8556	0.00049032545388679
+"endoplasmic reticulum part"	GO:0044432	3	isogroup9057	2.24726874991596
+"Golgi membrane"	GO:0000139	4	isogroup11636	0
+"Golgi membrane"	GO:0000139	4	isogroup11674	0
+"Golgi membrane"	GO:0000139	4	isogroup12790	0.772894861163651
+"Golgi membrane"	GO:0000139	4	isogroup1302	0
+"Golgi membrane"	GO:0000139	4	isogroup14691	0
+"Golgi membrane"	GO:0000139	4	isogroup15418	0.395321497702303
+"Golgi membrane"	GO:0000139	4	isogroup20111	0
+"Golgi membrane"	GO:0000139	4	isogroup4047	0
+"Golgi membrane"	GO:0000139	4	isogroup5223	0
+"Golgi membrane"	GO:0000139	4	isogroup6036	0
+"microsome"	GO:0005792	-1	isogroup22256	0
+"microsome"	GO:0005792	-1	isogroup25418	0
+"microsome"	GO:0005792	-1	isogroup3508	0.862663543250302
+"microsome"	GO:0005792	-1	isogroup3975	0
+"microsome"	GO:0005792	-1	isogroup4132	1.17611844730942
+"microsome"	GO:0005792	-1	isogroup6455	0
+"cell cortex part"	GO:0008091;GO:0044448	2	isogroup100	2.44077155121697
+"cell cortex part"	GO:0008091;GO:0044448	2	isogroup1119	0
+"cell cortex part"	GO:0008091;GO:0044448	2	isogroup23425	0
+"cell cortex part"	GO:0008091;GO:0044448	2	isogroup364	0.455942516251968
+"cell cortex part"	GO:0008091;GO:0044448	2	isogroup3824	0.141121615883748
+"cell cortex part"	GO:0008091;GO:0044448	2	isogroup4	9.83658377786036
+"cell cortex part"	GO:0008091;GO:0044448	2	isogroup4053	1.47640085305806
+"cell cortex part"	GO:0008091;GO:0044448	2	isogroup489	2.10264917029104
+"cell cortex part"	GO:0008091;GO:0044448	2	isogroup7363	0
+"cell cortex part"	GO:0008091;GO:0044448	2	isogroup2161	0
+"small nucleolar ribonucleoprotein complex"	GO:0005732	2	isogroup11839	0
+"small nucleolar ribonucleoprotein complex"	GO:0005732	2	isogroup12045	0
+"small nucleolar ribonucleoprotein complex"	GO:0005732	2	isogroup13845	0
+"small nucleolar ribonucleoprotein complex"	GO:0005732	2	isogroup18809	0.000849619171191163
+"small nucleolar ribonucleoprotein complex"	GO:0005732	2	isogroup22366	0.144352635361119
+"small nucleolar ribonucleoprotein complex"	GO:0005732	2	isogroup23266	0
+"small nucleolar ribonucleoprotein complex"	GO:0005732	2	isogroup25912	0
+"small nucleolar ribonucleoprotein complex"	GO:0005732	2	isogroup28959	0
+"small nucleolar ribonucleoprotein complex"	GO:0005732	2	isogroup29489	1.15029854020298
+"small nucleolar ribonucleoprotein complex"	GO:0005732	2	isogroup34341	0
+"small nucleolar ribonucleoprotein complex"	GO:0005732	2	isogroup36018	0
+"small nucleolar ribonucleoprotein complex"	GO:0005732	2	isogroup7317	0
+"DNA replication factor C complex"	GO:0005663	4	isogroup11613	0
+"DNA replication factor C complex"	GO:0005663	4	isogroup11932	0
+"DNA replication factor C complex"	GO:0005663	4	isogroup12578	0.00098120391320292
+"DNA replication factor C complex"	GO:0005663	4	isogroup2653	0
+"DNA replication factor C complex"	GO:0005663	4	isogroup6852	0.197472074454381
+"DNA replication factor C complex"	GO:0005663	4	isogroup7279	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup10079	0.438238761034228
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup10435	0.0690023244064498
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup10554	0.000849619122848727
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup10959	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup10969	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup10978	0.42714833793421
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup11541	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1159	0.109962994922466
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup11618	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup11658	0.0711196002143622
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1173	1.28110196795232
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1184	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup12059	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup12298	0.156665655249005
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1331	0.288959454090209
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup13463	0.806080146237933
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1359	1.29507596762438
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup13694	0.986292058172235
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup13827	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup14196	0.625479565224224
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1453	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1460	1.08540631318597
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1501	0.000849619187305276
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1538	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1539	0.165882953323798
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1551	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup169	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup17026	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup18135	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1838	0.402883936687962
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1916	0.426281050248938
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup19213	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1980	0.620339534979289
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup20103	0.629389757779431
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup20179	1.07041130408853
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup2084	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup23355	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup2403	1.3598097277242
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup2510	1.07538565382844
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup2670	2.03761458430536
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup27135	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup2797	1.05304315754563
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup2888	0.000693586770689404
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup3190	1.14649721054986
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup3253	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup33615	0.149574849679768
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup3704	1.05135533852068
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup3755	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup377	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup3879	0.483264369520787
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup404	0.530310475581145
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4052	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4071	0.748703044055615
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4139	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4173	0.441474054682632
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4187	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4617	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4626	0.15581873554042
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4654	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4661	1.20737900951849
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4684	0.883253948917321
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4685	0.116761148399618
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4789	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4795	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup481	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup487	2.47666204504145
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup4913	0.428428686583237
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup5062	0.552845203207445
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup5113	1.51108873652826
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup5167	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup5301	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup5607	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup5625	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup5642	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup5881	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup6093	0.277286296571455
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup6313	1.03239542493915
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup639	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup648	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup6495	0.172208653260142
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup6584	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup6814	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup6832	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup686	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup7140	0.671874899294102
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup7292	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup7331	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup7718	0.827826041050142
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup7774	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup8306	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup8717	0.326204587848744
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup8796	0.431202401995539
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup902	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup9048	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup9328	0.459076802924668
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup944	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup9527	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup9710	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup980	0.376296336157875
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup9830	0.259689685483348
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup9907	0.73817553518737
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup2692	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup10986	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup13107	1.88140000187343
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup1387	2.10840267227371
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup14048	0.165855552443736
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup14055	0.561707403587837
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup17884	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup2195	0.280530090019978
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup22192	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup22256	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup2320	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup25418	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup2892	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup475	0
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup6207	0.770492083702955
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup7357	0.841973554220489
+"transferase complex"	GO:0005952;GO:1902554;GO:1902911;GO:1990234;GO:0005956	5	isogroup11393	0.000981203969040782
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup10728	0.332935647780161
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup10890	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup10953	2.21110702407048
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup11221	0.00384429038608155
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup1146	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup11605	0.925999931639722
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup11682	0.911285153601303
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup11697	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup11861	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup11873	0.40799918859187
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup12099	0.232645635285543
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup1213	2.8084759877797
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup1217	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup12434	1.39637114831011
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup1251	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup13041	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup13052	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup13710	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup1372	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup13752	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup13994	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup1425	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup1490	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup15164	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup15626	0.0900499651257392
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup16068	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup16098	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup16193	0.63810013500333
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup16330	0.000849619122848727
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup16758	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup16928	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup16953	0.539156285063639
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup17158	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup1765	0.808779677024742
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup17701	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup17722	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup1802	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup18499	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup18929	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup19240	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup19485	0.558348534798619
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup19567	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup19979	0.974677557590661
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup20057	1.74628943590579
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup2056	0.0199765895003252
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup20612	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup20855	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup21057	0.509349121603167
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup21627	0.019769960754724
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup21829	0.441830193345459
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup21857	0.775928842332347
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup22110	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup22638	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup2270	1.20569037215951
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup22849	0.327831400831864
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup23820	0.00358228011000957
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup23934	0.0109495591071704
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup24038	0.678987436749525
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup24124	0.690141355011008
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup24215	0.193952740287991
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup24272	0.0275968619808823
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup25175	0.944259048663662
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup2521	0.117486579657366
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup25498	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup25963	1.52276499863623
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup26413	0.843885140804054
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup26709	0.42475475541709
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup26911	0.912426795771177
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup26929	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup2710	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup27541	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup27616	0.61151463078936
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup2767	0.629210063742009
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup27928	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup28415	0.891382183784227
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup28576	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup28585	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup29745	0.284644209866708
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup30062	2.00200813492649
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup30280	0.44376692275959
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup30558	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup31486	0.250792234467215
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup3218	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup32918	0.127848763647001
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup35281	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup3783	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup3836	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup3920	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup4111	0.147293613357841
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup4452	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup4714	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup4823	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup484	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup4874	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup4965	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup5082	1.46733427864044
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup549	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup5580	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup5695	0.272055265570398
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup5737	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup5789	0.717024771736466
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup5914	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup6211	2.38049600444544
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup6680	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup7254	0.705849772234074
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup8147	1.52277611448693
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup833	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup8453	0.674163626672534
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup8497	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup8979	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup9070	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup9248	0.549611927683284
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup930	0
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup9573	0.385338563445157
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup9783	0.726902034420771
+"non-membrane-bounded organelle"	GO:0043232;GO:0043228	3	isogroup15973	0
+"nuclear pore"	GO:0005643;GO:0046930	4	isogroup1001	0.277347660497372
+"nuclear pore"	GO:0005643;GO:0046930	4	isogroup1035	0
+"nuclear pore"	GO:0005643;GO:0046930	4	isogroup1790	0
+"nuclear pore"	GO:0005643;GO:0046930	4	isogroup2361	0.465946792645457
+"nuclear pore"	GO:0005643;GO:0046930	4	isogroup2378	0
+"nuclear pore"	GO:0005643;GO:0046930	4	isogroup2481	0
+"nuclear pore"	GO:0005643;GO:0046930	4	isogroup868	0
+"nuclear transcription factor complex"	GO:0044451;GO:0090575;GO:0044798	3	isogroup10391	0.981768138135219
+"nuclear transcription factor complex"	GO:0044451;GO:0090575;GO:0044798	3	isogroup1521	0
+"nuclear transcription factor complex"	GO:0044451;GO:0090575;GO:0044798	3	isogroup1862	0.812743312729771
+"nuclear transcription factor complex"	GO:0044451;GO:0090575;GO:0044798	3	isogroup22792	0.0607514762197401
+"nuclear transcription factor complex"	GO:0044451;GO:0090575;GO:0044798	3	isogroup5564	0
+"nuclear transcription factor complex"	GO:0044451;GO:0090575;GO:0044798	3	isogroup5602	1.65577526028858
+"nuclear transcription factor complex"	GO:0044451;GO:0090575;GO:0044798	3	isogroup7139	1.55435498880372
+"nuclear transcription factor complex"	GO:0044451;GO:0090575;GO:0044798	3	isogroup8194	0.618935218619984
+"nuclear transcription factor complex"	GO:0044451;GO:0090575;GO:0044798	3	isogroup8933	1.32246569891107
+"extracellular region"	GO:0005576	1	isogroup1032	2.41560024273236
+"extracellular region"	GO:0005576	1	isogroup1034	0
+"extracellular region"	GO:0005576	1	isogroup10971	1.0241139580586
+"extracellular region"	GO:0005576	1	isogroup11375	0.165831574326198
+"extracellular region"	GO:0005576	1	isogroup11514	0
+"extracellular region"	GO:0005576	1	isogroup11578	0
+"extracellular region"	GO:0005576	1	isogroup11846	0.600556148700016
+"extracellular region"	GO:0005576	1	isogroup11869	0.213030219288574
+"extracellular region"	GO:0005576	1	isogroup11874	0.00693275306365835
+"extracellular region"	GO:0005576	1	isogroup12165	0
+"extracellular region"	GO:0005576	1	isogroup12985	0
+"extracellular region"	GO:0005576	1	isogroup13088	0
+"extracellular region"	GO:0005576	1	isogroup13178	0
+"extracellular region"	GO:0005576	1	isogroup13191	0
+"extracellular region"	GO:0005576	1	isogroup13662	0.357603196107533
+"extracellular region"	GO:0005576	1	isogroup13929	0
+"extracellular region"	GO:0005576	1	isogroup14565	0.288688026062082
+"extracellular region"	GO:0005576	1	isogroup15145	1.7009415579748
+"extracellular region"	GO:0005576	1	isogroup16126	1.23250219364618
+"extracellular region"	GO:0005576	1	isogroup16633	0.719155672636951
+"extracellular region"	GO:0005576	1	isogroup17033	0.911752076978213
+"extracellular region"	GO:0005576	1	isogroup17731	1.47884924949796
+"extracellular region"	GO:0005576	1	isogroup19307	1.65696351331098
+"extracellular region"	GO:0005576	1	isogroup19878	1.08342658716262
+"extracellular region"	GO:0005576	1	isogroup2212	0
+"extracellular region"	GO:0005576	1	isogroup2286	0
+"extracellular region"	GO:0005576	1	isogroup23160	2.37585519713888
+"extracellular region"	GO:0005576	1	isogroup23436	0
+"extracellular region"	GO:0005576	1	isogroup23936	0
+"extracellular region"	GO:0005576	1	isogroup2420	0.331845924203525
+"extracellular region"	GO:0005576	1	isogroup24469	0.302618862328594
+"extracellular region"	GO:0005576	1	isogroup25094	0.688653490405968
+"extracellular region"	GO:0005576	1	isogroup25337	0
+"extracellular region"	GO:0005576	1	isogroup25447	0.516957476841533
+"extracellular region"	GO:0005576	1	isogroup2639	0.566070158569421
+"extracellular region"	GO:0005576	1	isogroup27285	0
+"extracellular region"	GO:0005576	1	isogroup28254	0
+"extracellular region"	GO:0005576	1	isogroup2902	0.0195874882105932
+"extracellular region"	GO:0005576	1	isogroup3033	0
+"extracellular region"	GO:0005576	1	isogroup30746	0
+"extracellular region"	GO:0005576	1	isogroup352	0.342587406172051
+"extracellular region"	GO:0005576	1	isogroup3804	1.95663711222523
+"extracellular region"	GO:0005576	1	isogroup4195	0
+"extracellular region"	GO:0005576	1	isogroup449	0.739941888167393
+"extracellular region"	GO:0005576	1	isogroup4534	0.840566933938505
+"extracellular region"	GO:0005576	1	isogroup5400	0
+"extracellular region"	GO:0005576	1	isogroup5611	0.0313673363356465
+"extracellular region"	GO:0005576	1	isogroup6038	3.18303973921009
+"extracellular region"	GO:0005576	1	isogroup6440	0.366942975938527
+"extracellular region"	GO:0005576	1	isogroup6825	0
+"extracellular region"	GO:0005576	1	isogroup688	1.09098384176811
+"extracellular region"	GO:0005576	1	isogroup6888	0
+"extracellular region"	GO:0005576	1	isogroup7043	0
+"extracellular region"	GO:0005576	1	isogroup7267	0
+"extracellular region"	GO:0005576	1	isogroup7720	0.225841811861332
+"extracellular region"	GO:0005576	1	isogroup7741	0.78799853047263
+"extracellular region"	GO:0005576	1	isogroup8069	0.354226087049005
+"extracellular region"	GO:0005576	1	isogroup8695	0
+"extracellular region"	GO:0005576	1	isogroup8851	0.390131436318344
+"extracellular region"	GO:0005576	1	isogroup8956	0.586362251617116
+"extracellular region"	GO:0005576	1	isogroup9015	0.166717312396091
+"extracellular region"	GO:0005576	1	isogroup9468	0.115373489335425
+"extracellular region"	GO:0005576	1	isogroup9535	0
+"extracellular region"	GO:0005576	1	isogroup9645	1.99457111652458
+"organelle membrane"	GO:0031090	2	isogroup10087	0.55288418912209
+"organelle membrane"	GO:0031090	2	isogroup10128	0
+"organelle membrane"	GO:0031090	2	isogroup10986	0
+"organelle membrane"	GO:0031090	2	isogroup11636	0
+"organelle membrane"	GO:0031090	2	isogroup11674	0
+"organelle membrane"	GO:0031090	2	isogroup11728	0.150899930404406
+"organelle membrane"	GO:0031090	2	isogroup12096	0.0707484243366399
+"organelle membrane"	GO:0031090	2	isogroup12220	0
+"organelle membrane"	GO:0031090	2	isogroup12279	0
+"organelle membrane"	GO:0031090	2	isogroup12790	0.772894861163651
+"organelle membrane"	GO:0031090	2	isogroup1302	0
+"organelle membrane"	GO:0031090	2	isogroup13222	0.374104027207976
+"organelle membrane"	GO:0031090	2	isogroup13468	0
+"organelle membrane"	GO:0031090	2	isogroup13477	0
+"organelle membrane"	GO:0031090	2	isogroup14349	0.000693586810146689
+"organelle membrane"	GO:0031090	2	isogroup14638	0
+"organelle membrane"	GO:0031090	2	isogroup14691	0
+"organelle membrane"	GO:0031090	2	isogroup15142	1.55617640201682
+"organelle membrane"	GO:0031090	2	isogroup15256	0.0175504442515954
+"organelle membrane"	GO:0031090	2	isogroup15418	0.395321497702303
+"organelle membrane"	GO:0031090	2	isogroup15469	0
+"organelle membrane"	GO:0031090	2	isogroup17093	0
+"organelle membrane"	GO:0031090	2	isogroup17237	0.174989289440343
+"organelle membrane"	GO:0031090	2	isogroup17880	0
+"organelle membrane"	GO:0031090	2	isogroup18442	0
+"organelle membrane"	GO:0031090	2	isogroup18750	0.00049032545388679
+"organelle membrane"	GO:0031090	2	isogroup1885	0.940456178905385
+"organelle membrane"	GO:0031090	2	isogroup19603	0
+"organelle membrane"	GO:0031090	2	isogroup20111	0
+"organelle membrane"	GO:0031090	2	isogroup2369	0
+"organelle membrane"	GO:0031090	2	isogroup2380	0.301238491749601
+"organelle membrane"	GO:0031090	2	isogroup25826	0
+"organelle membrane"	GO:0031090	2	isogroup26402	0.694837804784089
+"organelle membrane"	GO:0031090	2	isogroup27717	0
+"organelle membrane"	GO:0031090	2	isogroup30008	0
+"organelle membrane"	GO:0031090	2	isogroup30332	0.0205222545718981
+"organelle membrane"	GO:0031090	2	isogroup33387	0
+"organelle membrane"	GO:0031090	2	isogroup3573	0
+"organelle membrane"	GO:0031090	2	isogroup37930	0.937153677758226
+"organelle membrane"	GO:0031090	2	isogroup4047	0
+"organelle membrane"	GO:0031090	2	isogroup4251	0.211609329339688
+"organelle membrane"	GO:0031090	2	isogroup43301	0
+"organelle membrane"	GO:0031090	2	isogroup4453	0
+"organelle membrane"	GO:0031090	2	isogroup4964	0.885863461505538
+"organelle membrane"	GO:0031090	2	isogroup5110	0
+"organelle membrane"	GO:0031090	2	isogroup5223	0
+"organelle membrane"	GO:0031090	2	isogroup5490	0
+"organelle membrane"	GO:0031090	2	isogroup5518	0
+"organelle membrane"	GO:0031090	2	isogroup6036	0
+"organelle membrane"	GO:0031090	2	isogroup6385	0.210119607592099
+"organelle membrane"	GO:0031090	2	isogroup6742	0.798179011158754
+"organelle membrane"	GO:0031090	2	isogroup6859	0
+"organelle membrane"	GO:0031090	2	isogroup7648	0
+"organelle membrane"	GO:0031090	2	isogroup8316	0.464360511688016
+"organelle membrane"	GO:0031090	2	isogroup9269	0
+"organelle membrane"	GO:0031090	2	isogroup9326	0
+"organelle membrane"	GO:0031090	2	isogroup9360	0.894501457027925
+"organelle membrane"	GO:0031090	2	isogroup9469	0
+"organelle membrane"	GO:0031090	2	isogroup9509	0.785578978727228
+"organelle membrane"	GO:0031090	2	isogroup9858	0
+"MCM complex"	GO:0042555	3	isogroup2927	0
+"MCM complex"	GO:0042555	3	isogroup3852	0.000693586770689404
+"MCM complex"	GO:0042555	3	isogroup4777	1.47026243214297
+"MCM complex"	GO:0042555	3	isogroup5324	0
+"MCM complex"	GO:0042555	3	isogroup5804	0
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup11005	0.00183746795904193
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup15858	0.363907110724469
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup19662	0.939856720046525
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup216	0
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup21824	0
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup3028	0.330904865787147
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup3383	0.29836250353413
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup3388	0
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup368	0
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup494	0
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup528	0
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup603	0.41488539807175
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup6943	0
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup8253	0
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup8439	0.362659329104638
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup1374	0.568494073655028
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup2026	0.240037285810632
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup2136	0.487781408722074
+"extracellular matrix"	GO:0005578;GO:0031012;GO:0044421	2	isogroup313	0.391062462030179
+"microbody"	GO:0042579	2	isogroup17214	0.387558462520705
+"microbody"	GO:0042579	2	isogroup17237	0.174989289440343
+"microbody"	GO:0042579	2	isogroup5205	0.815151824572635
+"microbody"	GO:0042579	2	isogroup6305	0.644973078218247
+"microbody"	GO:0042579	2	isogroup6583	0
+"microbody"	GO:0042579	2	isogroup7057	0
+"microbody"	GO:0042579	2	isogroup9469	0
+"endoplasmic reticulum membrane"	GO:0005789;GO:0098589	4	isogroup10986	0
+"endoplasmic reticulum membrane"	GO:0005789;GO:0098589	4	isogroup13468	0
+"endoplasmic reticulum membrane"	GO:0005789;GO:0098589	4	isogroup14691	0
+"endoplasmic reticulum membrane"	GO:0005789;GO:0098589	4	isogroup15418	0.395321497702303
+"endoplasmic reticulum membrane"	GO:0005789;GO:0098589	4	isogroup4453	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup1011	1.23830719231742
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup10119	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup11399	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup1155	1.36885155702495
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup11558	2.04327531510667
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup13190	0.838875169154316
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup13359	0.383942162150731
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup14156	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup16878	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup18668	1.92144113412482
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup23508	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup2606	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup3267	0.292880757495265
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup3444	1.28577496548075
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup3803	0.00049032545388679
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup4145	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup4385	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup5404	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup5406	2.27621193371668
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup5474	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup6064	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup6635	0.895921465685602
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup7949	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup8014	1.4265866131772
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup8445	0.772512863188808
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup9309	0.624723677776694
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup9750	0.0342291545126038
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup1557	0
+"cation channel complex"	GO:0008076;GO:0034705;GO:0034703;GO:0034702;GO:1902495;GO:1990351	3	isogroup18941	0
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup13014	0
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup14278	0.603045277098369
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup16430	1.00355574125252
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup17060	0
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup20922	0.00147263607326864
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup23484	0
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup2569	0.374252278822928
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup3709	0
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup4681	1.88129637346221
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup6118	0
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup6547	0
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup6979	0
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup7209	0.294311510658547
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup7632	0.635904682195602
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup8789	0
+"postsynaptic membrane"	GO:0045211;GO:0097060	3	isogroup9721	1.08126821053069
+"transcription factor TFIID complex"	GO:0005669	4	isogroup1521	0
+"transcription factor TFIID complex"	GO:0005669	4	isogroup1862	0.812743312729771
+"transcription factor TFIID complex"	GO:0005669	4	isogroup22792	0.0607514762197401
+"transcription factor TFIID complex"	GO:0005669	4	isogroup5564	0
+"transcription factor TFIID complex"	GO:0005669	4	isogroup7139	1.55435498880372
+"actin cytoskeleton"	GO:0015629	2	isogroup11697	0
+"actin cytoskeleton"	GO:0015629	2	isogroup18499	0
+"actin cytoskeleton"	GO:0015629	2	isogroup21857	0.775928842332347
+"actin cytoskeleton"	GO:0015629	2	isogroup25175	0.944259048663662
+"actin cytoskeleton"	GO:0015629	2	isogroup30062	2.00200813492649
+"actin cytoskeleton"	GO:0015629	2	isogroup833	0
+"Golgi apparatus part"	GO:0044431	2	isogroup11636	0
+"Golgi apparatus part"	GO:0044431	2	isogroup11674	0
+"Golgi apparatus part"	GO:0044431	2	isogroup1253	1.06621114390945
+"Golgi apparatus part"	GO:0044431	2	isogroup12790	0.772894861163651
+"Golgi apparatus part"	GO:0044431	2	isogroup1302	0
+"Golgi apparatus part"	GO:0044431	2	isogroup13858	0.000490325342336834
+"Golgi apparatus part"	GO:0044431	2	isogroup14691	0
+"Golgi apparatus part"	GO:0044431	2	isogroup15418	0.395321497702303
+"Golgi apparatus part"	GO:0044431	2	isogroup1547	0.703986748013961
+"Golgi apparatus part"	GO:0044431	2	isogroup1602	0.053764102250155
+"Golgi apparatus part"	GO:0044431	2	isogroup20111	0
+"Golgi apparatus part"	GO:0044431	2	isogroup21165	0.0789198748830261
+"Golgi apparatus part"	GO:0044431	2	isogroup24771	0.279418100402489
+"Golgi apparatus part"	GO:0044431	2	isogroup27419	0.625760954464996
+"Golgi apparatus part"	GO:0044431	2	isogroup4047	0
+"Golgi apparatus part"	GO:0044431	2	isogroup4882	1.15570192885904
+"Golgi apparatus part"	GO:0044431	2	isogroup5021	0.621968772240296
+"Golgi apparatus part"	GO:0044431	2	isogroup5223	0
+"Golgi apparatus part"	GO:0044431	2	isogroup5384	0
+"Golgi apparatus part"	GO:0044431	2	isogroup5718	2.21620247280738
+"Golgi apparatus part"	GO:0044431	2	isogroup6036	0
+"Golgi apparatus part"	GO:0044431	2	isogroup7428	0.718419203769166
+"cytoplasm"	GO:0005737	3	isogroup1001	0.277347660497372
+"cytoplasm"	GO:0005737	3	isogroup10078	0.280382630665939
+"cytoplasm"	GO:0005737	3	isogroup10288	0
+"cytoplasm"	GO:0005737	3	isogroup1035	0
+"cytoplasm"	GO:0005737	3	isogroup10582	1.55199817742914
+"cytoplasm"	GO:0005737	3	isogroup11066	0
+"cytoplasm"	GO:0005737	3	isogroup11077	0
+"cytoplasm"	GO:0005737	3	isogroup11225	0
+"cytoplasm"	GO:0005737	3	isogroup11260	0
+"cytoplasm"	GO:0005737	3	isogroup11315	0
+"cytoplasm"	GO:0005737	3	isogroup11793	0.196428740742006
+"cytoplasm"	GO:0005737	3	isogroup11812	0.562165090589725
+"cytoplasm"	GO:0005737	3	isogroup12050	0
+"cytoplasm"	GO:0005737	3	isogroup1206	0
+"cytoplasm"	GO:0005737	3	isogroup1217	0
+"cytoplasm"	GO:0005737	3	isogroup12470	0.104277569178645
+"cytoplasm"	GO:0005737	3	isogroup12571	0.00219709863293571
+"cytoplasm"	GO:0005737	3	isogroup13209	0.960334059654708
+"cytoplasm"	GO:0005737	3	isogroup13220	0.824233616983503
+"cytoplasm"	GO:0005737	3	isogroup13297	0
+"cytoplasm"	GO:0005737	3	isogroup13371	0.850118802634196
+"cytoplasm"	GO:0005737	3	isogroup13599	0.212264362109168
+"cytoplasm"	GO:0005737	3	isogroup141	0.0393792414769316
+"cytoplasm"	GO:0005737	3	isogroup14306	0.446440319499094
+"cytoplasm"	GO:0005737	3	isogroup1490	0
+"cytoplasm"	GO:0005737	3	isogroup15280	0
+"cytoplasm"	GO:0005737	3	isogroup15303	0
+"cytoplasm"	GO:0005737	3	isogroup16014	4.11140060143212
+"cytoplasm"	GO:0005737	3	isogroup16239	1.11062448209785
+"cytoplasm"	GO:0005737	3	isogroup16424	1.26939618805163
+"cytoplasm"	GO:0005737	3	isogroup16540	0
+"cytoplasm"	GO:0005737	3	isogroup17645	0
+"cytoplasm"	GO:0005737	3	isogroup17886	0
+"cytoplasm"	GO:0005737	3	isogroup1790	0
+"cytoplasm"	GO:0005737	3	isogroup18352	0.0836521344665609
+"cytoplasm"	GO:0005737	3	isogroup18425	3.64263267797561
+"cytoplasm"	GO:0005737	3	isogroup18567	0
+"cytoplasm"	GO:0005737	3	isogroup18695	6.37479642889318
+"cytoplasm"	GO:0005737	3	isogroup1880	1.65887695511986
+"cytoplasm"	GO:0005737	3	isogroup19072	1.17086471529556
+"cytoplasm"	GO:0005737	3	isogroup1947	2.84659878555493
+"cytoplasm"	GO:0005737	3	isogroup20159	0
+"cytoplasm"	GO:0005737	3	isogroup20247	0
+"cytoplasm"	GO:0005737	3	isogroup20646	0
+"cytoplasm"	GO:0005737	3	isogroup21397	0
+"cytoplasm"	GO:0005737	3	isogroup21994	0
+"cytoplasm"	GO:0005737	3	isogroup2213	0.0434535025398412
+"cytoplasm"	GO:0005737	3	isogroup2270	1.20569037215951
+"cytoplasm"	GO:0005737	3	isogroup2301	0
+"cytoplasm"	GO:0005737	3	isogroup23040	0
+"cytoplasm"	GO:0005737	3	isogroup2361	0.465946792645457
+"cytoplasm"	GO:0005737	3	isogroup2378	0
+"cytoplasm"	GO:0005737	3	isogroup24216	0
+"cytoplasm"	GO:0005737	3	isogroup2448	0
+"cytoplasm"	GO:0005737	3	isogroup2455	0
+"cytoplasm"	GO:0005737	3	isogroup2481	0
+"cytoplasm"	GO:0005737	3	isogroup2502	0
+"cytoplasm"	GO:0005737	3	isogroup25054	0.493161983004714
+"cytoplasm"	GO:0005737	3	isogroup25322	0.462474716270544
+"cytoplasm"	GO:0005737	3	isogroup25654	0
+"cytoplasm"	GO:0005737	3	isogroup2679	0.371205090143292
+"cytoplasm"	GO:0005737	3	isogroup2683	0
+"cytoplasm"	GO:0005737	3	isogroup2872	0.358419981839798
+"cytoplasm"	GO:0005737	3	isogroup31333	1.2305085791056
+"cytoplasm"	GO:0005737	3	isogroup3254	0.918344329307858
+"cytoplasm"	GO:0005737	3	isogroup3259	0.824109494478374
+"cytoplasm"	GO:0005737	3	isogroup3309	0
+"cytoplasm"	GO:0005737	3	isogroup3316	0
+"cytoplasm"	GO:0005737	3	isogroup3404	0
+"cytoplasm"	GO:0005737	3	isogroup3428	0.754927530221916
+"cytoplasm"	GO:0005737	3	isogroup3449	3.85292177295603
+"cytoplasm"	GO:0005737	3	isogroup35201	0.410636190789665
+"cytoplasm"	GO:0005737	3	isogroup36469	0
+"cytoplasm"	GO:0005737	3	isogroup3734	0
+"cytoplasm"	GO:0005737	3	isogroup3850	0
+"cytoplasm"	GO:0005737	3	isogroup4111	0.147293613357841
+"cytoplasm"	GO:0005737	3	isogroup42769	0
+"cytoplasm"	GO:0005737	3	isogroup4355	0.0499425455764504
+"cytoplasm"	GO:0005737	3	isogroup4671	0
+"cytoplasm"	GO:0005737	3	isogroup4701	0.00129848353224221
+"cytoplasm"	GO:0005737	3	isogroup4714	0
+"cytoplasm"	GO:0005737	3	isogroup4908	0.0798707314826364
+"cytoplasm"	GO:0005737	3	isogroup4965	0
+"cytoplasm"	GO:0005737	3	isogroup5029	0
+"cytoplasm"	GO:0005737	3	isogroup5082	1.46733427864044
+"cytoplasm"	GO:0005737	3	isogroup5097	0
+"cytoplasm"	GO:0005737	3	isogroup5374	0
+"cytoplasm"	GO:0005737	3	isogroup5938	0
+"cytoplasm"	GO:0005737	3	isogroup6149	0
+"cytoplasm"	GO:0005737	3	isogroup6211	2.38049600444544
+"cytoplasm"	GO:0005737	3	isogroup6267	0
+"cytoplasm"	GO:0005737	3	isogroup6372	0.0329685510043215
+"cytoplasm"	GO:0005737	3	isogroup644	0.0931677997873881
+"cytoplasm"	GO:0005737	3	isogroup6691	0
+"cytoplasm"	GO:0005737	3	isogroup6746	0.918713331356598
+"cytoplasm"	GO:0005737	3	isogroup7092	0
+"cytoplasm"	GO:0005737	3	isogroup7171	0.696748156698673
+"cytoplasm"	GO:0005737	3	isogroup7269	1.51889494337808
+"cytoplasm"	GO:0005737	3	isogroup7628	0.0755754792535406
+"cytoplasm"	GO:0005737	3	isogroup7733	0.920200096044126
+"cytoplasm"	GO:0005737	3	isogroup7960	1.42094605988261
+"cytoplasm"	GO:0005737	3	isogroup8410	1.11715698781445
+"cytoplasm"	GO:0005737	3	isogroup8463	1.60815303125593
+"cytoplasm"	GO:0005737	3	isogroup8493	0.00155243671285632
+"cytoplasm"	GO:0005737	3	isogroup8511	0
+"cytoplasm"	GO:0005737	3	isogroup868	0
+"cytoplasm"	GO:0005737	3	isogroup8787	0
+"cytoplasm"	GO:0005737	3	isogroup9066	0
+"cytoplasm"	GO:0005737	3	isogroup9067	0
+"cytoplasm"	GO:0005737	3	isogroup9160	0
+"cytoplasm"	GO:0005737	3	isogroup9238	0
+"cytoplasm"	GO:0005737	3	isogroup9562	0.429885397203146
+"cytoplasm"	GO:0005737	3	isogroup9757	0
+"cytoplasm"	GO:0005737	3	isogroup9904	0
+"transcription factor complex"	GO:0005667	3	isogroup10391	0.981768138135219
+"transcription factor complex"	GO:0005667	3	isogroup10788	0.180695619759311
+"transcription factor complex"	GO:0005667	3	isogroup11451	0
+"transcription factor complex"	GO:0005667	3	isogroup1521	0
+"transcription factor complex"	GO:0005667	3	isogroup1633	0
+"transcription factor complex"	GO:0005667	3	isogroup1862	0.812743312729771
+"transcription factor complex"	GO:0005667	3	isogroup22792	0.0607514762197401
+"transcription factor complex"	GO:0005667	3	isogroup3056	0.485806624229012
+"transcription factor complex"	GO:0005667	3	isogroup32762	0
+"transcription factor complex"	GO:0005667	3	isogroup4241	0
+"transcription factor complex"	GO:0005667	3	isogroup5564	0
+"transcription factor complex"	GO:0005667	3	isogroup5602	1.65577526028858
+"transcription factor complex"	GO:0005667	3	isogroup6197	0.270420225077207
+"transcription factor complex"	GO:0005667	3	isogroup7139	1.55435498880372
+"transcription factor complex"	GO:0005667	3	isogroup8194	0.618935218619984
+"transcription factor complex"	GO:0005667	3	isogroup8933	1.32246569891107
+"small nuclear ribonucleoprotein complex"	GO:0030532	2	isogroup11839	0
+"small nuclear ribonucleoprotein complex"	GO:0030532	2	isogroup12045	0
+"small nuclear ribonucleoprotein complex"	GO:0030532	2	isogroup13845	0
+"small nuclear ribonucleoprotein complex"	GO:0030532	2	isogroup22366	0.144352635361119
+"small nuclear ribonucleoprotein complex"	GO:0030532	2	isogroup25912	0
+"small nuclear ribonucleoprotein complex"	GO:0030532	2	isogroup29489	1.15029854020298
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup10019	0
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup10897	0
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup12989	0
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup13126	0
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup14815	0
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup17954	0.179766432995665
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup1855	0.407987748702176
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup24298	0
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup2630	0
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup2795	0
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup3526	0.10793054007194
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup3558	0.258537175064867
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup4213	0
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup4626	0.15581873554042
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup5702	0
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup5741	0.213410105875596
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup8423	0.846561064011588
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup8460	0
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup876	0
+"calcium- and calmodulin-dependent protein kinase complex"	GO:0005954	3	isogroup9404	0.339898144386975
+"mitochondrial part"	GO:0044429	2	isogroup10087	0.55288418912209
+"mitochondrial part"	GO:0044429	2	isogroup10128	0
+"mitochondrial part"	GO:0044429	2	isogroup10557	0
+"mitochondrial part"	GO:0044429	2	isogroup10890	0
+"mitochondrial part"	GO:0044429	2	isogroup11454	0.884095436895904
+"mitochondrial part"	GO:0044429	2	isogroup11682	0.911285153601303
+"mitochondrial part"	GO:0044429	2	isogroup11728	0.150899930404406
+"mitochondrial part"	GO:0044429	2	isogroup11922	0
+"mitochondrial part"	GO:0044429	2	isogroup12096	0.0707484243366399
+"mitochondrial part"	GO:0044429	2	isogroup12220	0
+"mitochondrial part"	GO:0044429	2	isogroup12279	0
+"mitochondrial part"	GO:0044429	2	isogroup13222	0.374104027207976
+"mitochondrial part"	GO:0044429	2	isogroup13432	0
+"mitochondrial part"	GO:0044429	2	isogroup13477	0
+"mitochondrial part"	GO:0044429	2	isogroup14125	0
+"mitochondrial part"	GO:0044429	2	isogroup14349	0.000693586810146689
+"mitochondrial part"	GO:0044429	2	isogroup14638	0
+"mitochondrial part"	GO:0044429	2	isogroup15142	1.55617640201682
+"mitochondrial part"	GO:0044429	2	isogroup15256	0.0175504442515954
+"mitochondrial part"	GO:0044429	2	isogroup15469	0
+"mitochondrial part"	GO:0044429	2	isogroup15626	0.0900499651257392
+"mitochondrial part"	GO:0044429	2	isogroup15933	0.823927287906703
+"mitochondrial part"	GO:0044429	2	isogroup16031	0
+"mitochondrial part"	GO:0044429	2	isogroup17093	0
+"mitochondrial part"	GO:0044429	2	isogroup17218	0
+"mitochondrial part"	GO:0044429	2	isogroup1765	0.808779677024742
+"mitochondrial part"	GO:0044429	2	isogroup17880	0
+"mitochondrial part"	GO:0044429	2	isogroup18442	0
+"mitochondrial part"	GO:0044429	2	isogroup18750	0.00049032545388679
+"mitochondrial part"	GO:0044429	2	isogroup1885	0.940456178905385
+"mitochondrial part"	GO:0044429	2	isogroup19082	0
+"mitochondrial part"	GO:0044429	2	isogroup19485	0.558348534798619
+"mitochondrial part"	GO:0044429	2	isogroup19603	0
+"mitochondrial part"	GO:0044429	2	isogroup20057	1.74628943590579
+"mitochondrial part"	GO:0044429	2	isogroup20855	0
+"mitochondrial part"	GO:0044429	2	isogroup21402	5.35490499320301
+"mitochondrial part"	GO:0044429	2	isogroup21627	0.019769960754724
+"mitochondrial part"	GO:0044429	2	isogroup22141	0
+"mitochondrial part"	GO:0044429	2	isogroup23208	0
+"mitochondrial part"	GO:0044429	2	isogroup2369	0
+"mitochondrial part"	GO:0044429	2	isogroup2380	0.301238491749601
+"mitochondrial part"	GO:0044429	2	isogroup23820	0.00358228011000957
+"mitochondrial part"	GO:0044429	2	isogroup24215	0.193952740287991
+"mitochondrial part"	GO:0044429	2	isogroup25826	0
+"mitochondrial part"	GO:0044429	2	isogroup26402	0.694837804784089
+"mitochondrial part"	GO:0044429	2	isogroup26413	0.843885140804054
+"mitochondrial part"	GO:0044429	2	isogroup27006	0
+"mitochondrial part"	GO:0044429	2	isogroup27717	0
+"mitochondrial part"	GO:0044429	2	isogroup29745	0.284644209866708
+"mitochondrial part"	GO:0044429	2	isogroup30008	0
+"mitochondrial part"	GO:0044429	2	isogroup30332	0.0205222545718981
+"mitochondrial part"	GO:0044429	2	isogroup31663	0
+"mitochondrial part"	GO:0044429	2	isogroup33387	0
+"mitochondrial part"	GO:0044429	2	isogroup3573	0
+"mitochondrial part"	GO:0044429	2	isogroup37930	0.937153677758226
+"mitochondrial part"	GO:0044429	2	isogroup4251	0.211609329339688
+"mitochondrial part"	GO:0044429	2	isogroup43301	0
+"mitochondrial part"	GO:0044429	2	isogroup475	0
+"mitochondrial part"	GO:0044429	2	isogroup4964	0.885863461505538
+"mitochondrial part"	GO:0044429	2	isogroup5110	0
+"mitochondrial part"	GO:0044429	2	isogroup5490	0
+"mitochondrial part"	GO:0044429	2	isogroup5518	0
+"mitochondrial part"	GO:0044429	2	isogroup6385	0.210119607592099
+"mitochondrial part"	GO:0044429	2	isogroup6742	0.798179011158754
+"mitochondrial part"	GO:0044429	2	isogroup6859	0
+"mitochondrial part"	GO:0044429	2	isogroup7648	0
+"mitochondrial part"	GO:0044429	2	isogroup8316	0.464360511688016
+"mitochondrial part"	GO:0044429	2	isogroup8453	0.674163626672534
+"mitochondrial part"	GO:0044429	2	isogroup8646	1.9180390147938
+"mitochondrial part"	GO:0044429	2	isogroup8966	0
+"mitochondrial part"	GO:0044429	2	isogroup9269	0
+"mitochondrial part"	GO:0044429	2	isogroup9326	0
+"mitochondrial part"	GO:0044429	2	isogroup9360	0.894501457027925
+"mitochondrial part"	GO:0044429	2	isogroup9509	0.785578978727228
+"mitochondrial part"	GO:0044429	2	isogroup9858	0
+"contractile fiber part"	GO:0005862;GO:0044449	3	isogroup12007	0.339025393507021
+"contractile fiber part"	GO:0005862;GO:0044449	3	isogroup12523	0.529144617996058
+"contractile fiber part"	GO:0005862;GO:0044449	3	isogroup16086	1.2552890397878
+"contractile fiber part"	GO:0005862;GO:0044449	3	isogroup16672	0.237325096346645
+"contractile fiber part"	GO:0005862;GO:0044449	3	isogroup17905	2.22769952215838
+"contractile fiber part"	GO:0005862;GO:0044449	3	isogroup9975	2.21051286911212
+"contractile fiber part"	GO:0005862;GO:0044449	3	isogroup9994	1.04791494053594
+"organellar large ribosomal subunit"	GO:0005762;GO:0000315	3	isogroup15626	0.0900499651257392
+"organellar large ribosomal subunit"	GO:0005762;GO:0000315	3	isogroup19485	0.558348534798619
+"organellar large ribosomal subunit"	GO:0005762;GO:0000315	3	isogroup20057	1.74628943590579
+"organellar large ribosomal subunit"	GO:0005762;GO:0000315	3	isogroup20855	0
+"organellar large ribosomal subunit"	GO:0005762;GO:0000315	3	isogroup21627	0.019769960754724
+"organellar large ribosomal subunit"	GO:0005762;GO:0000315	3	isogroup24215	0.193952740287991
+"organellar large ribosomal subunit"	GO:0005762;GO:0000315	3	isogroup26413	0.843885140804054
+"organellar large ribosomal subunit"	GO:0005762;GO:0000315	3	isogroup29745	0.284644209866708
+"organellar large ribosomal subunit"	GO:0005762;GO:0000315	3	isogroup8453	0.674163626672534
+"heterotrimeric G-protein complex"	GO:0005834	3	isogroup10238	0
+"heterotrimeric G-protein complex"	GO:0005834	3	isogroup14232	0.00109716543111909
+"heterotrimeric G-protein complex"	GO:0005834	3	isogroup17209	0
+"heterotrimeric G-protein complex"	GO:0005834	3	isogroup20239	0
+"heterotrimeric G-protein complex"	GO:0005834	3	isogroup35899	0
+"heterotrimeric G-protein complex"	GO:0005834	3	isogroup5668	0.30021657268567
+"heterotrimeric G-protein complex"	GO:0005834	3	isogroup6722	0.579464592087371
+"heterotrimeric G-protein complex"	GO:0005834	3	isogroup9740	0
+"chromatin silencing complex"	GO:0005677	4	isogroup10021	0
+"chromatin silencing complex"	GO:0005677	4	isogroup10082	0
+"chromatin silencing complex"	GO:0005677	4	isogroup10622	0.158892227654282
+"chromatin silencing complex"	GO:0005677	4	isogroup2816	0
+"chromatin silencing complex"	GO:0005677	4	isogroup6026	0.258154472112621
+"chromatin silencing complex"	GO:0005677	4	isogroup7391	0
+"chromatin silencing complex"	GO:0005677	4	isogroup9165	0
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup10457	0.000490325342336834
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup14771	0.637447175548651
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup15453	0
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup15600	0
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup15940	0
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup16833	0
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup17109	0.355658802514873
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup23718	0
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup23888	0
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup24744	0
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup25020	0.266360325458067
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup26977	0
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup27534	0.0100240728712896
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup29287	0
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup31155	0
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup31740	0
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup6848	0.930385918644074
+"protein-DNA complex"	GO:0000786;GO:0044815;GO:1990104;GO:0032993	3	isogroup4498	2.02677221347083
+"ribosome"	GO:0005840	3	isogroup10728	0.332935647780161
+"ribosome"	GO:0005840	3	isogroup10890	0
+"ribosome"	GO:0005840	3	isogroup10953	2.21110702407048
+"ribosome"	GO:0005840	3	isogroup11221	0.00384429038608155
+"ribosome"	GO:0005840	3	isogroup11682	0.911285153601303
+"ribosome"	GO:0005840	3	isogroup11861	0
+"ribosome"	GO:0005840	3	isogroup12099	0.232645635285543
+"ribosome"	GO:0005840	3	isogroup12434	1.39637114831011
+"ribosome"	GO:0005840	3	isogroup1251	0
+"ribosome"	GO:0005840	3	isogroup13041	0
+"ribosome"	GO:0005840	3	isogroup13052	0
+"ribosome"	GO:0005840	3	isogroup13710	0
+"ribosome"	GO:0005840	3	isogroup13752	0
+"ribosome"	GO:0005840	3	isogroup13994	0
+"ribosome"	GO:0005840	3	isogroup1425	0
+"ribosome"	GO:0005840	3	isogroup15164	0
+"ribosome"	GO:0005840	3	isogroup15626	0.0900499651257392
+"ribosome"	GO:0005840	3	isogroup16068	0
+"ribosome"	GO:0005840	3	isogroup16098	0
+"ribosome"	GO:0005840	3	isogroup16193	0.63810013500333
+"ribosome"	GO:0005840	3	isogroup16330	0.000849619122848727
+"ribosome"	GO:0005840	3	isogroup16928	0
+"ribosome"	GO:0005840	3	isogroup16953	0.539156285063639
+"ribosome"	GO:0005840	3	isogroup17158	0
+"ribosome"	GO:0005840	3	isogroup1765	0.808779677024742
+"ribosome"	GO:0005840	3	isogroup17701	0
+"ribosome"	GO:0005840	3	isogroup17722	0
+"ribosome"	GO:0005840	3	isogroup18929	0
+"ribosome"	GO:0005840	3	isogroup19240	0
+"ribosome"	GO:0005840	3	isogroup19485	0.558348534798619
+"ribosome"	GO:0005840	3	isogroup19567	0
+"ribosome"	GO:0005840	3	isogroup19979	0.974677557590661
+"ribosome"	GO:0005840	3	isogroup20057	1.74628943590579
+"ribosome"	GO:0005840	3	isogroup20612	0
+"ribosome"	GO:0005840	3	isogroup20855	0
+"ribosome"	GO:0005840	3	isogroup21057	0.509349121603167
+"ribosome"	GO:0005840	3	isogroup21627	0.019769960754724
+"ribosome"	GO:0005840	3	isogroup21829	0.441830193345459
+"ribosome"	GO:0005840	3	isogroup22110	0
+"ribosome"	GO:0005840	3	isogroup22638	0
+"ribosome"	GO:0005840	3	isogroup22849	0.327831400831864
+"ribosome"	GO:0005840	3	isogroup23820	0.00358228011000957
+"ribosome"	GO:0005840	3	isogroup23934	0.0109495591071704
+"ribosome"	GO:0005840	3	isogroup24038	0.678987436749525
+"ribosome"	GO:0005840	3	isogroup24124	0.690141355011008
+"ribosome"	GO:0005840	3	isogroup24215	0.193952740287991
+"ribosome"	GO:0005840	3	isogroup24272	0.0275968619808823
+"ribosome"	GO:0005840	3	isogroup2521	0.117486579657366
+"ribosome"	GO:0005840	3	isogroup25498	0
+"ribosome"	GO:0005840	3	isogroup25963	1.52276499863623
+"ribosome"	GO:0005840	3	isogroup26413	0.843885140804054
+"ribosome"	GO:0005840	3	isogroup26709	0.42475475541709
+"ribosome"	GO:0005840	3	isogroup26911	0.912426795771177
+"ribosome"	GO:0005840	3	isogroup26929	0
+"ribosome"	GO:0005840	3	isogroup2710	0
+"ribosome"	GO:0005840	3	isogroup27616	0.61151463078936
+"ribosome"	GO:0005840	3	isogroup28415	0.891382183784227
+"ribosome"	GO:0005840	3	isogroup28576	0
+"ribosome"	GO:0005840	3	isogroup28585	0
+"ribosome"	GO:0005840	3	isogroup29745	0.284644209866708
+"ribosome"	GO:0005840	3	isogroup30558	0
+"ribosome"	GO:0005840	3	isogroup31486	0.250792234467215
+"ribosome"	GO:0005840	3	isogroup3218	0
+"ribosome"	GO:0005840	3	isogroup32918	0.127848763647001
+"ribosome"	GO:0005840	3	isogroup35281	0
+"ribosome"	GO:0005840	3	isogroup3783	0
+"ribosome"	GO:0005840	3	isogroup3920	0
+"ribosome"	GO:0005840	3	isogroup4452	0
+"ribosome"	GO:0005840	3	isogroup4823	0
+"ribosome"	GO:0005840	3	isogroup4874	0
+"ribosome"	GO:0005840	3	isogroup5580	0
+"ribosome"	GO:0005840	3	isogroup5737	0
+"ribosome"	GO:0005840	3	isogroup5914	0
+"ribosome"	GO:0005840	3	isogroup7254	0.705849772234074
+"ribosome"	GO:0005840	3	isogroup8147	1.52277611448693
+"ribosome"	GO:0005840	3	isogroup8453	0.674163626672534
+"ribosome"	GO:0005840	3	isogroup8497	0
+"ribosome"	GO:0005840	3	isogroup9248	0.549611927683284
+"ribosome"	GO:0005840	3	isogroup9783	0.726902034420771
+"small ribosomal subunit"	GO:0022627;GO:0015935	2	isogroup10728	0.332935647780161
+"small ribosomal subunit"	GO:0022627;GO:0015935	2	isogroup11682	0.911285153601303
+"small ribosomal subunit"	GO:0022627;GO:0015935	2	isogroup13752	0
+"small ribosomal subunit"	GO:0022627;GO:0015935	2	isogroup19567	0
+"small ribosomal subunit"	GO:0022627;GO:0015935	2	isogroup21829	0.441830193345459
+"small ribosomal subunit"	GO:0022627;GO:0015935	2	isogroup22638	0
+"small ribosomal subunit"	GO:0022627;GO:0015935	2	isogroup22838	2.36677496115974
+"small ribosomal subunit"	GO:0022627;GO:0015935	2	isogroup23820	0.00358228011000957
+"small ribosomal subunit"	GO:0022627;GO:0015935	2	isogroup28585	0
+"small ribosomal subunit"	GO:0022627;GO:0015935	2	isogroup4874	0
+"small ribosomal subunit"	GO:0022627;GO:0015935	2	isogroup5914	0
+"small ribosomal subunit"	GO:0022627;GO:0015935	2	isogroup1765	0.808779677024742
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup10014	0
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup11621	0
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup12176	0
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup1253	1.06621114390945
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup13412	0
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup15561	0
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup1602	0.053764102250155
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup27492	0
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup2889	1.86646639217425
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup4468	0.57119853318181
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup8129	0.953707105701096
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup8507	0
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup1547	0.703986748013961
+"vesicle coat"	GO:0030125;GO:0030118;GO:0030120;GO:0030117;GO:0044433	4	isogroup5297	0.104439010940792
+"ribonucleoprotein complex"	GO:0030529	2	isogroup10728	0.332935647780161
+"ribonucleoprotein complex"	GO:0030529	2	isogroup10890	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup10953	2.21110702407048
+"ribonucleoprotein complex"	GO:0030529	2	isogroup11221	0.00384429038608155
+"ribonucleoprotein complex"	GO:0030529	2	isogroup11682	0.911285153601303
+"ribonucleoprotein complex"	GO:0030529	2	isogroup11839	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup11861	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup12045	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup12099	0.232645635285543
+"ribonucleoprotein complex"	GO:0030529	2	isogroup12434	1.39637114831011
+"ribonucleoprotein complex"	GO:0030529	2	isogroup1251	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup12717	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup13041	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup13052	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup13710	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup13752	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup13845	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup13849	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup13994	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup1425	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup15156	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup15164	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup15626	0.0900499651257392
+"ribonucleoprotein complex"	GO:0030529	2	isogroup16068	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup16098	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup16193	0.63810013500333
+"ribonucleoprotein complex"	GO:0030529	2	isogroup1622	4.95070251704402
+"ribonucleoprotein complex"	GO:0030529	2	isogroup16330	0.000849619122848727
+"ribonucleoprotein complex"	GO:0030529	2	isogroup16630	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup16928	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup16953	0.539156285063639
+"ribonucleoprotein complex"	GO:0030529	2	isogroup17158	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup1765	0.808779677024742
+"ribonucleoprotein complex"	GO:0030529	2	isogroup17701	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup17722	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup18809	0.000849619171191163
+"ribonucleoprotein complex"	GO:0030529	2	isogroup18929	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup19240	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup19485	0.558348534798619
+"ribonucleoprotein complex"	GO:0030529	2	isogroup19567	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup19979	0.974677557590661
+"ribonucleoprotein complex"	GO:0030529	2	isogroup20057	1.74628943590579
+"ribonucleoprotein complex"	GO:0030529	2	isogroup20612	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup20855	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup21057	0.509349121603167
+"ribonucleoprotein complex"	GO:0030529	2	isogroup21627	0.019769960754724
+"ribonucleoprotein complex"	GO:0030529	2	isogroup21829	0.441830193345459
+"ribonucleoprotein complex"	GO:0030529	2	isogroup22110	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup22366	0.144352635361119
+"ribonucleoprotein complex"	GO:0030529	2	isogroup22638	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup22834	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup22838	2.36677496115974
+"ribonucleoprotein complex"	GO:0030529	2	isogroup22849	0.327831400831864
+"ribonucleoprotein complex"	GO:0030529	2	isogroup23266	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup23820	0.00358228011000957
+"ribonucleoprotein complex"	GO:0030529	2	isogroup23934	0.0109495591071704
+"ribonucleoprotein complex"	GO:0030529	2	isogroup24038	0.678987436749525
+"ribonucleoprotein complex"	GO:0030529	2	isogroup24124	0.690141355011008
+"ribonucleoprotein complex"	GO:0030529	2	isogroup24215	0.193952740287991
+"ribonucleoprotein complex"	GO:0030529	2	isogroup24272	0.0275968619808823
+"ribonucleoprotein complex"	GO:0030529	2	isogroup25055	0.448519516015119
+"ribonucleoprotein complex"	GO:0030529	2	isogroup2521	0.117486579657366
+"ribonucleoprotein complex"	GO:0030529	2	isogroup25498	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup25912	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup25963	1.52276499863623
+"ribonucleoprotein complex"	GO:0030529	2	isogroup26413	0.843885140804054
+"ribonucleoprotein complex"	GO:0030529	2	isogroup26709	0.42475475541709
+"ribonucleoprotein complex"	GO:0030529	2	isogroup26911	0.912426795771177
+"ribonucleoprotein complex"	GO:0030529	2	isogroup26929	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup2710	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup27616	0.61151463078936
+"ribonucleoprotein complex"	GO:0030529	2	isogroup28415	0.891382183784227
+"ribonucleoprotein complex"	GO:0030529	2	isogroup28576	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup28585	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup28959	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup29481	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup29489	1.15029854020298
+"ribonucleoprotein complex"	GO:0030529	2	isogroup29745	0.284644209866708
+"ribonucleoprotein complex"	GO:0030529	2	isogroup30558	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup31486	0.250792234467215
+"ribonucleoprotein complex"	GO:0030529	2	isogroup3218	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup32918	0.127848763647001
+"ribonucleoprotein complex"	GO:0030529	2	isogroup3309	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup33666	0.980485235555693
+"ribonucleoprotein complex"	GO:0030529	2	isogroup34341	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup34537	0.362956803886047
+"ribonucleoprotein complex"	GO:0030529	2	isogroup35281	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup36018	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup3783	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup3920	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup4452	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup4823	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup4874	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup5436	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup5580	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup5737	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup5914	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup6348	0.347714234540409
+"ribonucleoprotein complex"	GO:0030529	2	isogroup6372	0.0329685510043215
+"ribonucleoprotein complex"	GO:0030529	2	isogroup7254	0.705849772234074
+"ribonucleoprotein complex"	GO:0030529	2	isogroup7317	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup8147	1.52277611448693
+"ribonucleoprotein complex"	GO:0030529	2	isogroup8453	0.674163626672534
+"ribonucleoprotein complex"	GO:0030529	2	isogroup8497	0
+"ribonucleoprotein complex"	GO:0030529	2	isogroup8556	0.00049032545388679
+"ribonucleoprotein complex"	GO:0030529	2	isogroup896	0.584937878345878
+"ribonucleoprotein complex"	GO:0030529	2	isogroup9248	0.549611927683284
+"ribonucleoprotein complex"	GO:0030529	2	isogroup9783	0.726902034420771
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup10376	0.334530965970148
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup1120	2.07338987966125
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup11593	0.723101809343585
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup12150	0.323196070576032
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup12620	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup13781	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup15684	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup16934	0.165760769000786
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup22909	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup3323	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup3810	0.720234625704286
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup3823	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup4755	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup5209	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup5647	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup6145	0.687444972339802
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup6314	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup6398	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup6642	1.02121283810496
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup6753	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup7074	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup7152	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup7660	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup7907	0.304609294887074
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup8422	0
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup9493	0.340078293729633
+"clathrin-coated vesicle"	GO:0008021;GO:0030136;GO:0030135;GO:0016023;GO:0031410;GO:0031988;GO:0031982	4	isogroup9864	0.304049152060277
+"synapse part"	GO:0044456	1	isogroup10376	0.334530965970148
+"synapse part"	GO:0044456	1	isogroup1120	2.07338987966125
+"synapse part"	GO:0044456	1	isogroup11593	0.723101809343585
+"synapse part"	GO:0044456	1	isogroup12150	0.323196070576032
+"synapse part"	GO:0044456	1	isogroup12620	0
+"synapse part"	GO:0044456	1	isogroup13014	0
+"synapse part"	GO:0044456	1	isogroup13781	0
+"synapse part"	GO:0044456	1	isogroup14278	0.603045277098369
+"synapse part"	GO:0044456	1	isogroup15684	0
+"synapse part"	GO:0044456	1	isogroup16430	1.00355574125252
+"synapse part"	GO:0044456	1	isogroup16934	0.165760769000786
+"synapse part"	GO:0044456	1	isogroup17060	0
+"synapse part"	GO:0044456	1	isogroup20922	0.00147263607326864
+"synapse part"	GO:0044456	1	isogroup22909	0
+"synapse part"	GO:0044456	1	isogroup23484	0
+"synapse part"	GO:0044456	1	isogroup2569	0.374252278822928
+"synapse part"	GO:0044456	1	isogroup3323	0
+"synapse part"	GO:0044456	1	isogroup3709	0
+"synapse part"	GO:0044456	1	isogroup3810	0.720234625704286
+"synapse part"	GO:0044456	1	isogroup3823	0
+"synapse part"	GO:0044456	1	isogroup4681	1.88129637346221
+"synapse part"	GO:0044456	1	isogroup4755	0
+"synapse part"	GO:0044456	1	isogroup5209	0
+"synapse part"	GO:0044456	1	isogroup5647	0
+"synapse part"	GO:0044456	1	isogroup6118	0
+"synapse part"	GO:0044456	1	isogroup6145	0.687444972339802
+"synapse part"	GO:0044456	1	isogroup6314	0
+"synapse part"	GO:0044456	1	isogroup6398	0
+"synapse part"	GO:0044456	1	isogroup6547	0
+"synapse part"	GO:0044456	1	isogroup6642	1.02121283810496
+"synapse part"	GO:0044456	1	isogroup6753	0
+"synapse part"	GO:0044456	1	isogroup6979	0
+"synapse part"	GO:0044456	1	isogroup7074	0
+"synapse part"	GO:0044456	1	isogroup7152	0
+"synapse part"	GO:0044456	1	isogroup7209	0.294311510658547
+"synapse part"	GO:0044456	1	isogroup7632	0.635904682195602
+"synapse part"	GO:0044456	1	isogroup7660	0
+"synapse part"	GO:0044456	1	isogroup7907	0.304609294887074
+"synapse part"	GO:0044456	1	isogroup8422	0
+"synapse part"	GO:0044456	1	isogroup8789	0
+"synapse part"	GO:0044456	1	isogroup9493	0.340078293729633
+"synapse part"	GO:0044456	1	isogroup9721	1.08126821053069
+"synapse part"	GO:0044456	1	isogroup9864	0.304049152060277
+"peroxisome"	GO:0005777	2	isogroup17214	0.387558462520705
+"peroxisome"	GO:0005777	2	isogroup5205	0.815151824572635
+"peroxisome"	GO:0005777	2	isogroup6305	0.644973078218247
+"peroxisome"	GO:0005777	2	isogroup6583	0
+"peroxisome"	GO:0005777	2	isogroup7057	0
+"procollagen-proline 4-dioxygenase complex"	GO:0016222	4	isogroup10385	0
+"procollagen-proline 4-dioxygenase complex"	GO:0016222	4	isogroup10654	0
+"procollagen-proline 4-dioxygenase complex"	GO:0016222	4	isogroup11573	0.352701825081994
+"procollagen-proline 4-dioxygenase complex"	GO:0016222	4	isogroup13369	0.27735703493985
+"procollagen-proline 4-dioxygenase complex"	GO:0016222	4	isogroup13943	0
+"procollagen-proline 4-dioxygenase complex"	GO:0016222	4	isogroup5805	0
+"procollagen-proline 4-dioxygenase complex"	GO:0016222	4	isogroup7262	0
+"procollagen-proline 4-dioxygenase complex"	GO:0016222	4	isogroup8141	0
+"procollagen-proline 4-dioxygenase complex"	GO:0016222	4	isogroup9057	2.24726874991596
+"oligosaccharyltransferase complex"	GO:0008250	2	isogroup10986	0
+"oligosaccharyltransferase complex"	GO:0008250	2	isogroup17884	0
+"oligosaccharyltransferase complex"	GO:0008250	2	isogroup2320	0
+"oligosaccharyltransferase complex"	GO:0008250	2	isogroup6207	0.770492083702955
+"oligosaccharyltransferase complex"	GO:0008250	2	isogroup7357	0.841973554220489
+"chromosome"	GO:0005694	2	isogroup1372	0
+"chromosome"	GO:0005694	2	isogroup1802	0
+"chromosome"	GO:0005694	2	isogroup2056	0.0199765895003252
+"chromosome"	GO:0005694	2	isogroup484	0
+"chromosome"	GO:0005694	2	isogroup8979	0
+"plasma membrane part"	GO:0044459	2	isogroup1011	1.23830719231742
+"plasma membrane part"	GO:0044459	2	isogroup10119	0
+"plasma membrane part"	GO:0044459	2	isogroup10238	0
+"plasma membrane part"	GO:0044459	2	isogroup1031	0.115195548181928
+"plasma membrane part"	GO:0044459	2	isogroup11399	0
+"plasma membrane part"	GO:0044459	2	isogroup1155	1.36885155702495
+"plasma membrane part"	GO:0044459	2	isogroup11558	2.04327531510667
+"plasma membrane part"	GO:0044459	2	isogroup13014	0
+"plasma membrane part"	GO:0044459	2	isogroup13190	0.838875169154316
+"plasma membrane part"	GO:0044459	2	isogroup13359	0.383942162150731
+"plasma membrane part"	GO:0044459	2	isogroup14156	0
+"plasma membrane part"	GO:0044459	2	isogroup14232	0.00109716543111909
+"plasma membrane part"	GO:0044459	2	isogroup14278	0.603045277098369
+"plasma membrane part"	GO:0044459	2	isogroup1514	1.39036505772271
+"plasma membrane part"	GO:0044459	2	isogroup1557	0
+"plasma membrane part"	GO:0044459	2	isogroup1637	0
+"plasma membrane part"	GO:0044459	2	isogroup16430	1.00355574125252
+"plasma membrane part"	GO:0044459	2	isogroup16878	0
+"plasma membrane part"	GO:0044459	2	isogroup17060	0
+"plasma membrane part"	GO:0044459	2	isogroup17209	0
+"plasma membrane part"	GO:0044459	2	isogroup18668	1.92144113412482
+"plasma membrane part"	GO:0044459	2	isogroup18941	0
+"plasma membrane part"	GO:0044459	2	isogroup19123	0
+"plasma membrane part"	GO:0044459	2	isogroup20239	0
+"plasma membrane part"	GO:0044459	2	isogroup20922	0.00147263607326864
+"plasma membrane part"	GO:0044459	2	isogroup2109	0.21432046032947
+"plasma membrane part"	GO:0044459	2	isogroup23484	0
+"plasma membrane part"	GO:0044459	2	isogroup23508	0
+"plasma membrane part"	GO:0044459	2	isogroup2569	0.374252278822928
+"plasma membrane part"	GO:0044459	2	isogroup2606	0
+"plasma membrane part"	GO:0044459	2	isogroup2978	2.06503593963288
+"plasma membrane part"	GO:0044459	2	isogroup3059	0
+"plasma membrane part"	GO:0044459	2	isogroup3267	0.292880757495265
+"plasma membrane part"	GO:0044459	2	isogroup3444	1.28577496548075
+"plasma membrane part"	GO:0044459	2	isogroup35899	0
+"plasma membrane part"	GO:0044459	2	isogroup3709	0
+"plasma membrane part"	GO:0044459	2	isogroup3803	0.00049032545388679
+"plasma membrane part"	GO:0044459	2	isogroup4145	0
+"plasma membrane part"	GO:0044459	2	isogroup4157	0.731414630296701
+"plasma membrane part"	GO:0044459	2	isogroup4385	0
+"plasma membrane part"	GO:0044459	2	isogroup4594	0
+"plasma membrane part"	GO:0044459	2	isogroup4681	1.88129637346221
+"plasma membrane part"	GO:0044459	2	isogroup4836	0
+"plasma membrane part"	GO:0044459	2	isogroup5404	0
+"plasma membrane part"	GO:0044459	2	isogroup5406	2.27621193371668
+"plasma membrane part"	GO:0044459	2	isogroup5474	0
+"plasma membrane part"	GO:0044459	2	isogroup5668	0.30021657268567
+"plasma membrane part"	GO:0044459	2	isogroup6064	0
+"plasma membrane part"	GO:0044459	2	isogroup6118	0
+"plasma membrane part"	GO:0044459	2	isogroup6316	0
+"plasma membrane part"	GO:0044459	2	isogroup6547	0
+"plasma membrane part"	GO:0044459	2	isogroup6635	0.895921465685602
+"plasma membrane part"	GO:0044459	2	isogroup6722	0.579464592087371
+"plasma membrane part"	GO:0044459	2	isogroup6979	0
+"plasma membrane part"	GO:0044459	2	isogroup7017	0
+"plasma membrane part"	GO:0044459	2	isogroup7209	0.294311510658547
+"plasma membrane part"	GO:0044459	2	isogroup739	1.07867627636938
+"plasma membrane part"	GO:0044459	2	isogroup7632	0.635904682195602
+"plasma membrane part"	GO:0044459	2	isogroup7918	3.00459470493398
+"plasma membrane part"	GO:0044459	2	isogroup792	1.31504857887884
+"plasma membrane part"	GO:0044459	2	isogroup7949	0
+"plasma membrane part"	GO:0044459	2	isogroup8014	1.4265866131772
+"plasma membrane part"	GO:0044459	2	isogroup8445	0.772512863188808
+"plasma membrane part"	GO:0044459	2	isogroup8789	0
+"plasma membrane part"	GO:0044459	2	isogroup9309	0.624723677776694
+"plasma membrane part"	GO:0044459	2	isogroup9721	1.08126821053069
+"plasma membrane part"	GO:0044459	2	isogroup9740	0
+"plasma membrane part"	GO:0044459	2	isogroup9750	0.0342291545126038
+"lysosome"	GO:0005764	6	isogroup15096	0
+"lysosome"	GO:0005764	6	isogroup20599	0.0977954792551823
+"lysosome"	GO:0005764	6	isogroup22671	0.0832736979297196
+"lysosome"	GO:0005764	6	isogroup5212	0.213809209080929
+"lysosome"	GO:0005764	6	isogroup7724	0
+"myosin complex"	GO:0016459	4	isogroup1414	0.404418554118373
+"myosin complex"	GO:0016459	4	isogroup169	0
+"myosin complex"	GO:0016459	4	isogroup201	0
+"myosin complex"	GO:0016459	4	isogroup2696	0
+"myosin complex"	GO:0016459	4	isogroup2784	0.843872687199555
+"myosin complex"	GO:0016459	4	isogroup322	1.55502243960943
+"myosin complex"	GO:0016459	4	isogroup4196	0
+"myosin complex"	GO:0016459	4	isogroup482	0.485530483513314
+"myosin complex"	GO:0016459	4	isogroup639	0
+"myosin complex"	GO:0016459	4	isogroup996	0
