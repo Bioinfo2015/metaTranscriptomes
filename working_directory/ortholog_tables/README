@@ -1,0 +1,19 @@
+These are several ortholog tables generated based on reciprocal best blastp hits.
+The blasts were performed on extracted and translated coding sequences from transcriptomic data.
+Extraction of coding sequences was performed using 'CDS_extractor_v2.pl' which 
+is part of the Matz Annotation pipeline and can be found here: https://github.com/z0on/annotatingTranscriptomes
+
+
+The different files differ in the stringency of the filters used to generated them.
+
+Filtering parameters are included in the file names:
+cov75--indicates that only blast hits with alignment lengths covering 75% of the hit sequence were retained
+pctID75--indicates that only blast hits with > 75% hit identity were retained
+rep0.8--indicates only orhtologous groups with > 80% representation among the included species were retained
+All were generated using an e-value cutoff of 1e-5.
+
+
+FileName:										Notes:
+reciprocalOrthos_cov75_pctID75_rep0.8.txt		most stringent table. This was used for phylogeny construction and includes mostly highly expressed highly conserved sequences	
+reciprocalOrthos_cov75_pctID10_rep0.15.txt		pctID10 is so low that the e-value filter is solely responsible for identity filtering
+reciprocalOrthos_cov75_pctID75_rep0.1.txt		retains all orthologous groups with at least one pair of reciprocal best hitting sequences
